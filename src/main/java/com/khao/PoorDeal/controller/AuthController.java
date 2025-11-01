@@ -66,3 +66,4 @@ public class AuthController {
 	 * 로그인, 로그아웃은 Spring Security 위임
 	 */
 }
+//저추승탠데깃허브사용법테스트좀해볼게요
