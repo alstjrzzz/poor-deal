@@ -1,0 +1,26 @@
+# Compiled class files
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Log file
+*.log
+
+# IDE files
+.classpath
+.project
+.settings/
+
+# Maven
+target/
+
+# Gradle
+/build/
+.gradle/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
