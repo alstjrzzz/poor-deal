@@ -8,6 +8,11 @@
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 	<annotation-driven />
 
+	<!-- load properties -->
+	<context:property-placeholder location="classpath:properties/app.properties" order="1" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:properties/db.properties" order="2" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:properties/aws.properties" order="3" ignore-unresolvable="true"/>
+
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
@@ -17,7 +22,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- conponent scan -->
+	<!-- component scan -->
 	<context:component-scan base-package="com.khao.PoorDeal.controller"/>
 	
 </beans:beans>

@@ -7,36 +7,53 @@
 	http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 	
+	<!-- load properties -->
+	<context:property-placeholder location="classpath:properties/app.properties" order="1" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:properties/db.properties" order="2" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:properties/aws.properties" order="3" ignore-unresolvable="true"/>
+	
 	<!-- HikariCP properties -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@114.70.92.70:1521:XE"/>
-		<property name="username" value="book_203025"/>
-		<property name="password" value="book_203025"/>
-	</bean>
+		<property name="driverClassName" value="${db.driverClassName}"/>
+		<property name="jdbcUrl" value="${db.jdbcUrl}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+        <property name="maximumPoolSize" value="${db.maxPoolSize}"/> </bean>
 
 	<!-- HikariCP configuration -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-		<constructor-arg ref="hikariConfig" />
-	</bean>
+		<constructor-arg ref="hikariConfig" /> </bean>
 	
 	<!-- MyBatis configuration -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mapperLocations" value="classpath:/mapper/*.xml"/>
-		<property name="typeAliasesPackage" value="com.khao.PoorDeal.domain" />
-	</bean>
+		<property name="typeAliasesPackage" value="com.khao.PoorDeal.domain" /> </bean>
 	
 	<!-- component scan -->
 	<mybatis-spring:scan base-package="com.khao.PoorDeal.mapper"/>
-	<context:component-scan base-package="com.khao.PoorDeal.service"/>
-	<context:component-scan base-package="com.khao.PoorDeal.repository"/>
-	<context:component-scan base-package="com.khao.PoorDeal.domain"/>
+	<context:component-scan base-package="com.khao.PoorDeal">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 	
 	<!-- encoder -->
 	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	
 	<!-- security -->
 	<import resource="security-context.xml" /> 
+	
+	<!-- S3 -->
+	<bean id="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
+	    <constructor-arg value="${cloud.aws.accessKeyId}"/>
+	    <constructor-arg value="${cloud.aws.secretAccessKey}"/> </bean>
+	<bean id="amazonS3Client" class="com.amazonaws.services.s3.AmazonS3Client">
+	    <constructor-arg ref="awsCredentials"/>
+	    <property name="endpoint" value="s3.${cloud.aws.region}.amazonaws.com"/> </bean>
+	    
+	<!-- multipart resolver -->
+	<bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10485760" />
+        <property name="defaultEncoding" value="utf-8" />
+    </bean>
 	
 </beans>

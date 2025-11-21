@@ -12,9 +12,16 @@
 	
     <security:http auto-config="true" use-expressions="true">
         
-        <security:intercept-url pattern="/register" access="permitAll" />
         <security:intercept-url pattern="/login" access="permitAll" />
+        <security:intercept-url pattern="/register" access="permitAll" />
         <security:intercept-url pattern="/resources/**" access="permitAll" />
+        
+        <security:intercept-url pattern="/post/new" access="isAuthenticated()" />
+        <security:intercept-url pattern="/post" method="POST" access="isAuthenticated()" />    
+        <security:intercept-url pattern="/comment" method="POST" access="isAuthenticated()" /> 
+        
+        <security:intercept-url pattern="/login" method="POST" access="permitAll" /> 
+        
         <security:intercept-url pattern="/**" access="isAuthenticated()" />
         
         <security:form-login 

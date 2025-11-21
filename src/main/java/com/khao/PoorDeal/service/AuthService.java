@@ -22,6 +22,7 @@ public class AuthService {
 				.userName(inputMember.getUserName())
 				.email(inputMember.getEmail())
 				.role("ROLE_USER")
+				.point(0L)
 				.build();
 		
 		memberRepository.save(member);
