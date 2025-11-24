@@ -24,3 +24,6 @@ target/
 # Operating System Files
 .DS_Store
 Thumbs.db
+
+# Security
+src/main/resources/properties/

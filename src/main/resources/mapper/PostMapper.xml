@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.khao.PoorDeal.mapper.PostMapper">
+
+    <select id="selectPostCount" resultType="int">
+        SELECT COUNT(id) FROM POSTS
+    </select>
+    
+    <update id="update" parameterType="com.khao.PoorDeal.domain.Post">
+        UPDATE POSTS
+        SET
+            title = #{title},
+            content = #{content},
+            image = #{image, jdbcType=VARCHAR},
+            type = #{type, jdbcType=VARCHAR},
+            price = #{price, jdbcType=NUMERIC},
+            hiring_quota = #{hiringQuota, jdbcType=NUMERIC},
+            filled_count = #{filledCount, jdbcType=NUMERIC},
+            is_available = #{isAvailable}
+        WHERE
+            id = #{id}
+    </update>
+    
+    <select id="selectPagedPosts" resultType="com.khao.PoorDeal.dto.PostSummary">
+        SELECT 
+            P.id, 
+            P.title, 
+            M.user_name AS author, 
+            P.created_at AS createdAt
+        FROM POSTS P
+        INNER JOIN MEMBERS M ON P.author_id = M.id 
+        ORDER BY P.id DESC
+        OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY
+    </select>
+    
+    <insert id="insert" parameterType="Post" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO POSTS (
+            title, content, author_id, image, type, 
+            price, hiring_quota, filled_count, created_at, is_available
+        ) VALUES (
+            #{title}, #{content}, #{authorId}, #{image, jdbcType=VARCHAR}, #{type, jdbcType=VARCHAR}, 
+            #{price, jdbcType=NUMERIC}, #{hiringQuota, jdbcType=NUMERIC}, #{filledCount}, CURRENT_TIMESTAMP, #{isAvailable}
+        )
+    </insert>
+    
+    <select id="findById" resultType="com.khao.PoorDeal.dto.PostResponse">
+        SELECT
+            P.id, 
+            P.title, 
+            P.content, 
+            P.author_id AS authorId, 
+            P.image, 
+            P.type, 
+            P.created_at AS createdAt,
+            P.is_available AS isAvailable, 
+            P.price, 
+            P.hiring_quota AS hiringQuota, 
+            P.filled_count AS filledCount,
+            M.user_name AS author
+        FROM POSTS P
+        INNER JOIN MEMBERS M ON P.author_id = M.id
+        WHERE P.id = #{id}
+    </select>
+    
+</mapper>

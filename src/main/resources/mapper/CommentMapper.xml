@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.khao.PoorDeal.mapper.CommentMapper">
+
+    <resultMap id="commentResponseMap" type="com.khao.PoorDeal.dto.CommentResponse">
+        <id property="id" column="id" />
+        <result property="parentType" column="parent_type" />
+        <result property="parentId" column="parent_id" />
+        <result property="authorId" column="author_id" />
+        <result property="content" column="content" />
+        <result property="createdAt" column="created_at" />
+        <result property="author" column="user_name" />
+    </resultMap>
+
+    <insert id="save" parameterType="com.khao.PoorDeal.domain.Comment" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO COMMENTS (
+            parent_id, 
+            parent_type, 
+            author_id, 
+            content, 
+            created_at
+        )
+        VALUES (
+            #{parentId}, 
+            #{parentType}, 
+            #{authorId}, 
+            #{content}, 
+            CURRENT_TIMESTAMP
+        )
+    </insert>
+
+    <select id="findById" resultMap="commentResponseMap">
+        SELECT
+            C.id, 
+            C.parent_type, 
+            C.parent_id, 
+            C.author_id, 
+            C.content, 
+            C.created_at,
+            M.user_name AS user_name
+        FROM COMMENTS C
+        INNER JOIN MEMBERS M ON C.author_id = M.id
+        WHERE C.id = #{id}
+    </select>
+
+    <select id="findByParentIdAndParentType" resultMap="commentResponseMap">
+        SELECT
+            C.id, C.parent_type, C.parent_id, C.author_id, C.content, C.created_at,
+            M.user_name AS user_name
+        FROM COMMENTS C
+        INNER JOIN MEMBERS M ON C.author_id = M.id
+        WHERE C.parent_id = #{parentId}  <!-- 단일 parentId 사용 -->
+        AND C.parent_type = #{parentType, jdbcType=VARCHAR}
+        ORDER BY C.id ASC
+    </select>
+
+    <select id="findByParentIdListInAndParentType" resultMap="commentResponseMap">
+        SELECT
+            C.id,  
+            C.parent_type,  
+            C.parent_id,  
+            C.author_id,  
+            C.content,  
+            C.created_at,
+            M.user_name AS user_name
+        FROM COMMENTS C
+        INNER JOIN MEMBERS M ON C.author_id = M.id
+        
+        <where>
+            <if test="parentIds != null and parentIds.size > 0">
+                C.parent_id IN
+                <foreach collection="parentIds" item="id" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+            
+            AND C.parent_type = #{parentType, jdbcType=VARCHAR}
+        </where>
+        ORDER BY C.id ASC
+    </select>
+
+</mapper>
