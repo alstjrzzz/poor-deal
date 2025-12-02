@@ -30,9 +30,25 @@
             user_name,
             email,
             point,
-            role
+            role,
+            is_block
         FROM MEMBERS
         WHERE USER_ID = #{userId}
+    </select>
+    
+    <select id="findById" parameterType="Long"
+            resultType="com.khao.PoorDeal.domain.Member">
+        SELECT 
+            id,
+            user_id,
+            password,
+            user_name,
+            email,
+            point,
+            role, 
+            is_block
+        FROM MEMBERS
+        WHERE ID = #{id}
     </select>
     
 </mapper>

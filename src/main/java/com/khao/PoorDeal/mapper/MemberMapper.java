@@ -11,4 +11,5 @@ public interface MemberMapper {
 
 	public void save(Member member);
 	public Optional<Member> findByUserId(String userId);
+	public Optional<Member> findById(Long id);
 }
