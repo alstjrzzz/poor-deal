@@ -5,28 +5,29 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/security https://www.springframework.org/schema/security/spring-security.xsd">
 
+    <security:http pattern="/resources/**" security="none" />
+    <security:http pattern="/favicon.ico" security="none" />
+
     <security:authentication-manager>
-        <security:authentication-provider user-service-ref="authDetailsService"> <security:password-encoder ref="passwordEncoder" /> 
+        <security:authentication-provider user-service-ref="authDetailsService">
+            <security:password-encoder ref="passwordEncoder" /> 
         </security:authentication-provider>
     </security:authentication-manager>
-	
+    
     <security:http auto-config="true" use-expressions="true">
         
         <security:intercept-url pattern="/login" access="permitAll" />
         <security:intercept-url pattern="/register" access="permitAll" />
-        <security:intercept-url pattern="/resources/**" access="permitAll" />
         
-        <security:intercept-url pattern="/post/new" access="isAuthenticated()" />
-        <security:intercept-url pattern="/post" method="POST" access="isAuthenticated()" />    
-        <security:intercept-url pattern="/comment" method="POST" access="isAuthenticated()" /> 
-        
-        <security:intercept-url pattern="/login" method="POST" access="permitAll" /> 
+        <security:intercept-url pattern="/mail/**" access="isAuthenticated()" />
+        <security:intercept-url pattern="/post/**" access="isAuthenticated()" />
+        <security:intercept-url pattern="/comment" access="isAuthenticated()" />
         
         <security:intercept-url pattern="/**" access="isAuthenticated()" />
         
         <security:form-login 
             login-page="/login"
-            default-target-url="/"
+            default-target-url="/" 
             authentication-failure-url="/login?error"
             username-parameter="userId"
             password-parameter="password" />
@@ -35,7 +36,7 @@
             logout-url="/logout"
             invalidate-session="true"
             delete-cookies="JSESSIONID"
-            logout-success-url="/" />
+            logout-success-url="/login" /> 
             
     </security:http>
     

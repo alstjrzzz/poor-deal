@@ -11,6 +11,7 @@
         SET
             title = #{title},
             content = #{content},
+            author_id = #{authorId},
             image = #{image, jdbcType=VARCHAR},
             type = #{type, jdbcType=VARCHAR},
             price = #{price, jdbcType=NUMERIC},
@@ -25,7 +26,8 @@
         SELECT 
             P.id, 
             P.title, 
-            M.user_name AS author, 
+            M.user_name AS author,
+            P.type,
             P.created_at AS createdAt
         FROM POSTS P
         INNER JOIN MEMBERS M ON P.author_id = M.id 

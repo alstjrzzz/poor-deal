@@ -16,5 +16,6 @@ public class PostSummary {
 	private Long id;
 	private String title;
 	private String author;
+	private String type;
 	private LocalDateTime createdAt;
 }

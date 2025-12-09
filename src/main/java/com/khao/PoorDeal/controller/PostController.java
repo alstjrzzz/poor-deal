@@ -18,6 +18,7 @@ import com.khao.PoorDeal.dto.AddPostRequest;
 import com.khao.PoorDeal.dto.CommentAndRepliesResponse;
 import com.khao.PoorDeal.dto.PostResponse;
 import com.khao.PoorDeal.dto.PostSummary;
+import com.khao.PoorDeal.service.MailService;
 import com.khao.PoorDeal.service.MemberService;
 import com.khao.PoorDeal.service.PostService;
 
@@ -35,13 +36,15 @@ public class PostController {
 	
 	private final PostService postService;
 	private final MemberService memberService;
+	private final MailService mailService;
 	
 	/**
 	 * 페이징처리해서 게시글 리스트 가져오기
 	 * @return
 	 */
 	@GetMapping("/")
-	public String getPosts(@RequestParam(defaultValue = "1") int page, Model model) {
+	public String getPosts(@RequestParam(defaultValue = "1") int page, 
+			Model model, Principal principal) {
 		
 		int totalCount = postService.getPostCount();
 	    int totalPages = (int) Math.ceil((double) totalCount / PAGESIZE);
@@ -60,6 +63,11 @@ public class PostController {
 	    model.addAttribute("totalPages", totalPages);
 	    model.addAttribute("startPage", startPage);
 	    model.addAttribute("endPage", endPage);
+	    
+		if (principal != null) {
+	        Long point = memberService.findByUserId(principal.getName()).getPoint();
+	        model.addAttribute("myPoint", point);
+	    }
 
 	    return "post/list";
 	}
@@ -95,13 +103,25 @@ public class PostController {
 	 * @return
 	 */
 	@GetMapping("/post/{postId}")
-	public String getPost(@PathVariable("postId") Long postId, Model model) {
+	public String getPost(@PathVariable("postId") Long postId, Model model, Principal principal) {
 		
 		PostResponse post = postService.getPost(postId);
 		List<CommentAndRepliesResponse> commentsAndReplies = postService.getCommentsAndReplies(postId);
+		int totalCommentCount = commentsAndReplies.stream()
+				.mapToInt(cr -> 1 + (cr.getReplies() != null ? cr.getReplies().size() : 0))
+				.sum();
+		
+		boolean isApplied = false;
+		Long loginId = memberService.findByUserId(principal.getName()).getId();
+		if (!loginId.equals(post.getAuthorId())) {
+			isApplied = mailService.hasApplied(loginId, postId);
+		}
 		
 		model.addAttribute("post", post);
 		model.addAttribute("commentsAndReplies", commentsAndReplies);
+		model.addAttribute("totalCommentCount", totalCommentCount);
+		model.addAttribute("isApplied", isApplied);
+		model.addAttribute("loginId", loginId);
 		
 		return "post/detail";
 	}

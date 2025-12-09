@@ -23,5 +23,4 @@ public class PostRepository {
 	public List<PostSummary> selectPagedPosts(int offset, int pagesize) { return postMapper.selectPagedPosts(offset, pagesize); }
 	public void insert(Post post) { postMapper.insert(post); }
 	public Optional<PostResponse> findById(Long id) { return postMapper.findById(id); }
-	
 }
