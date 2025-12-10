@@ -28,7 +28,7 @@ public class TradeController {
      */
     @GetMapping("/trade/charge")
     public String showChargeForm() { 
-        return "trade/chargeForm";
+        return "trade/charge";
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.khao.PoorDeal.domain;
+package com.khao.PoorDeal.dto;
 
 import java.time.LocalDateTime;
 
@@ -9,16 +9,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class Mail {
+public class MailSummary {
 
 	private Long id;
 	private Long senderId;
+	private String sender;
 	private Long receiverId;
-	private Long postId;
-	private ProcessType processType;
-	private ProcessStatus processStatus;
+	private String receiver;
+	private String processType;
 	private String title;
-	private String content;
-	private Long amount;
 	private LocalDateTime createdAt;
 }

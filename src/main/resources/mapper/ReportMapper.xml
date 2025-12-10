@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.khao.PoorDeal.mapper.ReportMapper">
+
+    <resultMap id="ReportResultMap" type="com.khao.PoorDeal.domain.Report">
+        <id property="id" column="ID" />
+        <result property="reason" column="REASON" />
+        <result property="reporterId" column="REPORTER_ID" />
+        <result property="postId" column="POST_ID" />
+        <result property="suspectId" column="SUSPECT_ID" />
+        <result property="status" column="STATUS" />
+        <result property="createdAt" column="CREATED_AT" />
+    </resultMap>
+
+    <insert id="save" parameterType="com.khao.PoorDeal.domain.Report"
+            useGeneratedKeys="true" keyProperty="id" keyColumn="ID">
+        INSERT INTO REPORTS (
+            REASON,
+            REPORTER_ID,
+            POST_ID,
+            SUSPECT_ID,
+            STATUS
+        ) VALUES (
+	        #{reason},
+	        #{reporterId},
+	        #{postId},
+	        #{suspectId},
+	        #{status, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="findAll" resultMap="ReportResultMap">
+        SELECT * FROM REPORTS ORDER BY ID DESC
+    </select>
+    
+    <select id="findByReporterId" resultMap="ReportResultMap">
+        SELECT * FROM REPORTS WHERE REPORTER_ID = #{reporterId} ORDER BY ID DESC
+    </select>
+
+    <select id="findById" resultMap="ReportResultMap">
+        SELECT * FROM REPORTS WHERE ID = #{id}
+    </select>
+
+    <update id="updateStatus">
+        UPDATE REPORTS
+        SET STATUS = #{status, jdbcType=VARCHAR}
+        WHERE ID = #{id}
+    </update>
+
+</mapper>

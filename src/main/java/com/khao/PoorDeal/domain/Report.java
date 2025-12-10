@@ -9,16 +9,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class Mail {
+public class Report {
 
 	private Long id;
-	private Long senderId;
-	private Long receiverId;
+	private String reason;
+	private Long reporterId;
 	private Long postId;
-	private ProcessType processType;
-	private ProcessStatus processStatus;
-	private String title;
-	private String content;
-	private Long amount;
+	private Long suspectId;
+	private ReportStatus status;
 	private LocalDateTime createdAt;
 }
