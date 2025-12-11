@@ -3,81 +3,71 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>쪽지 상세보기</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>쪽지 상세보기 - PoorDeal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        .mail-container { border: 1px solid #ccc; padding: 30px; width: 700px; margin: 30px auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); font-family: 'Malgun Gothic', sans-serif;}
-        .mail-header { border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 20px; }
-        
-        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .header-top h3 { margin: 0; font-size: 1.5rem; }
-
-        .info-row { margin: 8px 0; color: #555; font-size: 1em; }
-        .info-label { display: inline-block; width: 80px; font-weight: bold; color: #333; }
-        
-        .mail-content { 
-            min-height: 200px; 
-            white-space: pre-wrap; 
-            background: #f8f9fa; 
-            padding: 25px; 
-            border-radius: 8px; 
-            border: 1px solid #e9ecef;
+        body {
+            background-color: #f8f9fa;
+        }
+        .main-container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        .detail-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            overflow: hidden;
+        }
+        .card-header-custom {
+            background-color: #fff;
+            border-bottom: 1px solid #f1f3f5;
+            padding: 1.5rem;
+        }
+        .info-grid {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .content-box {
+            min-height: 150px;
+            white-space: pre-wrap;
             line-height: 1.6;
+            color: #333;
+            padding: 1rem;
         }
-
-        .action-box { 
-            margin-top: 30px; 
-            padding: 25px; 
-            background-color: #e3f2fd; 
-            border: 1px solid #90caf9; 
-            border-radius: 8px; 
+        .action-card {
+            background-color: #eff6ff; /* 아주 연한 파란색 */
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
         }
-        .action-box h4 { margin-top: 0; color: #1565c0; margin-bottom: 15px; }
-        .guide-text { font-size: 1em; color: #333; margin-bottom: 20px; font-weight: 500; }
-
-        /* 버튼 스타일 */
-        .btn { padding: 8px 16px; cursor: pointer; border: none; border-radius: 4px; color: white; font-weight: bold; margin-right: 5px; text-decoration: none; display: inline-block; font-size: 14px; transition: 0.2s; }
-        .btn-primary { background-color: #007bff; } .btn-primary:hover { background-color: #0056b3; }
-        .btn-success { background-color: #28a745; } .btn-success:hover { background-color: #218838; }
-        .btn-danger { background-color: #dc3545; } .btn-danger:hover { background-color: #c82333; }
-        .btn-secondary { background-color: #6c757d; } .btn-secondary:hover { background-color: #545b62; }
-        .btn-info { background-color: #17a2b8; } .btn-info:hover { background-color: #138496; }
-
-        .btn-list { background-color: #6c757d; display: block; width: 120px; margin: 30px auto 0; text-align: center; padding: 10px; }
-
-        /* 입력 폼 스타일 */
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 0.95em; }
-        .input-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        
-        /* [추가] 텍스트 영역 스타일 */
-        .input-group textarea { 
-            width: 100%; 
-            padding: 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 4px; 
-            box-sizing: border-box; 
-            resize: vertical; /* 세로 크기 조절 허용 */
-            min-height: 80px;
-            font-family: inherit;
+        .guide-text {
+            color: #1e40af;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
-        
-        /* 상태 배지 */
-        .status-badge { 
-            display: inline-block; padding: 5px 12px; border-radius: 20px; 
-            font-size: 13px; color: white; background-color: #6c757d; vertical-align: middle; font-weight: bold;
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #495057;
         }
-        .status-PENDING { background-color: #ffc107; color: #333; }
-        .status-ACCEPTED, .status-COMPLETED { background-color: #28a745; } 
-        .status-REJECTED { background-color: #dc3545; }
     </style>
 </head>
 <body>
 
-<div class="mail-container">
+<div class="container main-container">
 
-    <%-- 1. 상태 코드를 한글로 변환하는 로직 --%>
+    <%-- 1. 상태 코드를 한글로 변환하는 로직 (기존 유지) --%>
     <c:set var="statusKorean">
         <c:choose>
             <c:when test="${mail.processStatus == 'TRADE_REQUEST_PENDING'}">구매자 요청 대기</c:when>
@@ -96,154 +86,223 @@
         </c:choose>
     </c:set>
 
-    <div class="mail-header">
-        <div class="header-top">
-            <h3>
-                <c:choose>
-                    <c:when test="${mail.processType == 'TRADE'}"><span style="color:#28a745;">[거래]</span></c:when>
-                    <c:when test="${mail.processType == 'RECRUIT'}"><span style="color:#ffc107; text-shadow: 1px 1px 1px #ddd;">[구인]</span></c:when>
-                    <c:otherwise><span style="color:#6c757d;">[일반]</span></c:otherwise>
-                </c:choose> 
-                ${mail.title}
-            </h3>
+    <%-- 상태별 배지 색상 결정 --%>
+    <c:set var="badgeClass">
+        <c:choose>
+            <c:when test="${mail.processStatus.name().contains('PENDING')}">bg-warning text-dark</c:when>
+            <c:when test="${mail.processStatus.name().contains('ACCEPTED') or mail.processStatus.name().contains('COMPLETED')}">bg-success</c:when>
+            <c:when test="${mail.processStatus.name().contains('REJECTED')}">bg-danger</c:when>
+            <c:otherwise>bg-secondary</c:otherwise>
+        </c:choose>
+    </c:set>
+
+    <div class="detail-card">
+        <div class="card-header-custom d-flex justify-content-between align-items-center">
+            <div>
+                <div class="mb-2">
+                    <c:choose>
+                        <c:when test="${mail.processType == 'TRADE'}"><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill">거래</span></c:when>
+                        <c:when test="${mail.processType == 'RECRUIT'}"><span class="badge bg-warning bg-opacity-10 text-dark border border-warning border-opacity-25 rounded-pill">구인</span></c:when>
+                        <c:otherwise><span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 rounded-pill">일반</span></c:otherwise>
+                    </c:choose>
+                    <span class="badge ${badgeClass} rounded-pill ms-1">${statusKorean}</span>
+                </div>
+                <h4 class="fw-bold m-0 text-break">${mail.title}</h4>
+            </div>
             
             <c:if test="${not empty mail.postId}">
-                <a href="/post/${mail.postId}" class="btn btn-info" target="_blank">📄 관련 게시글</a>
+                <a href="/post/${mail.postId}" class="btn btn-outline-primary btn-sm rounded-pill px-3 flex-shrink-0" target="_blank">
+                    <i class="bi bi-box-arrow-up-right me-1"></i>게시글 보기
+                </a>
             </c:if>
         </div>
-        
-        <div class="info-row">
-            <span class="info-label">상태</span> 
-            <span class="status-badge status-${mail.processStatus.name().contains('PENDING') ? 'PENDING' : (mail.processStatus.name().contains('ACCEPTED') or mail.processStatus.name().contains('COMPLETED') ? 'ACCEPTED' : (mail.processStatus.name().contains('REJECTED') ? 'REJECTED' : ''))}">
-                ${statusKorean}
-            </span>
-        </div>
-        <div class="info-row"><span class="info-label">보낸 사람</span> ${mail.sender}</div>
-        <div class="info-row"><span class="info-label">받은 사람</span> ${mail.receiver}</div>
-        <div class="info-row">
-            <span class="info-label">날짜</span> 
-            <fmt:parseDate value="${mail.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" type="both" />
-            <fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm"/>
-        </div>
-        <c:if test="${not empty mail.amount && mail.amount > 0}">
-             <div class="info-row"><span class="info-label">금액</span> <strong><fmt:formatNumber value="${mail.amount}" type="currency"/></strong></div>
-        </c:if>
-    </div>
 
-    <div class="mail-content">${mail.content}</div>
-
-    <%-- ================= 액션 영역 (받는 사람인 경우에만 표시) ================= --%>
-    <c:if test="${mail.receiverId == loginId}">
-        
-        <c:if test="${mail.processStatus != 'PROCESSED' && 
-                      !mail.processStatus.name().contains('COMPLETED') && 
-                      !mail.processStatus.name().contains('ACCEPTED') && 
-                      !mail.processStatus.name().contains('REJECTED')}">
-
-            <div class="action-box">
-                <h4>⚡ 작업</h4>
-                
-                <form action="/mail/action" method="post">
-                    <input type="hidden" name="mailId" value="${mail.id}">
-                    <input type="hidden" name="postId" value="${mail.postId}">
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-
-                    <%-- [추가] 공통 메시지 입력 영역 --%>
-                    <div class="input-group">
-                        <label>메시지 (선택 사항)</label>
-                        <textarea name="content" placeholder="상대방에게 보낼 메시지를 입력하세요."></textarea>
+        <div class="p-4">
+            <div class="info-grid">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-send text-secondary fs-5 me-3"></i>
+                            <div>
+                                <small class="text-muted d-block">보낸 사람</small>
+                                <span class="fw-semibold">${mail.sender}</span>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <%-- 구분선 --%>
-                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #bcdbf3;">
-
-                    <%-- 거래(Trade) 관련 액션 --%>
-                    <c:if test="${mail.processType == 'TRADE'}">
-                        
-                        <c:if test="${mail.processStatus == 'TRADE_REQUEST_PENDING'}">
-                            <p class="guide-text">구매자가 거래를 원합니다. 거래 시간과 장소를 제안해주세요.</p>
-                            
-                            <div class="input-group">
-                                <label>거래 시간</label>
-                                <input type="text" name="tradeTime" placeholder="예: 내일 오후 6시" required>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-person-check text-secondary fs-5 me-3"></i>
+                            <div>
+                                <small class="text-muted d-block">받은 사람</small>
+                                <span class="fw-semibold">${mail.receiver}</span>
                             </div>
-                            <div class="input-group">
-                                <label>거래 장소</label>
-                                <input type="text" name="tradeLocation" placeholder="예: 정문 시계탑 앞" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-calendar-event text-secondary fs-5 me-3"></i>
+                            <div>
+                                <small class="text-muted d-block">보낸 날짜</small>
+                                <span>
+                                    <fmt:parseDate value="${mail.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" type="both" />
+                                    <fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm"/>
+                                </span>
                             </div>
-                            
-                            <button type="submit" name="actionType" value="SET_CONDITIONS" class="btn btn-primary">📝 조건 보내기</button>
-                        </c:if>
-
-                        <c:if test="${mail.processStatus == 'TRADE_CONDITIONS_SET'}">
-                            <p class="guide-text">판매자가 거래 조건을 제시했습니다. 이 조건으로 거래하시겠습니까?</p>
-                            <button type="submit" name="actionType" value="ACCEPT_TRADE" class="btn btn-success">⭕ 수락하기</button>
-                            <button type="submit" name="actionType" value="REJECT_TRADE" class="btn btn-danger">❌ 거절하기</button>
-                        </c:if>
-
-                        <c:if test="${mail.processStatus == 'TRADE_TRANSFER_PENDING'}">
-                            <p class="guide-text">거래가 확정되었습니다. 약속된 금액을 송금해주세요.</p>
-                            <p><strong>송금액:</strong> <fmt:formatNumber value="${mail.amount}" type="currency"/></p>
-                            <button type="submit" name="actionType" value="TRANSFER" class="btn btn-primary">💸 송금하기</button>
-                        </c:if>
-
+                        </div>
+                    </div>
+                    <c:if test="${not empty mail.amount && mail.amount > 0}">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-cash-coin text-primary fs-5 me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">관련 금액</small>
+                                    <strong class="text-primary fs-5"><fmt:formatNumber value="${mail.amount}" type="currency"/></strong>
+                                </div>
+                            </div>
+                        </div>
                     </c:if>
-
-                    <%-- 구인(Job) 관련 액션 --%>
-                    <c:if test="${mail.processType == 'RECRUIT'}">
-                        <c:if test="${mail.processStatus == 'RECRUIT_REQUEST_PENDING'}">
-                            <p class="guide-text">이 지원자를 채용하시겠습니까?</p>
-                            <button type="submit" name="actionType" value="ACCEPT_RECRUIT" class="btn btn-success">⭕ 채용하기</button>
-                            <button type="submit" name="actionType" value="REJECT_RECRUIT" class="btn btn-danger">❌ 거절하기</button>
-                        </c:if>
-                    </c:if>
-
-                </form>
+                </div>
             </div>
-        </c:if>
-    </c:if>
 
-    <%-- ================= 상태 메시지 영역 ================= --%>
-    <c:if test="${mail.processStatus == 'PROCESSED'}">
-        <div style="margin-top: 30px; text-align: center; color: #888; font-weight: bold;">
-            🆗 이미 답장(처리)하여 완료된 단계입니다.
-        </div>
-    </c:if>
-    <c:if test="${mail.processStatus.name().contains('COMPLETED') || mail.processStatus.name().contains('ACCEPTED')}">
-        <div style="margin-top: 30px; text-align: center; color: green; font-weight: bold;">
-            ✅ 최종 처리가 완료된 건입니다.
-        </div>
-    </c:if>
-    <c:if test="${mail.processStatus.name().contains('REJECTED')}">
-        <div style="margin-top: 30px; text-align: center; color: red; font-weight: bold;">
-            ❌ 거절되거나 취소된 건입니다.
-        </div>
-    </c:if>
-    
-    <%-- 보낸 사람 시점: 대기 중 메시지 --%>
-    <c:if test="${mail.senderId == loginId && 
-                  mail.processStatus != 'PROCESSED' &&
-                  !mail.processStatus.name().contains('COMPLETED') && 
-                  !mail.processStatus.name().contains('ACCEPTED') && 
-                  !mail.processStatus.name().contains('REJECTED')}">
-        <div style="margin-top: 30px; text-align: center; padding: 20px; background-color: #f9f9f9; border-radius: 8px; color: #666;">
-            ⏳ <strong>상대방(${mail.receiver})의 응답을 기다리는 중입니다.</strong><br>
-            상대방이 확인하고 조치를 취하면 상태가 변경됩니다.
-        </div>
-    </c:if>
+            <div class="content-box">
+                ${mail.content}
+            </div>
 
-    <a href="/mail" class="btn btn-list">목록으로 돌아가기</a>
+            <%-- ================= 액션 영역 (받는 사람인 경우에만 표시) ================= --%>
+            <c:if test="${mail.receiverId == loginId}">
+                
+                <c:if test="${mail.processStatus != 'PROCESSED' && 
+                              !mail.processStatus.name().contains('COMPLETED') && 
+                              !mail.processStatus.name().contains('ACCEPTED') && 
+                              !mail.processStatus.name().contains('REJECTED')}">
 
+                    <div class="action-card shadow-sm">
+                        <h5 class="fw-bold mb-3 text-primary"><i class="bi bi-lightning-charge-fill me-1"></i> 작업 수행</h5>
+                        
+                        <form action="/mail/action" method="post">
+                            <input type="hidden" name="mailId" value="${mail.id}">
+                            <input type="hidden" name="postId" value="${mail.postId}">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
+                            <%-- 공통 메시지 입력 --%>
+                            <div class="mb-3">
+                                <label class="form-label">답장 메시지 (선택)</label>
+                                <textarea class="form-control" name="content" rows="3" placeholder="상대방에게 보낼 메시지를 입력하세요."></textarea>
+                            </div>
+                            
+                            <hr class="border-primary opacity-25 my-4">
+
+                            <%-- 거래(Trade) 관련 액션 --%>
+                            <c:if test="${mail.processType == 'TRADE'}">
+                                
+                                <c:if test="${mail.processStatus == 'TRADE_REQUEST_PENDING'}">
+                                    <div class="guide-text"><i class="bi bi-info-circle-fill me-1"></i>구매자가 거래를 원합니다. 거래 시간과 장소를 제안해주세요.</div>
+                                    
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">거래 시간</label>
+                                            <input type="text" class="form-control" name="tradeTime" placeholder="예: 내일 오후 6시" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">거래 장소</label>
+                                            <input type="text" class="form-control" name="tradeLocation" placeholder="예: 정문 시계탑 앞" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" name="actionType" value="SET_CONDITIONS" class="btn btn-primary w-100 fw-bold">
+                                        <i class="bi bi-send me-1"></i>조건 보내기
+                                    </button>
+                                </c:if>
+
+                                <c:if test="${mail.processStatus == 'TRADE_CONDITIONS_SET'}">
+                                    <div class="guide-text text-center"><i class="bi bi-question-circle-fill me-1"></i>판매자가 거래 조건을 제시했습니다. 이 조건으로 거래하시겠습니까?</div>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <button type="submit" name="actionType" value="ACCEPT_TRADE" class="btn btn-success px-4 fw-bold"><i class="bi bi-check-lg me-1"></i>수락하기</button>
+                                        <button type="submit" name="actionType" value="REJECT_TRADE" class="btn btn-danger px-4 fw-bold"><i class="bi bi-x-lg me-1"></i>거절하기</button>
+                                    </div>
+                                </c:if>
+
+                                <c:if test="${mail.processStatus == 'TRADE_TRANSFER_PENDING'}">
+                                    <div class="alert alert-info border-info d-flex align-items-center mb-3">
+                                        <i class="bi bi-exclamation-circle-fill fs-4 me-3 text-info"></i>
+                                        <div>
+                                            거래가 확정되었습니다. 아래 금액을 송금해주세요.<br>
+                                            <strong>송금액: <fmt:formatNumber value="${mail.amount}" type="currency"/></strong>
+                                        </div>
+                                    </div>
+                                    <button type="submit" name="actionType" value="TRANSFER" class="btn btn-primary w-100 fw-bold">
+                                        <i class="bi bi-cash-coin me-1"></i>송금하기
+                                    </button>
+                                </c:if>
+
+                            </c:if>
+
+                            <%-- 구인(Job) 관련 액션 --%>
+                            <c:if test="${mail.processType == 'RECRUIT'}">
+                                <c:if test="${mail.processStatus == 'RECRUIT_REQUEST_PENDING'}">
+                                    <div class="guide-text text-center"><i class="bi bi-person-plus-fill me-1"></i>이 지원자를 채용하시겠습니까?</div>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <button type="submit" name="actionType" value="ACCEPT_RECRUIT" class="btn btn-success px-4 fw-bold"><i class="bi bi-check-lg me-1"></i>채용하기</button>
+                                        <button type="submit" name="actionType" value="REJECT_RECRUIT" class="btn btn-danger px-4 fw-bold"><i class="bi bi-x-lg me-1"></i>거절하기</button>
+                                    </div>
+                                </c:if>
+                            </c:if>
+
+                        </form>
+                    </div>
+                </c:if>
+            </c:if>
+
+            <%-- ================= 상태 메시지 영역 ================= --%>
+            <div class="mt-4">
+                <c:if test="${mail.processStatus == 'PROCESSED'}">
+                    <div class="alert alert-secondary text-center fw-bold shadow-sm">
+                        <i class="bi bi-check2-all me-2"></i>이미 답장(처리)하여 완료된 단계입니다.
+                    </div>
+                </c:if>
+                <c:if test="${mail.processStatus.name().contains('COMPLETED') || mail.processStatus.name().contains('ACCEPTED')}">
+                    <div class="alert alert-success text-center fw-bold shadow-sm">
+                        <i class="bi bi-check-circle-fill me-2"></i>최종 처리가 완료된 건입니다.
+                    </div>
+                </c:if>
+                <c:if test="${mail.processStatus.name().contains('REJECTED')}">
+                    <div class="alert alert-danger text-center fw-bold shadow-sm">
+                        <i class="bi bi-x-circle-fill me-2"></i>거절되거나 취소된 건입니다.
+                    </div>
+                </c:if>
+                
+                <%-- 보낸 사람 시점: 대기 중 메시지 --%>
+                <c:if test="${mail.senderId == loginId && 
+                              mail.processStatus != 'PROCESSED' &&
+                              !mail.processStatus.name().contains('COMPLETED') && 
+                              !mail.processStatus.name().contains('ACCEPTED') && 
+                              !mail.processStatus.name().contains('REJECTED')}">
+                    <div class="alert alert-light border text-center text-muted shadow-sm">
+                        <div class="spinner-border spinner-border-sm text-secondary me-2" role="status"></div>
+                        <strong>상대방(${mail.receiver})의 응답을 기다리는 중입니다.</strong><br>
+                        <small>상대방이 확인하고 조치를 취하면 상태가 변경됩니다.</small>
+                    </div>
+                </c:if>
+            </div>
+
+            <div class="d-grid mt-4">
+                <a href="/mail" class="btn btn-light border py-2 text-secondary fw-bold">
+                    목록으로 돌아가기
+                </a>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<%-- [추가] 알림 스크립트: Controller에서 보낸 메시지나 에러가 있으면 alert를 띄움 --%>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<%-- 알림 스크립트 --%>
 <script>
-    /* 성공 메시지 */
     <c:if test="${not empty message}">
         alert("${message}");
     </c:if>
 
-    /* 에러 메시지 (예: 잔액 부족) */
     <c:if test="${not empty error}">
         alert("${error}");
     </c:if>

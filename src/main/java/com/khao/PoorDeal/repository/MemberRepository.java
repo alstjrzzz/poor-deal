@@ -25,4 +25,8 @@ public class MemberRepository {
 	public Optional<Member> findById(Long id) {
 		return memberMapper.findById(id);
 	}
+	
+	public void updateBlockStatus(Long id, boolean isBlock) {
+        memberMapper.updateBlockStatus(id, isBlock);
+    }
 }

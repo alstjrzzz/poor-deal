@@ -1,7 +1,15 @@
 package com.khao.PoorDeal.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.khao.PoorDeal.domain.Report;
+import com.khao.PoorDeal.domain.ReportStatus;
+import com.khao.PoorDeal.dto.ReportRequest;
+import com.khao.PoorDeal.dto.ReportResponse;
+import com.khao.PoorDeal.repository.MemberRepository;
 import com.khao.PoorDeal.repository.ReportRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -10,36 +18,48 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ReportService {
 
-	private final ReportRepository reportRepository;
-	
-	/*
-	 @Transactional
-    public void submitReport(Report report) {
-        // 초기 상태 설정
-        report.setStatus(ReportStatus.PENDING);
-        
-        // 유효성 검사 (예: 자기 자신 신고 불가 등)
-        if (report.getReporterId().equals(report.getSuspectId())) {
-             throw new IllegalArgumentException("자기 자신을 신고할 수 없습니다.");
+    private final ReportRepository reportRepository;
+    private final MemberRepository memberRepository;
+
+    /**
+     * 신고 접수
+     */
+    @Transactional
+    public void submitReport(ReportRequest request) {
+    	
+        if (request.getReporterId().equals(request.getSuspectId())) {
+            throw new IllegalArgumentException("자기 자신을 신고할 수 없습니다.");
         }
-        
-        reportMapper.save(report);
+
+        Report report = Report.builder()
+                .reason(request.getReason())
+                .reporterId(request.getReporterId())
+                .postId(request.getPostId())
+                .suspectId(request.getSuspectId())
+                .status(ReportStatus.PENDING)
+                .build();
+
+        reportRepository.save(report);
     }
 
-    public List<Report> getAllReports() {
-        return reportMapper.findAll();
+    /**
+     * 관리자용 전체 신고 목록 조회
+     */
+    public List<ReportResponse> getAllReports() {
+        return reportRepository.findAllResponses();
     }
 
+    /**
+     * 신고 처리 (승인/반려)
+     */
     @Transactional
     public void processReport(Long reportId, ReportStatus newStatus) {
-        // 1. 상태 업데이트
-        reportMapper.updateStatus(reportId, newStatus);
         
-        // 2. 만약 승인(APPROVED)이라면, 해당 유저(Suspect)에게 제재 가하기
+        reportRepository.updateStatus(reportId, newStatus);
+
         if (newStatus == ReportStatus.APPROVED) {
-            Report report = reportMapper.findById(reportId);
-            // memberService.banUser(report.getSuspectId()); // 예시 로직
+            Report report = reportRepository.findById(reportId);
+            memberRepository.updateBlockStatus(report.getSuspectId(), true);
         }
     }
-	 */
 }
