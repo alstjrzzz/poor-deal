@@ -8,8 +8,10 @@
         <result property="parentId" column="parent_id" />
         <result property="authorId" column="author_id" />
         <result property="content" column="content" />
-        <result property="createdAt" column="created_at" />
         <result property="author" column="user_name" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+        <result property="status" column="status" />
     </resultMap>
 
     <insert id="save" parameterType="com.khao.PoorDeal.domain.Comment" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
@@ -18,16 +20,27 @@
             parent_type, 
             author_id, 
             content, 
-            created_at
+            status,
+			created_at
         )
         VALUES (
             #{parentId}, 
             #{parentType}, 
             #{authorId}, 
             #{content}, 
+            #{status, jdbcType=VARCHAR},
             CURRENT_TIMESTAMP
         )
     </insert>
+    
+    <update id="update" parameterType="com.khao.PoorDeal.domain.Comment">
+        UPDATE COMMENTS
+        SET
+            content = #{content},
+            status = #{status},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+    </update>
 
     <select id="findById" resultMap="commentResponseMap">
         SELECT
@@ -36,8 +49,8 @@
             C.parent_id, 
             C.author_id, 
             C.content, 
-            C.created_at,
-            M.user_name AS user_name
+            C.status,     C.created_at,
+            C.updated_at, M.user_name AS user_name
         FROM COMMENTS C
         INNER JOIN MEMBERS M ON C.author_id = M.id
         WHERE C.id = #{id}
@@ -45,27 +58,21 @@
 
     <select id="findByParentIdAndParentType" resultMap="commentResponseMap">
         SELECT
-            C.id, C.parent_type, C.parent_id, C.author_id, C.content, C.created_at,
-            M.user_name AS user_name
+            C.id, C.parent_type, C.parent_id, C.author_id, C.content, 
+            C.status, C.created_at, C.updated_at, M.user_name AS user_name
         FROM COMMENTS C
         INNER JOIN MEMBERS M ON C.author_id = M.id
-        WHERE C.parent_id = #{parentId}  <!-- 단일 parentId 사용 -->
+        WHERE C.parent_id = #{parentId} 
         AND C.parent_type = #{parentType, jdbcType=VARCHAR}
         ORDER BY C.id ASC
     </select>
 
     <select id="findByParentIdListInAndParentType" resultMap="commentResponseMap">
         SELECT
-            C.id,  
-            C.parent_type,  
-            C.parent_id,  
-            C.author_id,  
-            C.content,  
-            C.created_at,
-            M.user_name AS user_name
+            C.id, C.parent_type, C.parent_id, C.author_id, C.content, 
+            C.status, C.created_at, C.updated_at, M.user_name AS user_name
         FROM COMMENTS C
         INNER JOIN MEMBERS M ON C.author_id = M.id
-        
         <where>
             <if test="parentIds != null and parentIds.size > 0">
                 C.parent_id IN
@@ -73,7 +80,6 @@
                     #{id}
                 </foreach>
             </if>
-            
             AND C.parent_type = #{parentType, jdbcType=VARCHAR}
         </where>
         ORDER BY C.id ASC

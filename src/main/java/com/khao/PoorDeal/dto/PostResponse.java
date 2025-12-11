@@ -21,7 +21,9 @@ public class PostResponse {
 	private String image;
 	private PostType type;
 	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 	private boolean isAvailable;
+	private boolean isDeleted;
 	
 	// trade
 	private Long price;

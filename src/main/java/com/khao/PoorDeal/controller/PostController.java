@@ -143,4 +143,102 @@ public class PostController {
 		
 		return "redirect:/post/" + postId;
 	}
+	
+	/**
+	 * 댓글 수정
+	 */
+    @PostMapping("/comment/update")
+    public String updateComment(@RequestParam("commentId") Long commentId,
+                                @RequestParam("postId") Long postId,
+                                @RequestParam("content") String content,
+                                Principal principal, RedirectAttributes rttr) {
+        
+        Long userId = memberService.findByUserId(principal.getName()).getId();
+        
+        try {
+            postService.updateComment(commentId, content, userId);
+            rttr.addFlashAttribute("message", "댓글이 수정되었습니다.");
+        } catch (Exception e) {
+            rttr.addFlashAttribute("error", e.getMessage());
+        }
+
+        return "redirect:/post/" + postId;
+    }
+
+    /**
+     * 댓글 삭제
+     */
+    @PostMapping("/comment/delete")
+    public String deleteComment(@RequestParam("commentId") Long commentId,
+                                @RequestParam("postId") Long postId,
+                                Principal principal, RedirectAttributes rttr) {
+        
+        Long userId = memberService.findByUserId(principal.getName()).getId();
+
+        try {
+            postService.deleteComment(commentId, userId);
+            rttr.addFlashAttribute("message", "댓글이 삭제되었습니다.");
+        } catch (Exception e) {
+            rttr.addFlashAttribute("error", e.getMessage());
+        }
+
+        return "redirect:/post/" + postId;
+    }
+    
+    /**
+     * 게시글 수정 페이지 이동
+     */
+    @GetMapping("/post/{postId}/edit")
+    public String editPostForm(@PathVariable("postId") Long postId, Model model, Principal principal) {
+        PostResponse post = postService.getPost(postId);
+        Long loginId = memberService.findByUserId(principal.getName()).getId();
+
+        if (!post.getAuthorId().equals(loginId)) {
+            return "redirect:/post/" + postId;
+        }
+
+        model.addAttribute("post", post);
+        return "post/edit";
+    }
+
+    /**
+     * 게시글 수정 요청 처리
+     */
+    @PostMapping("/post/{postId}/edit")
+    public String updatePost(@PathVariable("postId") Long postId,
+                             @ModelAttribute AddPostRequest request,
+                             Principal principal, RedirectAttributes rttr) {
+        
+        Long userId = memberService.findByUserId(principal.getName()).getId();
+
+        try {
+            postService.updatePost(postId, request, userId);
+            rttr.addFlashAttribute("message", "게시글이 수정되었습니다.");
+        } catch (Exception e) {
+            rttr.addFlashAttribute("error", "수정 실패: " + e.getMessage());
+            return "redirect:/post/" + postId + "/edit";
+        }
+
+        return "redirect:/post/" + postId;
+    }
+
+    /**
+     * 게시글 삭제 요청 처리
+     */
+    @PostMapping("/post/{postId}/delete")
+    public String deletePost(@PathVariable("postId") Long postId,
+                             Principal principal, RedirectAttributes rttr) {
+        
+        Long userId = memberService.findByUserId(principal.getName()).getId();
+
+        try {
+            postService.deletePost(postId, userId);
+            rttr.addFlashAttribute("message", "게시글이 삭제되었습니다.");
+        } catch (Exception e) {
+            rttr.addFlashAttribute("error", "삭제 실패: " + e.getMessage());
+            return "redirect:/post/" + postId;
+        }
+
+        return "redirect:/";
+    }
 }

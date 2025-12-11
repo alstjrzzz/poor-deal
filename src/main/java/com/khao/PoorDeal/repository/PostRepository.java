@@ -20,6 +20,7 @@ public class PostRepository {
 	
 	public int selectPostCount() { return postMapper.selectPostCount(); }
 	public void update(Post post) { postMapper.update(post); }
+	public void delete(Long id) { postMapper.delete(id); }
 	public List<PostSummary> selectPagedPosts(int offset, int pagesize) { return postMapper.selectPagedPosts(offset, pagesize); }
 	public void insert(Post post) { postMapper.insert(post); }
 	public Optional<PostResponse> findById(Long id) { return postMapper.findById(id); }

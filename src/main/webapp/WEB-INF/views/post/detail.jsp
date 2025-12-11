@@ -9,6 +9,17 @@
     <meta charset="UTF-8">
     <title>${post.title}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .deleted-comment {
+            color: #999;
+            font-style: italic;
+        }
+        .modified-text {
+            font-size: 0.8em;
+            color: #aaa;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
 <div class="container mt-5 mb-5" style="max-width: 900px;">
@@ -37,7 +48,7 @@
             
             <c:if test="${not empty post.image}">
                 <div class="mb-3 text-center">
-                    <img src="${post.image}" class="img-fluid rounded" alt="게시글 이미지" style="max-height: 500px;">
+                    <img src="${post.image}?v=${post.updatedAt}" class="img-fluid rounded" alt="게시글 이미지" style="max-height: 500px;">
                 </div>
             </c:if>
             
@@ -46,28 +57,35 @@
     </div>
     
     <div class="d-flex justify-content-between mb-3">
-        <a href="/" class="btn btn-secondary">목록으로</a>
+        
+        <div>
+            <a href="/" class="btn btn-secondary">목록으로</a>
+
+            <sec:authorize access="isAuthenticated()">
+                <c:if test="${loginId == post.authorId}">
+                    <a href="/post/${post.id}/edit" class="btn btn-outline-primary ms-2">수정</a>
+                    <form action="/post/${post.id}/delete" method="post" style="display:inline;" onsubmit="return confirm('정말 게시글을 삭제하시겠습니까?');">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                        <button type="submit" class="btn btn-outline-danger ms-1">삭제</button>
+                    </form>
+                </c:if>
+            </sec:authorize>
+        </div>
 
         <sec:authorize access="isAuthenticated()">
-            <%-- [수정] 작성자가 아닐 경우에만 신청 버튼 표시 --%>
             <c:if test="${loginId != post.authorId}">
-                
                 <c:choose>
-                    <%-- 1. 이미 신청한 경우: 비활성화된 버튼 표시 --%>
                     <c:when test="${isApplied}">
-                         <button type="button" class="btn btn-secondary" disabled>
+                          <button type="button" class="btn btn-secondary" disabled>
                             ✅ 이미 요청을 보냈습니다
-                        </button>
+                         </button>
                     </c:when>
-                    
-                    <%-- 2. 신청하지 않은 경우: 정상 버튼 표시 --%>
                     <c:otherwise>
                         <c:if test="${post.type == 'TRADE'}">
                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#requestModal">
                                 💸 거래 요청하기
                             </button>
                         </c:if>
-                        
                         <c:if test="${post.type == 'JOB'}">
                             <c:if test="${post.filledCount < post.hiringQuota}">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#requestModal">
@@ -80,7 +98,6 @@
                         </c:if>
                     </c:otherwise>
                 </c:choose>
-                
             </c:if>
         </sec:authorize>
     </div>
@@ -109,16 +126,60 @@
     <c:forEach var="cr" items="${commentsAndReplies}">
         <div class="card mb-3 border-0">
             <div class="card-body border-bottom">
+                
                 <div class="d-flex justify-content-between">
-                    <strong>${cr.comment.author}</strong>
-                    <small class="text-muted">${cr.comment.createdAt}</small>
+                    <div>
+                        <strong>${cr.comment.author}</strong>
+                        <small class="text-muted ms-2">${cr.comment.createdAt}</small>
+                        <c:if test="${cr.comment.status == 'MODIFIED'}">
+                            <span class="modified-text">(수정됨)</span>
+                        </c:if>
+                    </div>
+                    
+                    <c:if test="${cr.comment.status != 'DELETED' and loginId == cr.comment.authorId}">
+                        <div>
+                            <button type="button" class="btn btn-link btn-sm text-decoration-none p-0 me-2" 
+                                    onclick="toggleEditForm('${cr.comment.id}')">수정</button>
+                            <form action="/comment/delete" method="post" style="display:inline;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                                <input type="hidden" name="commentId" value="${cr.comment.id}">
+                                <input type="hidden" name="postId" value="${post.id}">
+                                <button type="submit" class="btn btn-link btn-sm text-decoration-none text-danger p-0">삭제</button>
+                            </form>
+                        </div>
+                    </c:if>
                 </div>
-                <p class="mt-2 mb-2">${cr.comment.content}</p>
+
+                <div id="comment-view-${cr.comment.id}" class="mt-2 mb-2">
+                    <c:choose>
+                        <c:when test="${cr.comment.status == 'DELETED'}">
+                            <p class="deleted-comment mb-0">삭제된 댓글입니다.</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p class="mb-0" style="white-space: pre-wrap;">${cr.comment.content}</p>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
+                <div id="comment-edit-${cr.comment.id}" class="mt-2 mb-2" style="display:none;">
+                    <form action="/comment/update" method="post">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                        <input type="hidden" name="commentId" value="${cr.comment.id}">
+                        <input type="hidden" name="postId" value="${post.id}">
+                        <textarea class="form-control mb-2" name="content" rows="2" required>${cr.comment.content}</textarea>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="toggleEditForm('${cr.comment.id}')">취소</button>
+                            <button type="submit" class="btn btn-primary btn-sm">수정 완료</button>
+                        </div>
+                    </form>
+                </div>
                 
                 <sec:authorize access="isAuthenticated()">
-                    <button class="btn btn-outline-secondary btn-sm" type="button" onclick="toggleReplyForm('${cr.comment.id}')">
-                        답글 달기
-                    </button>
+                    <c:if test="${cr.comment.status != 'DELETED'}">
+                        <button class="btn btn-outline-secondary btn-sm" type="button" onclick="toggleReplyForm('${cr.comment.id}')">
+                            답글 달기
+                        </button>
+                    </c:if>
                 </sec:authorize>
 
                 <div id="replyForm-${cr.comment.id}" class="mt-3" style="display:none;">
@@ -139,10 +200,52 @@
                     <c:forEach var="reply" items="${cr.replies}">
                         <div class="border-bottom mb-2 pb-2">
                             <div class="d-flex justify-content-between">
-                                <strong>ㄴ ${reply.author}</strong>
-                                <small class="text-muted">${reply.createdAt}</small>
+                                <div>
+                                    <strong>ㄴ ${reply.author}</strong>
+                                    <small class="text-muted ms-2">${reply.createdAt}</small>
+                                    <c:if test="${reply.status == 'MODIFIED'}">
+                                        <span class="modified-text">(수정됨)</span>
+                                    </c:if>
+                                </div>
+                                
+                                <c:if test="${reply.status != 'DELETED' and loginId == reply.authorId}">
+                                    <div>
+                                        <button type="button" class="btn btn-link btn-sm text-decoration-none p-0 me-2" 
+                                                onclick="toggleEditForm('${reply.id}')">수정</button>
+                                        <form action="/comment/delete" method="post" style="display:inline;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                                            <input type="hidden" name="commentId" value="${reply.id}">
+                                            <input type="hidden" name="postId" value="${post.id}">
+                                            <button type="submit" class="btn btn-link btn-sm text-decoration-none text-danger p-0">삭제</button>
+                                        </form>
+                                    </div>
+                                </c:if>
                             </div>
-                            <p class="mb-0 mt-1">${reply.content}</p>
+
+                            <div id="comment-view-${reply.id}" class="mt-1">
+                                <c:choose>
+                                    <c:when test="${reply.status == 'DELETED'}">
+                                        <p class="deleted-comment mb-0">삭제된 댓글입니다.</p>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <p class="mb-0 mt-1" style="white-space: pre-wrap;">${reply.content}</p>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+
+                            <div id="comment-edit-${reply.id}" class="mt-1" style="display:none;">
+                                <form action="/comment/update" method="post">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                                    <input type="hidden" name="commentId" value="${reply.id}">
+                                    <input type="hidden" name="postId" value="${post.id}">
+                                    <textarea class="form-control mb-2" name="content" rows="2" required>${reply.content}</textarea>
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-secondary btn-sm" onclick="toggleEditForm('${reply.id}')">취소</button>
+                                        <button type="submit" class="btn btn-primary btn-sm">수정 완료</button>
+                                    </div>
+                                </form>
+                            </div>
+
                         </div>
                     </c:forEach>
                 </div>
@@ -157,7 +260,8 @@
             <form action="/mail/request" method="post">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 
-                <input type="hidden" name="receiverId" value="${post.authorId}"> <input type="hidden" name="postId" value="${post.id}">
+                <input type="hidden" name="receiverId" value="${post.authorId}"> 
+                <input type="hidden" name="postId" value="${post.id}">
                 
                 <c:choose>
                     <c:when test="${post.type == 'TRADE'}">
@@ -166,7 +270,8 @@
                     </c:when>
                     <c:when test="${post.type == 'JOB'}">
                         <input type="hidden" name="processType" value="RECRUIT">
-                        <input type="hidden" name="amount" value="0"> </c:when>
+                        <input type="hidden" name="amount" value="0"> 
+                    </c:when>
                 </c:choose>
 
                 <div class="modal-header">
@@ -206,6 +311,20 @@
             formDiv.style.display = 'block';
         } else {
             formDiv.style.display = 'none';
+        }
+    }
+
+    // 댓글/답글 수정 폼 토글 함수
+    function toggleEditForm(commentId) {
+        const viewDiv = document.getElementById('comment-view-' + commentId);
+        const editDiv = document.getElementById('comment-edit-' + commentId);
+
+        if (editDiv.style.display === 'none') {
+            editDiv.style.display = 'block';
+            viewDiv.style.display = 'none';
+        } else {
+            editDiv.style.display = 'none';
+            viewDiv.style.display = 'block';
         }
     }
     

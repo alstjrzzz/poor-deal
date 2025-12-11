@@ -16,5 +16,7 @@ public class Comment {
 	private Long parentId;
 	private Long authorId;
 	private String content;
+	private CommentStatus status;
+	private LocalDateTime updatedAt;
 	private LocalDateTime createdAt;
 }

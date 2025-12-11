@@ -18,4 +18,5 @@ public class PostSummary {
 	private String author;
 	private String type;
 	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 }

@@ -110,6 +110,25 @@ public class S3Service {
 
         } while (listResult.isTruncated());
     }
+    
+public void deleteFile(String path, Long postId, String imageUrl) {
+        
+        if (imageUrl == null || imageUrl.isEmpty()) {
+            return;
+        }
+
+        String extension = getFileExtension(imageUrl);
+        
+        String key = path + postId + extension;
+
+        try {
+            if (amazonS3Client.doesObjectExist(bucket, key)) {
+                amazonS3Client.deleteObject(bucket, key);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("S3 파일 삭제 중 오류가 발생했습니다.", e);
+        }
+    }
 
     public String getFileExtension(String fileName) {
 

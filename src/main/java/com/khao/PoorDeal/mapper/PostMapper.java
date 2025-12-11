@@ -15,6 +15,7 @@ public interface PostMapper {
 
 	public int selectPostCount();
 	public void update(Post post);
+	public void delete(Long id);
 	public List<PostSummary> selectPagedPosts(@Param("offset") int offset, @Param("limit") int limit);
 	public void insert(Post post);
 	public Optional<PostResponse> findById(Long id);
