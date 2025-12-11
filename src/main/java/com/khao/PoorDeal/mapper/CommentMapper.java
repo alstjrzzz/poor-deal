@@ -14,6 +14,7 @@ import com.khao.PoorDeal.dto.CommentResponse;
 public interface CommentMapper {
 
 	public void save(Comment comment);
+	void update(Comment comment);
 	public Optional<CommentResponse> findById(Long id);
 	public List<CommentResponse> findByParentIdAndParentType(
 			@Param("parentId") Long parentId, 

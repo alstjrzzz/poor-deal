@@ -19,6 +19,7 @@ public class CommentRepository {
 	private final CommentMapper commentMapper;
 	
 	public void save(Comment comment) { commentMapper.save(comment); }
+	public void update(Comment comment) { commentMapper.update(comment); }
 	public Optional<CommentResponse> findById(Long id) { return commentMapper.findById(id); }
 	public List<CommentResponse> findByParentIdAndParentType(Long parentId, ParentType parentType) {
 		return commentMapper.findByParentIdAndParentType(parentId, parentType); }
