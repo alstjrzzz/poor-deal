@@ -1,14 +1,23 @@
 package com.khao.PoorDeal.controller;
 
 import java.security.Principal;
+import java.util.List;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.khao.PoorDeal.domain.Member;
+import com.khao.PoorDeal.domain.MemberRole;
+import com.khao.PoorDeal.domain.ReportStatus;
+import com.khao.PoorDeal.dto.ReportRequest;
+import com.khao.PoorDeal.dto.ReportResponse;
+import com.khao.PoorDeal.repository.MemberRepository;
 import com.khao.PoorDeal.service.MemberService;
 import com.khao.PoorDeal.service.ReportService;
 
@@ -18,68 +27,84 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ReportController {
 
-	private final ReportService reportService;
-	private final MemberService memberService;
-	
-	/*
-	// 1. 신고 폼 페이지 이동 (GET)
-    // 예: /report/form?suspectId=5&postId=10
-    @GetMapping("/form")
+    private final ReportService reportService;
+    private final MemberService memberService;
+    private final MemberRepository memberRepository;
+
+    /**
+     * 신고 페이지 이동
+     */
+    @GetMapping("/report")
     public String showReportForm(
             @RequestParam("suspectId") Long suspectId,
             @RequestParam(value = "postId", required = false) Long postId,
             Model model) {
         
-        model.addAttribute("suspectId", suspectId);
-        model.addAttribute("postId", postId);
+        Member suspect = memberRepository.findById(suspectId)
+                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
+
+        model.addAttribute("suspectName", suspect.getUserName());
+        
+        ReportRequest reportRequest = ReportRequest.builder()
+                .suspectId(suspectId)
+                .postId(postId)
+                .build();
+        
+        model.addAttribute("reportRequest", reportRequest);
+        
         return "report/reportForm";
     }
 
-    // 2. 신고 제출 처리 (POST)
-    @PostMapping("/submit")
+    /**
+     * 신고 처리
+     */
+    @PostMapping("/report/submit")
     public String submitReport(
-            @ModelAttribute Report report,
+            @ModelAttribute ReportRequest reportRequest,
             Principal principal) {
         
-        // 로그인한 신고자 ID 설정
         Long reporterId = memberService.findByUserId(principal.getName()).getId();
-        report.setReporterId(reporterId);
+        reportRequest.setReporterId(reporterId);
         
-        reportService.submitReport(report);
+        reportService.submitReport(reportRequest);
         
-        return "redirect:/"; // 완료 후 메인이나 이전 페이지로 리다이렉트
+        return "redirect:/";
     }
 
-    // --- 관리자 기능 (AdminController로 분리하는 것이 좋음) ---
+    // --- 관리자 기능 ---
 
-    // 3. 신고 관리 페이지 (목록)
-    @GetMapping("/admin/list")
+    /**
+     * 신고 관리 페이지
+     */
+    @GetMapping("/admin/report/list")
     public String listReports(Principal principal, RedirectAttributes rttr, Model model) {
 
         Member member = memberService.findByUserId(principal.getName());
-    	
-        if (!"ADMIN".equals(member.getRole().toString())) { 
-            
-        	rttr.addFlashAttribute("errorMessage", "관리자만 접근할 수 있습니다.");
+        
+        // [수정] 문자열 비교 -> Enum 타입 비교
+        // member.getRole()은 이제 MemberRole 타입을 반환합니다.
+        if (member.getRole() != MemberRole.ROLE_ADMIN) { 
+            rttr.addFlashAttribute("errorMessage", "관리자만 접근할 수 있습니다.");
             return "redirect:/"; 
         }
 
-        model.addAttribute("reports", reportService.getAllReports());
-        return "admin/reportList";
+        List<ReportResponse> reports = reportService.getAllReports();
+        model.addAttribute("reports", reports);
+        
+        return "report/reportList";
     }
 
-    // 4. 신고 처리 (승인/반려)
-    @PostMapping("/admin/process")
+    /**
+     * 신고 처리 (승인/반려)
+     */
+    @PostMapping("/admin/report/process")
     public String processReport(
             @RequestParam("id") Long id,
             @RequestParam("status") String statusStr) {
         
-        ReportStatus status = ReportStatus.valueOf(statusStr); // 문자열 -> Enum 변환
+        ReportStatus status = ReportStatus.valueOf(statusStr);
         reportService.processReport(id, status);
         
-        return "redirect:/report/admin/list";
+        return "redirect:/admin/report/list";
     }
-    
-    // 5. 자기가 한 신고 보기
-	 */
 }

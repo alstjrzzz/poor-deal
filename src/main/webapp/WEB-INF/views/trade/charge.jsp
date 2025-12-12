@@ -3,102 +3,141 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>포인트 충전</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>포인트 충전 - PoorDeal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        body { background-color: #f5f6f8; font-family: 'Malgun Gothic', sans-serif; }
-        
-        .charge-container { 
+        body {
+            background-color: #f8f9fa;
+        }
+        .charge-container {
+            max-width: 480px;
+            margin: 60px auto;
+        }
+        .charge-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             background: white;
-            border: 1px solid #ddd; 
-            padding: 40px; 
-            width: 500px; 
-            margin: 50px auto; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            overflow: hidden;
+        }
+        .charge-header {
+            background-color: #fff;
+            padding: 2rem 2rem 1rem 2rem;
             text-align: center;
         }
-
-        .charge-header { margin-bottom: 30px; }
-        .charge-header h2 { margin: 0; color: #333; font-size: 24px; }
-        .charge-header p { color: #666; margin-top: 10px; font-size: 14px; }
-
-        /* 금액 선택 버튼 그리드 */
-        .amount-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 10px; 
-            margin-bottom: 20px; 
-        }
-        
         .btn-amount {
-            padding: 12px;
+            border: 1px solid #dee2e6;
             background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 15px;
-            color: #555;
-            transition: 0.2s;
+            color: #495057;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.2s;
         }
-        .btn-amount:hover { background-color: #f1f3f5; border-color: #c5c9cd; }
-        .btn-amount.active { background-color: #e3f2fd; border-color: #2196f3; color: #1976d2; font-weight: bold; }
-
-        /* 입력 폼 스타일 */
-        .input-group { margin-bottom: 25px; text-align: left; }
-        .input-group label { display: block; font-weight: bold; margin-bottom: 8px; color: #333; }
-        .input-group input { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #ccc; 
-            border-radius: 6px; 
-            box-sizing: border-box; 
-            font-size: 16px;
+        .btn-amount:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        /* 선택된 버튼 스타일 */
+        .btn-amount.active {
+            border-color: #0d6efd;
+            background-color: #e7f1ff;
+            color: #0d6efd;
+            font-weight: bold;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #0d6efd;
+        }
+        .input-group-text {
+            background-color: #f8f9fa;
+            border-right: none;
+        }
+        .form-control {
+            border-left: none;
             text-align: right;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
-        .input-group input:focus { outline: none; border-color: #2196f3; }
-
-        /* 하단 버튼 */
-        .btn-action { width: 100%; padding: 14px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin-bottom: 10px; }
-        .btn-primary { background-color: #007bff; color: white; }
-        .btn-primary:hover { background-color: #0069d9; }
-        .btn-secondary { background-color: #e9ecef; color: #495057; text-decoration: none; display: inline-block; box-sizing: border-box;}
-        .btn-secondary:hover { background-color: #dee2e6; }
-
+        /* 크롬 등에서 숫자 입력 화살표 제거 */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
     </style>
 </head>
 <body>
 
-<div class="charge-container">
-    
-    <div class="charge-header">
-        <h2>💰 포인트 충전</h2>
-        <p>서비스 이용을 위한 포인트를 충전합니다.</p>
+<div class="container charge-container">
+    <div class="charge-card">
+        
+        <div class="charge-header">
+            <div class="mb-3">
+                <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle" style="width: 60px; height: 60px;">
+                    <i class="bi bi-wallet2 fs-2"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold m-0">포인트 충전</h3>
+            <p class="text-muted small mt-2 mb-0">서비스 이용을 위한 포인트를 충전합니다.</p>
+        </div>
+
+        <div class="p-4">
+            <form action="/trade/charge" method="post" id="chargeForm">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
+                <div class="row g-2 mb-4">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-amount w-100" onclick="selectAmount(10000)">10,000원</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-amount w-100" onclick="selectAmount(30000)">30,000원</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-amount w-100" onclick="selectAmount(50000)">50,000원</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-amount w-100" onclick="selectAmount(100000)">100,000원</button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="amountInput" class="form-label text-muted small fw-bold">충전 금액 직접 입력</label>
+                    <div class="input-group input-group-lg border rounded-3 overflow-hidden">
+                        <span class="input-group-text border-0 text-muted">₩</span>
+                        <input type="number" id="amountInput" name="amount" class="form-control border-0" 
+                               placeholder="0" min="1000" step="1000" required>
+                        <span class="input-group-text border-0 bg-white">원</span>
+                    </div>
+                    <div class="form-text text-end mt-2" id="msgArea">
+                        최소 충전 금액은 1,000원입니다.
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg fw-bold shadow-sm">
+                        <i class="bi bi-lightning-charge-fill me-1"></i>충전하기
+                    </button>
+                    <a href="/" class="btn btn-light btn-lg text-secondary fw-bold">
+                        취소
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
-
-    <form action="/trade/charge" method="post" id="chargeForm">
-        <%-- CSRF 토큰 (Spring Security 사용 시 필수) --%>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-
-        <div class="amount-grid">
-            <button type="button" class="btn-amount" onclick="selectAmount(10000)">10,000원</button>
-            <button type="button" class="btn-amount" onclick="selectAmount(30000)">30,000원</button>
-            <button type="button" class="btn-amount" onclick="selectAmount(50000)">50,000원</button>
-            <button type="button" class="btn-amount" onclick="selectAmount(100000)">100,000원</button>
-        </div>
-
-        <div class="input-group">
-            <label for="amountInput">충전 금액</label>
-            <%-- name="amount"가 PointChargeRequest의 amount 필드와 매핑됩니다 --%>
-            <input type="number" id="amountInput" name="amount" placeholder="충전할 금액을 입력하세요" min="1000" step="1000" required>
-        </div>
-
-        <button type="submit" class="btn-action btn-primary">충전하기</button>
-        <a href="/" class="btn-action btn-secondary">취소</a>
-    </form>
-
+    
+    <div class="text-center mt-4 text-muted small">
+        <i class="bi bi-shield-check me-1"></i>안전한 결제를 위해 보안 연결을 사용합니다.
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     // 금액 버튼 클릭 시 input에 값 입력 및 스타일 변경 함수
@@ -112,6 +151,7 @@
         buttons.forEach(btn => {
             // 버튼 텍스트에서 콤마와 '원'을 제거하고 숫자만 비교
             const btnValue = parseInt(btn.innerText.replace(/[^0-9]/g, ''));
+            
             if (btnValue === value) {
                 btn.classList.add('active');
             } else {

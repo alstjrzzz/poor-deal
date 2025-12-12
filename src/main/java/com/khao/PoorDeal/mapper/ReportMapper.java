@@ -7,13 +7,13 @@ import org.apache.ibatis.annotations.Param;
 
 import com.khao.PoorDeal.domain.Report;
 import com.khao.PoorDeal.domain.ReportStatus;
+import com.khao.PoorDeal.dto.ReportResponse;
 
 @Mapper
 public interface ReportMapper {
-
-    public void save(Report report);
-    public List<Report> findAll();
-    public List<Report> findByReporterId(Long reporterId);
-    public Report findById(Long id);
-    public void updateStatus(@Param("id") Long id, @Param("status") ReportStatus status);
+	
+    void save(Report report);
+    List<ReportResponse> findAllResponses();
+    Report findById(Long id);
+    void updateStatus(@Param("id") Long id, @Param("status") ReportStatus status);
 }
