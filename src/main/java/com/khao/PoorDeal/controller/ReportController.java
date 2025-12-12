@@ -56,17 +56,23 @@ public class ReportController {
     }
 
     /**
-     * 신고 처리
+     * 신고 처리 (사용자)
      */
     @PostMapping("/report/submit")
     public String submitReport(
             @ModelAttribute ReportRequest reportRequest,
-            Principal principal) {
+            Principal principal,
+            RedirectAttributes rttr) { // [수정] RedirectAttributes 추가
         
         Long reporterId = memberService.findByUserId(principal.getName()).getId();
         reportRequest.setReporterId(reporterId);
         
-        reportService.submitReport(reportRequest);
+        try {
+            reportService.submitReport(reportRequest);
+            rttr.addFlashAttribute("message", "🚨 신고가 정상적으로 접수되었습니다. 관리자 검토 후 처리됩니다.");
+        } catch (Exception e) {
+            rttr.addFlashAttribute("error", "신고 접수 중 오류가 발생했습니다.");
+        }
         
         return "redirect:/";
     }
@@ -74,17 +80,15 @@ public class ReportController {
     // --- 관리자 기능 ---
 
     /**
-     * 신고 관리 페이지
+     * 신고 관리 페이지 (관리자)
      */
     @GetMapping("/admin/report/list")
     public String listReports(Principal principal, RedirectAttributes rttr, Model model) {
 
         Member member = memberService.findByUserId(principal.getName());
         
-        // [수정] 문자열 비교 -> Enum 타입 비교
-        // member.getRole()은 이제 MemberRole 타입을 반환합니다.
         if (member.getRole() != MemberRole.ROLE_ADMIN) { 
-            rttr.addFlashAttribute("errorMessage", "관리자만 접근할 수 있습니다.");
+            rttr.addFlashAttribute("error", "관리자만 접근할 수 있습니다.");
             return "redirect:/"; 
         }
 
@@ -95,15 +99,27 @@ public class ReportController {
     }
 
     /**
-     * 신고 처리 (승인/반려)
+     * 신고 상태 변경 (관리자)
      */
     @PostMapping("/admin/report/process")
     public String processReport(
             @RequestParam("id") Long id,
-            @RequestParam("status") String statusStr) {
+            @RequestParam("status") String statusStr,
+            RedirectAttributes rttr) { // [수정] RedirectAttributes 추가
         
-        ReportStatus status = ReportStatus.valueOf(statusStr);
-        reportService.processReport(id, status);
+        try {
+            ReportStatus status = ReportStatus.valueOf(statusStr);
+            reportService.processReport(id, status);
+            
+            String msg = "신고 처리 완료";
+            if(status == ReportStatus.APPROVED) msg += " (승인/제재)";
+            else if(status == ReportStatus.REJECTED) msg += " (반려)";
+            
+            rttr.addFlashAttribute("message", "✅ " + msg + " 되었습니다.");
+            
+        } catch (Exception e) {
+            rttr.addFlashAttribute("error", "처리 중 오류가 발생했습니다: " + e.getMessage());
+        }
         
         return "redirect:/admin/report/list";
     }

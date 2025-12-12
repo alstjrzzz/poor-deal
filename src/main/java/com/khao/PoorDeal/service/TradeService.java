@@ -18,7 +18,7 @@ public class TradeService {
 	private final MemberRepository memberRepository;
 	
 	@Transactional
-	public void chargePoint(Long memberId, Integer amount) {
+	public void chargePoint(Long memberId, Long amount) {
 		
 		if (amount == null || amount <= 0) {
             throw new IllegalArgumentException("충전 금액은 0보다 커야 합니다.");

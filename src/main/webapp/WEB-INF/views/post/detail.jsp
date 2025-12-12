@@ -12,67 +12,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .main-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .post-card {
-            border: none;
-            border-radius: 1rem;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-            background: white;
-            overflow: hidden;
-        }
-        .post-header {
-            background-color: #fff;
-            padding: 2rem 2rem 1rem 2rem;
-            border-bottom: 1px solid #f1f3f5;
-        }
-        .post-body {
-            padding: 2rem;
-            min-height: 200px;
-        }
-        .comment-section {
-            margin-top: 2rem;
-        }
-        .comment-card {
-            border: none;
-            background: #fff;
-            border-radius: 0.75rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .reply-card {
-            background: #f8f9fa;
-            border-radius: 0.75rem;
-            margin-left: 3rem;
-            margin-top: 0.5rem;
-            padding: 1rem;
-            border-left: 3px solid #dee2e6;
-        }
-        .deleted-comment {
-            color: #adb5bd;
-            font-style: italic;
-        }
-        .modified-text {
-            font-size: 0.75rem;
-            color: #adb5bd;
-            margin-left: 5px;
-        }
-        .profile-icon {
-            width: 35px;
-            height: 35px;
-            background-color: #e9ecef;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #495057;
-            font-weight: bold;
-        }
+        body { background-color: #f8f9fa; }
+        .main-container { max-width: 900px; margin: 0 auto; }
+        .post-card { border: none; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05); background: white; overflow: hidden; }
+        .post-header { background-color: #fff; padding: 2rem 2rem 1rem 2rem; border-bottom: 1px solid #f1f3f5; }
+        .post-body { padding: 2rem; min-height: 200px; }
+        .comment-section { margin-top: 2rem; }
+        .comment-card { border: none; background: #fff; border-radius: 0.75rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .reply-card { background: #f8f9fa; border-radius: 0.75rem; margin-left: 3rem; margin-top: 0.5rem; padding: 1rem; border-left: 3px solid #dee2e6; }
+        .deleted-comment { color: #adb5bd; font-style: italic; }
+        .modified-text { font-size: 0.75rem; color: #adb5bd; margin-left: 5px; }
+        .profile-icon { width: 35px; height: 35px; background-color: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #495057; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -82,13 +32,31 @@
     <div class="post-card mb-4">
         <div class="post-header">
             <div class="d-flex align-items-center mb-2">
+                <%-- 카테고리 배지 --%>
                 <c:choose>
-                    <c:when test="${post.type == 'TRADE'}"><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-3">거래</span></c:when>
-                    <c:when test="${post.type == 'JOB'}"><span class="badge bg-warning bg-opacity-10 text-dark border border-warning border-opacity-25 rounded-pill px-3">구인</span></c:when>
-                    <c:otherwise><span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 rounded-pill px-3">자유</span></c:otherwise>
+                    <c:when test="${post.type == 'TRADE'}"><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-3 me-1">거래</span></c:when>
+                    <c:when test="${post.type == 'JOB'}"><span class="badge bg-warning bg-opacity-10 text-dark border border-warning border-opacity-25 rounded-pill px-3 me-1">구인</span></c:when>
+                    <c:otherwise><span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 rounded-pill px-3 me-1">자유</span></c:otherwise>
                 </c:choose>
+
+                <%-- [추가] 판매 상태 배지 (TRADE, JOB 타입일 때만 표시) --%>
+                <c:if test="${post.type == 'TRADE' or post.type == 'JOB'}">
+                    <c:choose>
+                        <c:when test="${post.available}">
+                            <span class="badge bg-primary rounded-pill">판매중</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="badge bg-secondary rounded-pill">
+                                <c:if test="${post.type == 'TRADE'}">거래완료</c:if>
+                                <c:if test="${post.type == 'JOB'}">마감됨</c:if>
+                            </span>
+                        </c:otherwise>
+                    </c:choose>
+                </c:if>
+
                 <span class="text-muted ms-auto small"><i class="bi bi-clock me-1"></i>${fn:substring(fn:replace(post.createdAt, 'T', ' '), 0, 16)}</span>
             </div>
+            
             <h2 class="fw-bold mb-3 text-break">${post.title}</h2>
             
             <div class="d-flex align-items-center text-muted">
@@ -123,7 +91,13 @@
     <div class="d-flex justify-content-between align-items-center mb-5">
         
         <div class="d-flex gap-2">
-            <a href="/" class="btn btn-secondary rounded-pill px-4">
+            <c:url var="listUrl" value="/">
+                <c:param name="page" value="${currentPage}"/>
+                <c:if test="${not empty searchCondition.type}"><c:param name="type" value="${searchCondition.type}"/></c:if>
+                <c:if test="${not empty searchCondition.keyword}"><c:param name="keyword" value="${searchCondition.keyword}"/></c:if>
+            </c:url>
+
+            <a href="${listUrl}" class="btn btn-secondary rounded-pill px-4">
                 <i class="bi bi-list me-1"></i> 목록
             </a>
 
@@ -132,9 +106,10 @@
                     <a href="/post/${post.id}/edit" class="btn btn-outline-primary rounded-pill px-3">
                         <i class="bi bi-pencil-square"></i> 수정
                     </a>
-                    <form action="/post/${post.id}/delete" method="post" style="display:inline;" onsubmit="return confirm('정말 게시글을 삭제하시겠습니까?');">
+                    
+                    <form id="deleteForm" action="/post/${post.id}/delete" method="post" style="display:inline;">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-                        <button type="submit" class="btn btn-outline-danger rounded-pill px-3">
+                        <button type="button" class="btn btn-outline-danger rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
                             <i class="bi bi-trash"></i> 삭제
                         </button>
                     </form>
@@ -149,12 +124,25 @@
                         🚨 신고
                     </a>
 
+                    <%-- [수정] 판매 상태(available)에 따른 버튼 표시 로직 --%>
                     <c:choose>
+                        <%-- 1. 이미 요청을 보낸 경우 --%>
                         <c:when test="${isApplied}">
                               <button type="button" class="btn btn-secondary rounded-pill px-3" disabled>
                                 <i class="bi bi-check-circle-fill me-1"></i> 요청 완료
                               </button>
                         </c:when>
+                        
+                        <%-- 2. 요청하지 않았지만, 판매/모집이 종료된 경우 --%>
+                        <c:when test="${!post.available}">
+                            <button type="button" class="btn btn-secondary rounded-pill px-3" disabled>
+                                <c:if test="${post.type == 'TRADE'}">거래 완료됨</c:if>
+                                <c:if test="${post.type == 'JOB'}">마감됨</c:if>
+                                <c:if test="${post.type == 'FREE'}">종료됨</c:if> <%-- Free는 보통 해당없음 --%>
+                            </button>
+                        </c:when>
+
+                        <%-- 3. 판매 중이고 요청 가능한 경우 --%>
                         <c:otherwise>
                             <c:if test="${post.type == 'TRADE'}">
                                 <button type="button" class="btn btn-success rounded-pill px-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#requestModal">
@@ -162,13 +150,14 @@
                                 </button>
                             </c:if>
                             <c:if test="${post.type == 'JOB'}">
+                                <%-- JOB은 인원이 꽉 찼는지 한 번 더 체크 --%>
                                 <c:if test="${post.filledCount < post.hiringQuota}">
                                     <button type="button" class="btn btn-primary rounded-pill px-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#requestModal">
                                         🤝 구직 신청
                                     </button>
                                 </c:if>
                                 <c:if test="${post.filledCount >= post.hiringQuota}">
-                                    <button type="button" class="btn btn-secondary rounded-pill px-3" disabled>마감됨</button>
+                                    <button type="button" class="btn btn-secondary rounded-pill px-3" disabled>인원 마감</button>
                                 </c:if>
                             </c:if>
                         </c:otherwise>
@@ -343,7 +332,6 @@
         <div class="modal-content border-0 shadow">
             <form action="/mail/request" method="post">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-                
                 <input type="hidden" name="receiverId" value="${post.authorId}"> 
                 <input type="hidden" name="postId" value="${post.id}">
                 
@@ -385,16 +373,54 @@
     </div>
 </div>
 
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-danger bg-opacity-10 border-bottom-0">
+                <h5 class="modal-title text-danger fw-bold" id="deleteModalLabel">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>게시글 삭제
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4 text-center">
+                <p class="mb-0 fs-5 text-dark">정말 게시글을 삭제하시겠습니까?</p>
+                <p class="text-muted small mt-2">삭제된 게시글은 복구할 수 없습니다.</p>
+            </div>
+            <div class="modal-footer border-top-0 justify-content-center pb-4">
+                <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-danger rounded-pill px-4" onclick="document.getElementById('deleteForm').submit();">
+                    삭제하기
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <c:if test="${not empty message}">
+        <div id="successToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold"><i class="bi bi-check-circle-fill me-2"></i> ${message}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </c:if>
+    <c:if test="${not empty error}">
+        <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold"><i class="bi bi-exclamation-triangle-fill me-2"></i> ${error}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </c:if>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     function toggleReplyForm(commentId) {
         const formDiv = document.getElementById('replyForm-' + commentId);
-        if (formDiv.style.display === 'none') {
-            formDiv.style.display = 'block';
-        } else {
-            formDiv.style.display = 'none';
-        }
+        formDiv.style.display = (formDiv.style.display === 'none') ? 'block' : 'none';
     }
 
     function toggleEditForm(commentId) {
@@ -410,13 +436,15 @@
         }
     }
     
-    <c:if test="${not empty errorMessage}">
-        alert("⚠️ 오류: ${errorMessage}");
-    </c:if>
-    
-    <c:if test="${not empty message}">
-        alert("${message}");
-    </c:if>
+    // Toast Alert Activation
+    document.addEventListener('DOMContentLoaded', function () {
+        <c:if test="${not empty message}">
+            new bootstrap.Toast(document.getElementById('successToast'), { delay: 3000 }).show();
+        </c:if>
+        <c:if test="${not empty error}">
+            new bootstrap.Toast(document.getElementById('errorToast'), { delay: 5000 }).show();
+        </c:if>
+    });
 </script>
 </body>
 </html>

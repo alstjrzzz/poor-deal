@@ -12,56 +12,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .main-container {
-            max-width: 900px;
-            margin: 50px auto;
-        }
-        .mail-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            background: white;
-            overflow: hidden;
-        }
-        .table thead th {
-            background-color: #f1f3f5;
-            border-bottom: 2px solid #dee2e6;
-            font-weight: 600;
-            color: #495057;
-            text-align: center;
-            vertical-align: middle;
-        }
-        .table tbody td {
-            vertical-align: middle;
-        }
-        .mail-link {
-            display: block;
-            color: #212529;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .mail-link:hover {
-            color: #0d6efd;
-        }
-        .pagination .page-link {
-            border: none;
-            color: #495057;
-            margin: 0 3px;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .pagination .page-item.active .page-link {
-            background-color: #0d6efd;
-            color: white;
-            font-weight: bold;
-        }
+        body { background-color: #f8f9fa; }
+        .main-container { max-width: 900px; margin: 50px auto; }
+        .mail-card { border: none; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); background: white; overflow: hidden; }
+        .table thead th { background-color: #f1f3f5; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057; text-align: center; vertical-align: middle; }
+        .table tbody td { vertical-align: middle; }
+        .mail-link { display: block; color: #212529; text-decoration: none; font-weight: 500; }
+        .mail-link:hover { color: #0d6efd; }
+        .pagination .page-link { border: none; color: #495057; margin: 0 3px; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
+        .pagination .page-item.active .page-link { background-color: #0d6efd; color: white; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -85,21 +44,12 @@
     </div>
 
     <div class="mail-card">
-        
-        <c:if test="${not empty message}">
-            <div class="alert alert-success m-3 d-flex align-items-center py-2" role="alert">
-                <i class="bi bi-check-circle-fill me-2"></i>
-                <div>${message}</div>
-            </div>
-        </c:if>
-
         <div class="table-responsive">
             <table class="table table-hover mb-0">
                 <thead>
                     <tr style="height: 45px;">
-                        <th style="width: 8%">번호</th>
-                        <th style="width: 12%">구분</th>
-                        <th style="width: 40%">제목</th>
+                        <th style="width: 15%">구분</th>
+                        <th style="width: 45%">제목</th>
                         <th style="width: 25%">상대방</th>
                         <th style="width: 15%">날짜</th>
                     </tr>
@@ -108,7 +58,7 @@
                     <c:choose>
                         <c:when test="${empty mailList}">
                             <tr>
-                                <td colspan="5" class="text-center py-5 text-muted">
+                                <td colspan="4" class="text-center py-5 text-muted">
                                     <div class="py-4">
                                         <i class="bi bi-envelope-open fs-1 d-block mb-3 opacity-50"></i>
                                         주고받은 쪽지가 없습니다.
@@ -119,37 +69,23 @@
                         <c:otherwise>
                             <c:forEach var="mail" items="${mailList}">
                                 <tr>
-                                    <td class="text-center text-secondary small">${mail.id}</td>
-                                    
                                     <td class="text-center">
                                         <c:choose>
-                                            <c:when test="${mail.processType == 'TRADE'}">
-                                                <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-2">🛒 거래</span>
-                                            </c:when>
-                                            <c:when test="${mail.processType == 'RECRUIT'}">
-                                                <span class="badge bg-warning bg-opacity-10 text-dark border border-warning border-opacity-25 rounded-pill px-2">🤝 구인</span>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <span class="badge bg-light text-secondary border px-2">📢 일반</span>
-                                            </c:otherwise>
+                                            <c:when test="${mail.processType == 'TRADE'}"><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-2">🛒 거래</span></c:when>
+                                            <c:when test="${mail.processType == 'RECRUIT'}"><span class="badge bg-warning bg-opacity-10 text-dark border border-warning border-opacity-25 rounded-pill px-2">🤝 구인</span></c:when>
+                                            <c:otherwise><span class="badge bg-light text-secondary border px-2">📢 일반</span></c:otherwise>
                                         </c:choose>
                                     </td>
-
                                     <td>
                                         <a href="/mail/${mail.id}" class="mail-link text-truncate" style="max-width: 300px;">
-                                            <c:if test="${mail.senderId == loginId}">
-                                                <span class="badge bg-secondary me-1" style="font-size: 0.7rem;">MY</span>
-                                            </c:if>
+                                            <c:if test="${mail.senderId == loginId}"><span class="badge bg-secondary me-1" style="font-size: 0.7rem;">MY</span></c:if>
                                             ${mail.title}
                                         </a>
                                     </td>
-
                                     <td class="text-center">
                                         <c:choose>
                                             <c:when test="${mail.senderId == loginId}">
-                                                <span class="text-muted small">
-                                                    <i class="bi bi-arrow-right-short text-primary"></i> ${mail.receiver}
-                                                </span>
+                                                <span class="text-muted small"><i class="bi bi-arrow-right-short text-primary"></i> ${mail.receiver}</span>
                                             </c:when>
                                             <c:otherwise>
                                                 <div class="d-flex align-items-center justify-content-center">
@@ -159,7 +95,6 @@
                                             </c:otherwise>
                                         </c:choose>
                                     </td>
-
                                     <td class="text-center text-muted small">
                                         ${fn:substring(fn:replace(mail.createdAt, 'T', ' '), 0, 16)}
                                     </td>
@@ -175,34 +110,58 @@
             <div class="p-3 border-top">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center mb-0">
-                        
                         <li class="page-item ${currentPage == 1 ? 'disabled' : ''}">
                             <a class="page-link shadow-sm" href="/mail?page=1" aria-label="First">
                                 <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                             </a>
                         </li>
-
                         <c:forEach begin="${startPage}" end="${endPage}" var="p">
                             <li class="page-item ${p == currentPage ? 'active' : ''}">
                                 <a class="page-link shadow-sm" href="/mail?page=${p}">${p}</a>
                             </li>
                         </c:forEach>
-
                         <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
                             <a class="page-link shadow-sm" href="/mail?page=${totalPages}" aria-label="Last">
                                 <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                             </a>
                         </li>
-                        
                     </ul>
                 </nav>
             </div>
         </c:if>
-
     </div>
 </div>
 
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <c:if test="${not empty message}">
+        <div id="successToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold"><i class="bi bi-check-circle-fill me-2"></i> ${message}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </c:if>
+    <c:if test="${not empty error}">
+        <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold"><i class="bi bi-exclamation-triangle-fill me-2"></i> ${error}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </c:if>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        <c:if test="${not empty message}">
+            new bootstrap.Toast(document.getElementById('successToast'), { delay: 3000 }).show();
+        </c:if>
+        <c:if test="${not empty error}">
+            new bootstrap.Toast(document.getElementById('errorToast'), { delay: 5000 }).show();
+        </c:if>
+    });
+</script>
 
 </body>
 </html>

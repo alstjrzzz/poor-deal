@@ -9,43 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .main-container {
-            max-width: 600px;
-            margin: 50px auto;
-        }
-        .report-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(220, 53, 69, 0.1);
-            background: white;
-            overflow: hidden;
-        }
-        .report-header {
-            background-color: #fff;
-            padding: 2rem 2rem 1rem 2rem;
-            text-align: center;
-        }
-        .form-label {
-            font-weight: 600;
-            color: #495057;
-            font-size: 0.95rem;
-        }
-        .input-group-text {
-            background-color: #f8f9fa;
-            border-right: none;
-            color: #6c757d;
-        }
-        .form-control:focus {
-            border-color: #e6b0b6;
-            box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
-        }
-        .readonly-input {
-            background-color: #e9ecef !important;
-            color: #495057;
-        }
+        body { background-color: #f8f9fa; }
+        .main-container { max-width: 600px; margin: 50px auto; }
+        .report-card { border: none; border-radius: 15px; box-shadow: 0 4px 20px rgba(220, 53, 69, 0.1); background: white; overflow: hidden; }
+        .report-header { background-color: #fff; padding: 2rem 2rem 1rem 2rem; text-align: center; }
+        .form-label { font-weight: 600; color: #495057; font-size: 0.95rem; }
+        .input-group-text { background-color: #f8f9fa; border-right: none; color: #6c757d; }
+        .form-control:focus { border-color: #e6b0b6; box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
+        .readonly-input { background-color: #e9ecef !important; color: #495057; }
     </style>
 </head>
 <body>
@@ -120,7 +91,27 @@
     </div>
 </div>
 
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <c:if test="${not empty error}">
+        <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i> ${error}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </c:if>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        <c:if test="${not empty error}">
+            new bootstrap.Toast(document.getElementById('errorToast'), { delay: 5000 }).show();
+        </c:if>
+    });
+</script>
 
 </body>
 </html>

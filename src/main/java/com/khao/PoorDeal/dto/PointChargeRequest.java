@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class PointChargeRequest {
 
-	private Integer amount;
+	private Long amount;
 }

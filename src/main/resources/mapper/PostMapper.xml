@@ -2,9 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.khao.PoorDeal.mapper.PostMapper">
 
+    <sql id="search">
+        <if test="condition.type != null">
+            AND P.type = #{condition.type}
+        </if>
+        
+        <if test="condition.keyword != null and condition.keyword != ''">
+            AND (
+                P.title LIKE '%' || #{condition.keyword} || '%'
+                OR 
+                P.content LIKE '%' || #{condition.keyword} || '%'
+            )
+        </if>
+    </sql>
+
     <select id="selectPostCount" resultType="int">
-        SELECT COUNT(id) FROM POSTS WHERE is_deleted = 0
-    </select>
+        SELECT COUNT(P.id) 
+        FROM POSTS P
+        WHERE P.is_deleted = 0
+        <include refid="search"/> </select>
     
     <update id="update" parameterType="com.khao.PoorDeal.domain.Post">
         UPDATE POSTS
@@ -35,7 +51,8 @@
             P.updated_at AS updatedAt 
         FROM POSTS P
         INNER JOIN MEMBERS M ON P.author_id = M.id 
-        WHERE P.is_deleted = 0  ORDER BY P.id DESC
+        WHERE P.is_deleted = 0 
+        <include refid="search"/> ORDER BY P.id DESC
         OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY
     </select>
     

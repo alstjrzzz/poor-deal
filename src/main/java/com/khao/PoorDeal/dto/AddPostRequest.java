@@ -16,5 +16,5 @@ public class AddPostRequest {
 	private MultipartFile image;
 	private String type;
 	private Long price;
-	private int hiringQuota;
+	private Integer hiringQuota;
 }
