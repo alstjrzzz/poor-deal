@@ -1,0 +1,7 @@
+<map id="src/main/java/com/khao/PoorDeal/dto/ProcessActionRequest.java" name="src/main/java/com/khao/PoorDeal/dto/ProcessActionRequest.java">
+<area shape="rect" id="Node000001" title="프로세스(거래, 구인) 내 특정 액션 요청 시 사용되는 DTO 클래스입니다." alt="" coords="5,5,273,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="25,96,128,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,47,97,85,94,82,121,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,96,254,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,46,186,84,181,83,154,51"/>
+</map>

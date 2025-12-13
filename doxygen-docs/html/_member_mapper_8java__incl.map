@@ -1,0 +1,11 @@
+<map id="src/main/java/com/khao/PoorDeal/mapper/MemberMapper.java" name="src/main/java/com/khao/PoorDeal/mapper/MemberMapper.java">
+<area shape="rect" id="Node000001" title="회원 데이터베이스 연동을 위한 MyBatis 매퍼 인터페이스입니다." alt="" coords="231,5,479,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,104,124,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="288,51,122,102,120,96,286,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="148,96,344,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="332,47,285,88,282,84,327,49"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="368,96,564,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="382,46,431,86,425,86,380,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="587,96,774,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="432,46,592,91,587,92,431,51"/>
+</map>

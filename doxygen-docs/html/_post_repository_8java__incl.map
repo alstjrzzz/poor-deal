@@ -1,0 +1,21 @@
+<map id="src/main/java/com/khao/PoorDeal/repository/PostRepository.java" name="src/main/java/com/khao/PoorDeal/repository/PostRepository.java">
+<area shape="rect" id="Node000001" title="게시물 데이터 처리를 위한 레포지토리 클래스입니다. PostMapper를 사용하여 데이터베이스와 연동합니다." alt="" coords="698,5,959,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,104,97,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="694,32,573,40,425,52,267,71,110,99,99,101,97,96,109,93,266,66,425,47,572,35,700,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,104,240,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="694,38,488,62,370,78,253,99,236,102,235,97,252,93,369,73,487,57,700,37"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="264,96,472,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="723,48,489,96,488,90,718,49"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="496,104,710,131"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="778,48,650,100,649,95,773,49"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="734,96,923,139"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="830,46,830,82,826,79,826,50"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="947,96,1136,139"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="879,46,980,90,975,89,878,51"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1160,96,1350,139"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="929,46,1148,93,1142,93,928,51"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1373,96,1561,139"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="960,40,1145,62,1361,96,1355,95,1144,68,959,45"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1585,104,1800,131"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="959,34,1242,58,1573,93,1610,101,1604,101,1572,99,1241,63,959,40"/>
+</map>

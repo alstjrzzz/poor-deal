@@ -1,0 +1,13 @@
+<map id="src/main/java/com/khao/PoorDeal/dto/StartProcessRequest.java" name="src/main/java/com/khao/PoorDeal/dto/StartProcessRequest.java">
+<area shape="rect" id="Node000001" title="새로운 프로세스(거래, 구인) 시작 요청 시 사용되는 DTO 클래스입니다." alt="" coords="370,5,628,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,104,172,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="403,51,163,103,161,98,402,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="195,96,382,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="452,48,353,92,351,87,447,49"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="406,96,592,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="501,46,501,82,497,79,497,50"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="617,104,720,131"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="540,46,634,97,628,96,538,51"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="744,104,846,131"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="572,46,733,93,744,99,739,99,732,99,571,51"/>
+</map>

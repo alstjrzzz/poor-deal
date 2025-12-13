@@ -1,0 +1,23 @@
+<map id="src/main/java/com/khao/PoorDeal/repository/MailRepository.java" name="src/main/java/com/khao/PoorDeal/repository/MailRepository.java">
+<area shape="rect" id="Node000001" title="쪽지 데이터 처리를 위한 레포지토리 클래스입니다. MailMapper를 사용하여 데이터베이스와 연동합니다." alt="" coords="802,5,1060,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,104,97,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="799,29,658,36,485,48,297,67,110,99,99,101,97,96,109,93,296,62,484,42,658,31,804,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,104,240,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="799,35,546,58,399,75,253,99,236,102,235,97,252,93,398,70,546,52,804,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="264,96,459,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="804,46,475,98,475,93,799,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="483,96,691,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="853,48,683,94,682,89,848,49"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="715,104,926,131"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="908,48,849,97,847,92,903,49"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="950,96,1136,139"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="958,46,1007,87,1002,85,956,51"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1160,96,1347,139"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1007,46,1166,92,1161,91,1006,51"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1371,96,1560,139"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1061,45,1358,95,1353,96,1060,50"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1584,96,1771,139"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1060,36,1293,59,1571,96,1566,96,1293,64,1060,41"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1796,104,2010,131"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1061,32,1389,55,1586,72,1783,93,1821,101,1816,101,1783,99,1586,77,1389,60,1060,38"/>
+</map>

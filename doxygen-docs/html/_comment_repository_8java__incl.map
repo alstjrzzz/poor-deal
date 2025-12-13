@@ -1,0 +1,19 @@
+<map id="src/main/java/com/khao/PoorDeal/repository/CommentRepository.java" name="src/main/java/com/khao/PoorDeal/repository/CommentRepository.java">
+<area shape="rect" id="Node000001" title="댓글 데이터 처리를 위한 레포지토리 클래스입니다. CommentMapper를 사용하여 데이터베이스와 연동합니다." alt="" coords="594,5,796,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,120,97,147"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="591,44,371,69,240,89,110,115,99,117,98,112,109,109,239,83,370,64,597,42"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,120,240,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="591,51,433,79,253,115,238,118,237,113,252,109,432,74,596,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="264,112,472,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="601,64,454,110,453,104,595,65"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="496,112,683,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="666,63,624,104,622,99,661,65"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="707,112,894,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="727,62,770,103,765,101,725,67"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="917,112,1137,155"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="794,62,944,107,939,107,793,67"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1161,112,1349,155"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="796,50,1149,111,1143,112,796,55"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1373,120,1588,147"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="796,43,1053,71,1361,109,1396,117,1391,117,1360,115,1052,76,796,49"/>
+</map>
