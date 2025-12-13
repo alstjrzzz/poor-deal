@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,63 +12,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .main-container {
-            max-width: 800px;
-            margin: 50px auto;
-        }
-        .detail-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            background: white;
-            overflow: hidden;
-        }
-        .card-header-custom {
-            background-color: #fff;
-            border-bottom: 1px solid #f1f3f5;
-            padding: 1.5rem;
-        }
-        .info-grid {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        .content-box {
-            min-height: 150px;
-            white-space: pre-wrap;
-            line-height: 1.6;
-            color: #333;
-            padding: 1rem;
-        }
-        .action-card {
-            background-color: #eff6ff; /* 아주 연한 파란색 */
-            border: 1px solid #dbeafe;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-        .guide-text {
-            color: #1e40af;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-        .form-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #495057;
-        }
+        body { background-color: #f8f9fa; }
+        .main-container { max-width: 800px; margin: 50px auto; }
+        .detail-card { border: none; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); background: white; overflow: hidden; }
+        .card-header-custom { background-color: #fff; border-bottom: 1px solid #f1f3f5; padding: 1.5rem; }
+        .info-grid { background-color: #f8f9fa; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.5rem; }
+        .content-box { min-height: 150px; white-space: pre-wrap; line-height: 1.6; color: #333; padding: 1rem; }
+        .action-card { background-color: #eff6ff; border: 1px solid #dbeafe; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; }
+        .guide-text { color: #1e40af; font-weight: 500; margin-bottom: 1rem; font-size: 0.95rem; }
+        .form-label { font-size: 0.9rem; font-weight: 600; color: #495057; }
     </style>
 </head>
 <body>
 
 <div class="container main-container">
 
-    <%-- 1. 상태 코드를 한글로 변환하는 로직 (기존 유지) --%>
+    <%-- 상태 코드 변환 및 배지 색상 로직 (기존 유지) --%>
     <c:set var="statusKorean">
         <c:choose>
             <c:when test="${mail.processStatus == 'TRADE_REQUEST_PENDING'}">구매자 요청 대기</c:when>
@@ -76,17 +36,14 @@
             <c:when test="${mail.processStatus == 'TRADE_REJECTED'}">거래 거절됨</c:when>
             <c:when test="${mail.processStatus == 'TRADE_TRANSFER_PENDING'}">송금 대기 중</c:when>
             <c:when test="${mail.processStatus == 'TRADE_PROCESS_COMPLETED'}">거래 완료 🎉</c:when>
-            
             <c:when test="${mail.processStatus == 'RECRUIT_REQUEST_PENDING'}">구직 요청 대기</c:when>
             <c:when test="${mail.processStatus == 'RECRUIT_ACCEPTED'}">채용 수락됨 ✅</c:when>
             <c:when test="${mail.processStatus == 'RECRUIT_REJECTED'}">채용 거절됨 ❌</c:when>
-
             <c:when test="${mail.processStatus == 'PROCESSED'}">처리 완료 (이전 단계)</c:when>
             <c:otherwise>${mail.processStatus}</c:otherwise>
         </c:choose>
     </c:set>
 
-    <%-- 상태별 배지 색상 결정 --%>
     <c:set var="badgeClass">
         <c:choose>
             <c:when test="${mail.processStatus.name().contains('PENDING')}">bg-warning text-dark</c:when>
@@ -168,9 +125,8 @@
                 ${mail.content}
             </div>
 
-            <%-- ================= 액션 영역 (받는 사람인 경우에만 표시) ================= --%>
+            <%-- Action Area --%>
             <c:if test="${mail.receiverId == loginId}">
-                
                 <c:if test="${mail.processStatus != 'PROCESSED' && 
                               !mail.processStatus.name().contains('COMPLETED') && 
                               !mail.processStatus.name().contains('ACCEPTED') && 
@@ -184,7 +140,6 @@
                             <input type="hidden" name="postId" value="${mail.postId}">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
-                            <%-- 공통 메시지 입력 --%>
                             <div class="mb-3">
                                 <label class="form-label">답장 메시지 (선택)</label>
                                 <textarea class="form-control" name="content" rows="3" placeholder="상대방에게 보낼 메시지를 입력하세요."></textarea>
@@ -192,12 +147,10 @@
                             
                             <hr class="border-primary opacity-25 my-4">
 
-                            <%-- 거래(Trade) 관련 액션 --%>
+                            <%-- Trade Actions --%>
                             <c:if test="${mail.processType == 'TRADE'}">
-                                
                                 <c:if test="${mail.processStatus == 'TRADE_REQUEST_PENDING'}">
                                     <div class="guide-text"><i class="bi bi-info-circle-fill me-1"></i>구매자가 거래를 원합니다. 거래 시간과 장소를 제안해주세요.</div>
-                                    
                                     <div class="row g-3 mb-3">
                                         <div class="col-md-6">
                                             <label class="form-label">거래 시간</label>
@@ -208,7 +161,6 @@
                                             <input type="text" class="form-control" name="tradeLocation" placeholder="예: 정문 시계탑 앞" required>
                                         </div>
                                     </div>
-                                    
                                     <button type="submit" name="actionType" value="SET_CONDITIONS" class="btn btn-primary w-100 fw-bold">
                                         <i class="bi bi-send me-1"></i>조건 보내기
                                     </button>
@@ -234,10 +186,9 @@
                                         <i class="bi bi-cash-coin me-1"></i>송금하기
                                     </button>
                                 </c:if>
-
                             </c:if>
 
-                            <%-- 구인(Job) 관련 액션 --%>
+                            <%-- Job Actions --%>
                             <c:if test="${mail.processType == 'RECRUIT'}">
                                 <c:if test="${mail.processStatus == 'RECRUIT_REQUEST_PENDING'}">
                                     <div class="guide-text text-center"><i class="bi bi-person-plus-fill me-1"></i>이 지원자를 채용하시겠습니까?</div>
@@ -247,13 +198,12 @@
                                     </div>
                                 </c:if>
                             </c:if>
-
                         </form>
                     </div>
                 </c:if>
             </c:if>
 
-            <%-- ================= 상태 메시지 영역 ================= --%>
+            <%-- Status Messages --%>
             <div class="mt-4">
                 <c:if test="${mail.processStatus == 'PROCESSED'}">
                     <div class="alert alert-secondary text-center fw-bold shadow-sm">
@@ -271,7 +221,6 @@
                     </div>
                 </c:if>
                 
-                <%-- 보낸 사람 시점: 대기 중 메시지 --%>
                 <c:if test="${mail.senderId == loginId && 
                               mail.processStatus != 'PROCESSED' &&
                               !mail.processStatus.name().contains('COMPLETED') && 
@@ -290,22 +239,39 @@
                     목록으로 돌아가기
                 </a>
             </div>
-
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<%-- 알림 스크립트 --%>
-<script>
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
     <c:if test="${not empty message}">
-        alert("${message}");
+        <div id="successToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold"><i class="bi bi-check-circle-fill me-2"></i> ${message}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
     </c:if>
-
     <c:if test="${not empty error}">
-        alert("${error}");
+        <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold"><i class="bi bi-exclamation-triangle-fill me-2"></i> ${error}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
     </c:if>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        <c:if test="${not empty message}">
+            new bootstrap.Toast(document.getElementById('successToast'), { delay: 3000 }).show();
+        </c:if>
+        <c:if test="${not empty error}">
+            new bootstrap.Toast(document.getElementById('errorToast'), { delay: 5000 }).show();
+        </c:if>
+    });
 </script>
 
 </body>

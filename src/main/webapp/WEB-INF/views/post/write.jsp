@@ -10,35 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .main-container {
-            max-width: 800px;
-            margin: 50px auto;
-        }
-        .write-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            background: white;
-        }
-        .form-label {
-            font-weight: 600;
-            color: #495057;
-        }
-        .input-group-text {
-            background-color: #f8f9fa;
-            border-right: none;
-            color: #6c757d;
-        }
-        .form-control:focus, .form-select:focus {
-            border-color: #86b7fe;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-        .input-group .form-control, .input-group .form-select {
-            border-left: none;
-        }
+        body { background-color: #f8f9fa; }
+        .main-container { max-width: 800px; margin: 50px auto; }
+        .write-card { border: none; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); background: white; }
+        .form-label { font-weight: 600; color: #495057; }
+        .input-group-text { background-color: #f8f9fa; border-right: none; color: #6c757d; }
+        .form-control:focus, .form-select:focus { border-color: #86b7fe; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+        .input-group .form-control, .input-group .form-select { border-left: none; }
     </style>
 </head>
 <body>
@@ -122,6 +100,19 @@
     </div>
 </div>
 
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <c:if test="${not empty error}">
+        <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i> ${error}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </c:if>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
@@ -138,14 +129,21 @@
         // 선택값에 따라 보이기
         if (type === "TRADE") {
             priceDiv.style.display = "block";
-            // UX 향상을 위해 가격 필드에 포커스
             document.getElementById("price").focus();
         } else if (type === "JOB") {
             quotaDiv.style.display = "block";
-            // UX 향상을 위해 인원 필드에 포커스
             document.getElementById("hiringQuota").focus();
         }
     }
+
+    // [추가됨] 페이지 로드 시 토스트 알림 실행
+    document.addEventListener('DOMContentLoaded', function () {
+        <c:if test="${not empty error}">
+            const errorToast = document.getElementById('errorToast');
+            const toast = new bootstrap.Toast(errorToast, { delay: 5000 });
+            toast.show();
+        </c:if>
+    });
 </script>
 </body>
 </html>

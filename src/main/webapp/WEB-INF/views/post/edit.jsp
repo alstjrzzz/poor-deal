@@ -11,43 +11,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .main-container {
-            max-width: 800px;
-            margin: 50px auto;
-        }
-        .edit-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            background: white;
-        }
-        .form-label {
-            font-weight: 600;
-            color: #495057;
-        }
-        .current-img-box {
-            position: relative;
-            display: inline-block;
-            border: 1px solid #dee2e6;
-            padding: 5px;
-            border-radius: 8px;
-            background: #fff;
-        }
-        .input-group-text {
-            background-color: #f8f9fa;
-            border-right: none;
-        }
-        .form-control:focus, .form-select:focus {
-            border-color: #86b7fe;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-        /* input group 내부의 input 테두리 처리 */
-        .input-group .form-control {
-            border-left: none;
-        }
+        body { background-color: #f8f9fa; }
+        .main-container { max-width: 800px; margin: 50px auto; }
+        .edit-card { border: none; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); background: white; }
+        .form-label { font-weight: 600; color: #495057; }
+        .current-img-box { position: relative; display: inline-block; border: 1px solid #dee2e6; padding: 5px; border-radius: 8px; background: #fff; }
+        .input-group-text { background-color: #f8f9fa; border-right: none; }
+        .form-control:focus, .form-select:focus { border-color: #86b7fe; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+        .input-group .form-control { border-left: none; }
     </style>
 </head>
 <body>
@@ -142,19 +113,27 @@
     </div>
 </div>
 
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <c:if test="${not empty error}">
+        <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold"><i class="bi bi-exclamation-triangle-fill me-2"></i> ${error}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </c:if>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     function toggleFields() {
-        // ID가 type인 요소(select)의 값을 가져옴
         const type = document.getElementById('type').value;
         const priceField = document.getElementById('priceField');
         const quotaField = document.getElementById('quotaField');
 
-        // 초기화
         priceField.style.display = 'none';
         quotaField.style.display = 'none';
 
-        // 선택에 따른 노출
         if (type === 'TRADE') {
             priceField.style.display = 'block';
         } else if (type === 'JOB') {
@@ -162,9 +141,12 @@
         }
     }
 
-    // 페이지 로드 시 현재 타입에 맞춰 필드 노출 상태 설정
     window.onload = function() {
         toggleFields();
+        // Toast Alert
+        <c:if test="${not empty error}">
+            new bootstrap.Toast(document.getElementById('errorToast'), { delay: 5000 }).show();
+        </c:if>
     };
 </script>
 </body>
