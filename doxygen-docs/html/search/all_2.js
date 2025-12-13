@@ -6,5 +6,6 @@ var searchData=
   ['deletefile_3',['deleteFile',['../classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#aee83097d92f316a08d284dfe65535450',1,'com::khao::PoorDeal::service::S3Service']]],
   ['deletefolder_4',['deleteFolder',['../classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a6a87847319f23e2cf718687262dac27d',1,'com::khao::PoorDeal::service::S3Service']]],
   ['deletepost_5',['deletePost',['../classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller.html#a10d08edc127fb75d33c74395e50b943d',1,'com.khao.PoorDeal.controller.PostController.deletePost()'],['../classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service.html#a944d32345b7bb12fb92b5e87d50bbd4d',1,'com.khao.PoorDeal.service.PostService.deletePost()']]],
-  ['duplicate_6',['DUPLICATE',['../enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status.html#a6b25c9760389cc05967b608fa0e019e8',1,'com::khao::PoorDeal::domain::ReportStatus']]]
+  ['doxygen_2dgroups_2edox_6',['doxygen-groups.dox',['../doxygen-groups_8dox.html',1,'']]],
+  ['duplicate_7',['DUPLICATE',['../enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status.html#a6b25c9760389cc05967b608fa0e019e8',1,'com::khao::PoorDeal::domain::ReportStatus']]]
 ];
