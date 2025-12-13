@@ -26,6 +26,12 @@ import com.khao.PoorDeal.repository.PostRepository;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @file PostService.java
+ * @brief 게시물 및 댓글 관련 비즈니스 로직을 처리하는 서비스 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -34,19 +40,42 @@ public class PostService {
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
     
+    /**
+     * @brief 검색 조건에 맞는 게시물의 총 개수를 조회합니다.
+     * @param condition 검색 조건(타입, 키워드)
+     * @return 게시물 개수
+     */
     public int getPostCount(PostSearchCondition condition) {
         return postRepository.selectPostCount(condition);
     }
     
+    /**
+     * @brief 게시물 목록을 페이징하여 요약 정보로 조회합니다.
+     * @param offset 페이지 오프셋
+     * @param pagesize 페이지당 항목 수
+     * @param condition 검색 조건
+     * @return 게시물 요약 DTO 리스트
+     */
     public List<PostSummary> getPagedPostsSummary(int offset, int pagesize, PostSearchCondition condition) {
         return postRepository.selectPagedPosts(offset, pagesize, condition);
     }
     
+    /**
+     * @brief 특정 게시물의 상세 정보를 조회합니다.
+     * @param id 게시물 ID
+     * @return 게시물 상세 정보 DTO
+     * @throws NoSuchElementException 해당 ID의 게시물이 없을 경우 발생
+     */
     public PostResponse getPost(Long id) {
         return postRepository.findById(id).orElseThrow(
                 () -> new NoSuchElementException("해당 게시글이 존재하지 않습니다: " + id));
     }
     
+    /**
+     * @brief 특정 게시물의 모든 댓글과 대댓글을 함께 조회합니다.
+     * @param postId 게시물 ID
+     * @return 댓글과 대댓글 목록을 포함하는 DTO 리스트
+     */
     public List<CommentAndRepliesResponse> getCommentsAndReplies(Long postId) {
         List<CommentResponse> comments = commentRepository.findByParentIdAndParentType(postId, ParentType.POST);
         List<Long> commentIdList = comments.stream().map(CommentResponse::getId).collect(Collectors.toList());
@@ -74,6 +103,12 @@ public class PostService {
                 }).collect(Collectors.toList());
     }
     
+    /**
+     * @brief 새로운 게시물을 생성합니다.
+     * @details 게시물 타입에 따라 가격, 모집인원 등의 유효성을 검사하고, 이미지 파일을 S3에 업로드합니다.
+     * @param request 게시물 생성 요청 DTO
+     * @param authorId 작성자 ID
+     */
     @Transactional
     public void createPost(AddPostRequest request, Long authorId) {
         
@@ -120,6 +155,13 @@ public class PostService {
         postRepository.update(post);
     }
     
+    /**
+     * @brief 새로운 댓글 또는 대댓글을 생성합니다.
+     * @param request 댓글 생성 요청 DTO
+     * @param authorId 작성자 ID
+     * @return 댓글이 달린 원본 게시물의 ID
+     * @throws IllegalArgumentException 부모 타입이 유효하지 않거나, 대댓글에 다시 댓글을 다는 경우 발생
+     */
     @Transactional
     public Long createComment(AddCommentRequest request, Long authorId) {
         ParentType parentType;
@@ -156,6 +198,14 @@ public class PostService {
         }
     }
     
+    /**
+     * @brief 댓글을 수정합니다.
+     * @param commentId 수정할 댓글 ID
+     * @param newContent 새로운 내용
+     * @param userId 요청한 사용자 ID
+     * @throws NoSuchElementException 댓글이 존재하지 않을 경우 발생
+     * @throws IllegalArgumentException 작성자가 아닌 경우 발생
+     */
     @Transactional
     public void updateComment(Long commentId, String newContent, Long userId) {
         CommentResponse existing = commentRepository.findById(commentId)
@@ -174,6 +224,13 @@ public class PostService {
         commentRepository.update(comment);
     }
 
+    /**
+     * @brief 댓글을 삭제합니다. (논리적 삭제)
+     * @param commentId 삭제할 댓글 ID
+     * @param userId 요청한 사용자 ID
+     * @throws NoSuchElementException 댓글이 존재하지 않을 경우 발생
+     * @throws IllegalArgumentException 작성자가 아닌 경우 발생
+     */
     @Transactional
     public void deleteComment(Long commentId, Long userId) {
         CommentResponse existing = commentRepository.findById(commentId)
@@ -192,6 +249,14 @@ public class PostService {
         commentRepository.update(comment);
     }
     
+    /**
+     * @brief 게시물을 수정합니다.
+     * @param postId 수정할 게시물 ID
+     * @param request 게시물 수정 요청 DTO
+     * @param userId 요청한 사용자 ID
+     * @throws NoSuchElementException 게시물이 존재하지 않을 경우 발생
+     * @throws IllegalArgumentException 작성자가 아닌 경우 발생
+     */
     @Transactional
     public void updatePost(Long postId, AddPostRequest request, Long userId) {
         
@@ -202,24 +267,18 @@ public class PostService {
             throw new IllegalArgumentException("작성자만 수정할 수 있습니다.");
         }
 
-        // 1. 타입 결정 (수정 시 타입 변경 불가라면 existing.getType()을 써야 함. 
-        // 여기선 request에서 오지만, 보통은 변경 안 되게 막거나 기존 값 유지)
-        // 화면에서 disabled 처리를 했더라도 서버에서 한 번 더 existing 타입을 쓰는 게 안전함.
         PostType postType = existing.getType(); 
 
-        // 2. 이미지 처리
         String imageUrl = existing.getImage();
         if (request.getImage() != null && !request.getImage().isEmpty()) {
             s3Service.deleteFile("post/", postId, existing.getImage());
             imageUrl = s3Service.uploadFile(request.getImage(), "post/", postId);
         }
         
-        // 3. [수정] 타입별 데이터 검증 및 업데이트
         Long price = 0L;
         Integer hiringQuota = 0;
 
         if (postType == PostType.TRADE) {
-            // 가격이 null이면 기존 가격 유지, 아니면 새 값 검증
             if (request.getPrice() != null) {
                 if (request.getPrice() < 0) throw new IllegalArgumentException("거래 금액은 0원 이상이어야 합니다.");
                 price = request.getPrice();
@@ -227,7 +286,6 @@ public class PostService {
                 price = existing.getPrice();
             }
         } else if (postType == PostType.JOB) {
-            // 인원이 null이면 기존 인원 유지, 아니면 새 값 검증
             if (request.getHiringQuota() != null) {
                 if (request.getHiringQuota() <= 0) throw new IllegalArgumentException("모집 인원은 1명 이상이어야 합니다.");
                 hiringQuota = request.getHiringQuota();
@@ -235,14 +293,13 @@ public class PostService {
                 hiringQuota = existing.getHiringQuota();
             }
         }
-        // FREE는 0, 0 유지
 
         Post post = Post.builder()
                 .id(postId)
                 .title(request.getTitle())
                 .content(request.getContent())
                 .authorId(userId)
-                .type(postType) // 기존 타입 유지
+                .type(postType)
                 .price(price)
                 .hiringQuota(hiringQuota)
                 .filledCount(existing.getFilledCount())
@@ -253,6 +310,13 @@ public class PostService {
         postRepository.update(post);
     }
 
+    /**
+     * @brief 게시물을 삭제합니다. (논리적 삭제)
+     * @param postId 삭제할 게시물 ID
+     * @param userId 요청한 사용자 ID
+     * @throws NoSuchElementException 게시물이 존재하지 않을 경우 발생
+     * @throws IllegalArgumentException 작성자가 아닌 경우 발생
+     */
     @Transactional
     public void deletePost(Long postId, Long userId) {
         PostResponse existing = postRepository.findById(postId)
@@ -263,6 +327,5 @@ public class PostService {
         }
 
         postRepository.delete(postId);
-        // s3Service.deleteFile("post/", postId, existing.getImage()); // soft delete or hard delete policy
     }
 }

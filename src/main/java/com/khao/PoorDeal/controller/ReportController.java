@@ -23,6 +23,12 @@ import com.khao.PoorDeal.service.ReportService;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @file ReportController.java
+ * @brief 사용자 신고 및 관리자 신고 처리 관련 웹 요청을 처리하는 컨트롤러 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Controller
 @RequiredArgsConstructor
 public class ReportController {
@@ -32,7 +38,11 @@ public class ReportController {
     private final MemberRepository memberRepository;
 
     /**
-     * 신고 페이지 이동
+     * @brief 사용자 신고 폼 페이지를 반환합니다.
+     * @param suspectId 피신고자 ID
+     * @param postId 신고 대상 게시물 ID (선택 사항)
+     * @param model 뷰에 전달할 모델
+     * @return "report/reportForm" 뷰
      */
     @GetMapping("/report")
     public String showReportForm(
@@ -56,13 +66,17 @@ public class ReportController {
     }
 
     /**
-     * 신고 처리 (사용자)
+     * @brief 사용자 신고 제출을 처리합니다.
+     * @param reportRequest 신고 요청 DTO
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 메인 페이지("/")로 리다이렉트
      */
     @PostMapping("/report/submit")
     public String submitReport(
             @ModelAttribute ReportRequest reportRequest,
             Principal principal,
-            RedirectAttributes rttr) { // [수정] RedirectAttributes 추가
+            RedirectAttributes rttr) {
         
         Long reporterId = memberService.findByUserId(principal.getName()).getId();
         reportRequest.setReporterId(reporterId);
@@ -77,10 +91,12 @@ public class ReportController {
         return "redirect:/";
     }
 
-    // --- 관리자 기능 ---
-
     /**
-     * 신고 관리 페이지 (관리자)
+     * @brief (관리자) 전체 신고 목록 페이지를 조회합니다.
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @param model 뷰에 전달할 모델
+     * @return "report/reportList" 뷰. 관리자가 아닐 경우 메인 페이지로 리다이렉트.
      */
     @GetMapping("/admin/report/list")
     public String listReports(Principal principal, RedirectAttributes rttr, Model model) {
@@ -99,13 +115,17 @@ public class ReportController {
     }
 
     /**
-     * 신고 상태 변경 (관리자)
+     * @brief (관리자) 신고를 처리(승인/반려)합니다.
+     * @param id 처리할 신고 ID
+     * @param statusStr 새로운 신고 상태 문자열
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 신고 목록 페이지("/admin/report/list")로 리다이렉트
      */
     @PostMapping("/admin/report/process")
     public String processReport(
             @RequestParam("id") Long id,
             @RequestParam("status") String statusStr,
-            RedirectAttributes rttr) { // [수정] RedirectAttributes 추가
+            RedirectAttributes rttr) {
         
         try {
             ReportStatus status = ReportStatus.valueOf(statusStr);

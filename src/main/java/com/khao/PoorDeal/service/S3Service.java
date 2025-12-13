@@ -19,6 +19,12 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @file S3Service.java
+ * @brief AWS S3와의 파일 업로드, 삭제 등 상호작용을 처리하는 서비스 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Service
 @RequiredArgsConstructor
 public class S3Service {
@@ -28,6 +34,13 @@ public class S3Service {
     @Value("${cloud.aws.s3.bucket}")
     private String bucket;
     
+    /**
+     * @brief 단일 파일을 S3에 업로드합니다.
+     * @param file 업로드할 MultipartFile 객체
+     * @param path S3 내부에 저장될 경로 (예: "post/")
+     * @param postId 파일명으로 사용될 게시물 ID
+     * @return 업로드된 파일의 S3 URL
+     */
     public String uploadFile(MultipartFile file, String path, Long postId) {
 
         if (file == null || file.isEmpty()) {
@@ -49,6 +62,12 @@ public class S3Service {
         return amazonS3Client.getUrl(bucket, key).toString();
     }
     
+    /**
+     * @brief 여러 파일을 S3에 업로드합니다.
+     * @param files 업로드할 MultipartFile 리스트
+     * @param path S3 내부에 저장될 경로
+     * @return 업로드된 파일들의 S3 URL 리스트
+     */
     public List<String> uploadFiles(List<MultipartFile> files, String path) {
 
         List<String> urlList = new ArrayList<>();
@@ -83,6 +102,10 @@ public class S3Service {
         return urlList;
     }
 
+    /**
+     * @brief S3의 특정 폴더(prefix)에 있는 모든 객체를 삭제합니다.
+     * @param prefix 삭제할 폴더 경로
+     */
     public void deleteFolder(String prefix) {
 
         ListObjectsV2Request listRequest = new ListObjectsV2Request()
@@ -111,7 +134,13 @@ public class S3Service {
         } while (listResult.isTruncated());
     }
     
-public void deleteFile(String path, Long postId, String imageUrl) {
+    /**
+     * @brief S3에서 특정 파일을 삭제합니다.
+     * @param path 파일이 저장된 경로
+     * @param postId 파일명으로 사용된 게시물 ID
+     * @param imageUrl 삭제할 파일의 전체 URL
+     */
+    public void deleteFile(String path, Long postId, String imageUrl) {
         
         if (imageUrl == null || imageUrl.isEmpty()) {
             return;
@@ -130,6 +159,11 @@ public void deleteFile(String path, Long postId, String imageUrl) {
         }
     }
 
+    /**
+     * @brief 파일 이름에서 확장자를 추출합니다.
+     * @param fileName 파일 이름
+     * @return 파일 확장자 (예: ".jpg")
+     */
     public String getFileExtension(String fileName) {
 
         if (fileName == null || !fileName.contains(".")) {

@@ -14,6 +14,12 @@ import com.khao.PoorDeal.repository.ReportRepository;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @file ReportService.java
+ * @brief 사용자 신고 접수 및 처리 관련 비즈니스 로직을 담당하는 서비스 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Service
 @RequiredArgsConstructor
 public class ReportService {
@@ -22,7 +28,9 @@ public class ReportService {
     private final MemberRepository memberRepository;
 
     /**
-     * 신고 접수
+     * @brief 새로운 사용자 신고를 접수합니다.
+     * @param request 신고 내용을 담은 DTO
+     * @throws IllegalArgumentException 자기 자신을 신고하는 경우 발생
      */
     @Transactional
     public void submitReport(ReportRequest request) {
@@ -43,14 +51,18 @@ public class ReportService {
     }
 
     /**
-     * 관리자용 전체 신고 목록 조회
+     * @brief 관리자가 모든 신고 목록을 조회합니다.
+     * @return 모든 신고 정보 DTO 리스트
      */
     public List<ReportResponse> getAllReports() {
         return reportRepository.findAllResponses();
     }
 
     /**
-     * 신고 처리 (승인/반려)
+     * @brief 관리자가 신고를 처리합니다 (승인 또는 반려).
+     * @details 신고를 승인(`APPROVED`)하면 피신고자의 계정이 차단됩니다.
+     * @param reportId 처리할 신고의 ID
+     * @param newStatus 새로운 처리 상태 (APPROVED, REJECTED 등)
      */
     @Transactional
     public void processReport(Long reportId, ReportStatus newStatus) {

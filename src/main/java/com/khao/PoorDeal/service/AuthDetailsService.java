@@ -15,12 +15,24 @@ import com.khao.PoorDeal.domain.Member;
 import lombok.RequiredArgsConstructor;
 import com.khao.PoorDeal.repository.MemberRepository;
 
+/**
+ * @file AuthDetailsService.java
+ * @brief Spring Security의 UserDetailsService를 구현하여 사용자 인증 정보를 로드하는 서비스 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Service
 @RequiredArgsConstructor
 public class AuthDetailsService implements UserDetailsService {
 
 	private final MemberRepository memberRepository;
 	
+	/**
+     * @brief 사용자 ID(username)를 기반으로 사용자 정보를 조회하여 UserDetails 객체를 반환합니다.
+     * @param userId Spring Security에서 username으로 사용되는 사용자 ID
+     * @return UserDetails Spring Security가 사용하는 사용자 상세 정보 객체
+     * @throws UsernameNotFoundException 해당 userId의 사용자를 찾을 수 없을 때 발생
+     */
 	@Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 
