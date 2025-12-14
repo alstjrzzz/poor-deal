@@ -1,0 +1,112 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+service.\+Auth\+Details\+Service 클래스 참조}
+\hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service}{}\label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service}\index{com.khao.PoorDeal.service.AuthDetailsService@{com.khao.PoorDeal.service.AuthDetailsService}}
+
+
+com.\+khao.\+Poor\+Deal.\+service.\+Auth\+Details\+Service에 대한 상속 다이어그램 \+: 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+com.\+khao.\+Poor\+Deal.\+service.\+Auth\+Details\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+User\+Details \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_a799c91ebcb5f020aec02333efa640997}{load\+User\+By\+Username}} (String user\+Id)  throws Username\+Not\+Found\+Exception 
+\begin{DoxyCompactList}\small\item\em 사용자 ID(username)를 기반으로 사용자 정보를 조회하여 User\+Details 객체를 반환합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{Member\+Repository}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_ab5492748be2f6b5fc2fda77cef7dc208}{member\+Repository}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_auth_details_service_8java_source}{Auth\+Details\+Service.\+java}} 파일의 \mbox{\hyperlink{_auth_details_service_8java_source_l00026}{26}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_a799c91ebcb5f020aec02333efa640997}\index{com.khao.PoorDeal.service.AuthDetailsService@{com.khao.PoorDeal.service.AuthDetailsService}!loadUserByUsername@{loadUserByUsername}}
+\index{loadUserByUsername@{loadUserByUsername}!com.khao.PoorDeal.service.AuthDetailsService@{com.khao.PoorDeal.service.AuthDetailsService}}
+\doxysubsubsection{\texorpdfstring{loadUserByUsername()}{loadUserByUsername()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_a799c91ebcb5f020aec02333efa640997} 
+User\+Details com.\+khao.\+Poor\+Deal.\+service.\+Auth\+Details\+Service.\+load\+User\+By\+Username (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{}\end{DoxyParamCaption}) throws Username\+Not\+Found\+Exception}
+
+
+
+사용자 ID(username)를 기반으로 사용자 정보를 조회하여 User\+Details 객체를 반환합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & Spring Security에서 username으로 사용되는 사용자 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+User\+Details Spring Security가 사용하는 사용자 상세 정보 객체 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{예외}
+{\em Username\+Not\+Found\+Exception} & 해당 user\+Id의 사용자를 찾을 수 없을 때 발생 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{_auth_details_service_8java_source}{Auth\+Details\+Service.\+java}} 파일의 \mbox{\hyperlink{_auth_details_service_8java_source_l00037}{37}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ Member\ member\ =\ memberRepository.findByUserId(userId).orElseThrow(}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ()\ -\/>\ \textcolor{keyword}{new}\ UsernameNotFoundException(userId\ +\ \textcolor{stringliteral}{"{}\ 사용자를\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ GrantedAuthority\ authority\ =\ \textcolor{keyword}{new}\ SimpleGrantedAuthority(member.getRole().name());}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ User(}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ member.getUserId(),}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ member.getPassword(),}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ \ \textcolor{comment}{//\ enabled\ (계정\ 활성화\ 여부)}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ \ \textcolor{comment}{//\ accountNonExpired\ (계정\ 만료\ 여부)}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ \ \textcolor{comment}{//\ credentialsNonExpired\ (비밀번호\ 만료\ 여부)}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ !member.isBlock(),\ \textcolor{comment}{//\ accountNonLocked\ (계정\ 잠금\ 여부)\ -\/>\ isBlock이\ true면\ false(잠김)가\ 되어야\ 함}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ Collections.singleton(authority)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_ab5492748be2f6b5fc2fda77cef7dc208}\index{com.khao.PoorDeal.service.AuthDetailsService@{com.khao.PoorDeal.service.AuthDetailsService}!memberRepository@{memberRepository}}
+\index{memberRepository@{memberRepository}!com.khao.PoorDeal.service.AuthDetailsService@{com.khao.PoorDeal.service.AuthDetailsService}}
+\doxysubsubsection{\texorpdfstring{memberRepository}{memberRepository}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_ab5492748be2f6b5fc2fda77cef7dc208} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{Member\+Repository}} com.\+khao.\+Poor\+Deal.\+service.\+Auth\+Details\+Service.\+member\+Repository\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_auth_details_service_8java_source}{Auth\+Details\+Service.\+java}} 파일의 \mbox{\hyperlink{_auth_details_service_8java_source_l00028}{28}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/service/\mbox{\hyperlink{_auth_details_service_8java}{Auth\+Details\+Service.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: java/com/khao/PoorDeal/dto/StartProcessRequest.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_start_process_request_8java_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">StartProcessRequest.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_start_process_request_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>com.khao.PoorDeal.dto;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.time.LocalDateTime;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> com.khao.PoorDeal.domain.ProcessStatus;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> com.khao.PoorDeal.domain.ProcessType;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> lombok.Getter;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> lombok.Setter;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>@Setter</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>@Getter</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html">   19</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html">StartProcessRequest</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#afe70dffaaf6d05b0da294c5a648467b3">   22</a></span>    <span class="keyword">private</span> Long <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#afe70dffaaf6d05b0da294c5a648467b3">receiverId</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a4818b14400550a2506613f8926007170">   24</a></span>    <span class="keyword">private</span> Long <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a4818b14400550a2506613f8926007170">postId</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a2a0b9a9cc7e1c2930a17fab7313caa39">   26</a></span>    <span class="keyword">private</span> <a class="code hl_class" href="enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_process_type.html">ProcessType</a> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a2a0b9a9cc7e1c2930a17fab7313caa39">processType</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#acc90879e85ce1dffdba58aa033bfbe9f">   28</a></span>    <span class="keyword">private</span> String <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#acc90879e85ce1dffdba58aa033bfbe9f">content</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a398d7b9d7e913e51c69e294743fa4606">   30</a></span>    <span class="keyword">private</span> Long <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a398d7b9d7e913e51c69e294743fa4606">amount</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html">com.khao.PoorDeal.dto.StartProcessRequest</a></div><div class="ttdef"><b>Definition</b> <a href="#l00019">StartProcessRequest.java:19</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request_html_a2a0b9a9cc7e1c2930a17fab7313caa39"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a2a0b9a9cc7e1c2930a17fab7313caa39">com.khao.PoorDeal.dto.StartProcessRequest.processType</a></div><div class="ttdeci">ProcessType processType</div><div class="ttdoc">시작할 프로세스의 타입</div><div class="ttdef"><b>Definition</b> <a href="#l00026">StartProcessRequest.java:26</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request_html_a398d7b9d7e913e51c69e294743fa4606"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a398d7b9d7e913e51c69e294743fa4606">com.khao.PoorDeal.dto.StartProcessRequest.amount</a></div><div class="ttdeci">Long amount</div><div class="ttdoc">제안할 금액 (거래 시)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">StartProcessRequest.java:30</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request_html_a4818b14400550a2506613f8926007170"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#a4818b14400550a2506613f8926007170">com.khao.PoorDeal.dto.StartProcessRequest.postId</a></div><div class="ttdeci">Long postId</div><div class="ttdoc">관련된 게시물의 ID</div><div class="ttdef"><b>Definition</b> <a href="#l00024">StartProcessRequest.java:24</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request_html_acc90879e85ce1dffdba58aa033bfbe9f"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#acc90879e85ce1dffdba58aa033bfbe9f">com.khao.PoorDeal.dto.StartProcessRequest.content</a></div><div class="ttdeci">String content</div><div class="ttdoc">요청과 함께 전달할 내용</div><div class="ttdef"><b>Definition</b> <a href="#l00028">StartProcessRequest.java:28</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request_html_afe70dffaaf6d05b0da294c5a648467b3"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html#afe70dffaaf6d05b0da294c5a648467b3">com.khao.PoorDeal.dto.StartProcessRequest.receiverId</a></div><div class="ttdeci">Long receiverId</div><div class="ttdoc">수신자의 ID</div><div class="ttdef"><b>Definition</b> <a href="#l00022">StartProcessRequest.java:22</a></div></div>
+<div class="ttc" id="aenumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_process_type_html"><div class="ttname"><a href="enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_process_type.html">com.khao.PoorDeal.domain.ProcessType</a></div><div class="ttdef"><b>Definition</b> <a href="_process_type_8java_source.html#l00009">ProcessType.java:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a href="dir_8a22873406ddef3ffbbc0bacea2033ba.html">com</a></li><li class="navelem"><a href="dir_9f2e58735fa2df8715252159e6b4023e.html">khao</a></li><li class="navelem"><a href="dir_d1e74712c97f301cac73aa91e8259784.html">PoorDeal</a></li><li class="navelem"><a href="dir_f0b1a1c91366d4ecfceb4f74540cabfc.html">dto</a></li><li class="navelem"><a href="_start_process_request_8java.html">StartProcessRequest.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<map id="com.khao.PoorDeal.service.AuthDetailsService" name="com.khao.PoorDeal.service.AuthDetailsService">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,448,181,533"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="10,267,134,336"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,350,91,448,86,449,75,351"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository.html" title=" " alt="" coords="158,227,348,376"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,378,142,437,138,433,188,374"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html" title=" " alt="" coords="165,5,342,155"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="256,154,256,209,250,209,250,154"/>
+</map>

@@ -1,0 +1,147 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper 인터페이스 참조}
+\hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper}{}\label{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper}\index{com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}}
+
+
+com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_af95a626b357e2a024823878cc55d7723}{select\+Post\+Count}} (@Param("{}condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}} condition)
+\begin{DoxyCompactList}\small\item\em 검색 조건에 맞는 게시물의 총 개수를 조회합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_ae9121e8cf2498b223ba27a715699a03e}{update}} (\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}} post)
+\begin{DoxyCompactList}\small\item\em 기존 게시물을 수정합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_adac73d18a425aca4e2c53d1eab0bd304}{delete}} (Long id)
+\begin{DoxyCompactList}\small\item\em ID로 게시물을 삭제 처리합니다. (is\+Deleted = true) \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_summary}{Post\+Summary}} $>$ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_a5a2e234ce5a968dfe37a367b7c55c68c}{select\+Paged\+Posts}} ( @Param("{}offset"{}) int offset, @Param("{}limit"{}) int limit, @Param("{}condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}} condition)
+\begin{DoxyCompactList}\small\item\em 검색 조건에 맞는 게시물 목록을 페이징하여 조회합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_a0318365579a8a229e472ba9e61aa1f93}{insert}} (\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}} post)
+\begin{DoxyCompactList}\small\item\em 새로운 게시물을 데이터베이스에 삽입합니다. \end{DoxyCompactList}\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{Post\+Response}} $>$ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_af6385e870e2a4097088631ee75e9ea0c}{find\+By\+Id}} (Long id)
+\begin{DoxyCompactList}\small\item\em ID로 게시물을 찾아 응답 DTO로 반환합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_post_mapper_8java_source}{Post\+Mapper.\+java}} 파일의 \mbox{\hyperlink{_post_mapper_8java_source_l00021}{21}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_adac73d18a425aca4e2c53d1eab0bd304}\index{com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}!delete@{delete}}
+\index{delete@{delete}!com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_adac73d18a425aca4e2c53d1eab0bd304} 
+void com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper.\+delete (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+
+
+ID로 게시물을 삭제 처리합니다. (is\+Deleted = true) 
+
+
+\begin{DoxyParams}{매개변수}
+{\em id} & 게시물 ID \\
+\hline
+\end{DoxyParams}
+\Hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_af6385e870e2a4097088631ee75e9ea0c}\index{com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}!findById@{findById}}
+\index{findById@{findById}!com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}}
+\doxysubsubsection{\texorpdfstring{findById()}{findById()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_af6385e870e2a4097088631ee75e9ea0c} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{Post\+Response}} $>$ com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper.\+find\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+
+
+ID로 게시물을 찾아 응답 DTO로 반환합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em id} & 게시물 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+\doxylink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{Post\+Response} DTO를 포함하는 Optional 객체 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_a0318365579a8a229e472ba9e61aa1f93}\index{com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}!insert@{insert}}
+\index{insert@{insert}!com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_a0318365579a8a229e472ba9e61aa1f93} 
+void com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper.\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}}]{post}{}\end{DoxyParamCaption})}
+
+
+
+새로운 게시물을 데이터베이스에 삽입합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em post} & 삽입할 게시물 객체 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_a5a2e234ce5a968dfe37a367b7c55c68c}\index{com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}!selectPagedPosts@{selectPagedPosts}}
+\index{selectPagedPosts@{selectPagedPosts}!com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}}
+\doxysubsubsection{\texorpdfstring{selectPagedPosts()}{selectPagedPosts()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_a5a2e234ce5a968dfe37a367b7c55c68c} 
+List$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_summary}{Post\+Summary}} $>$ com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper.\+select\+Paged\+Posts (\begin{DoxyParamCaption}\item[{@Param("{}offset"{}) int}]{offset}{, }\item[{@Param("{}limit"{}) int}]{limit}{, }\item[{@Param("{}condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}}}]{condition}{}\end{DoxyParamCaption})}
+
+
+
+검색 조건에 맞는 게시물 목록을 페이징하여 조회합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em offset} & 페이지 오프셋 \\
+\hline
+{\em limit} & 페이지당 항목 수 \\
+\hline
+{\em condition} & 검색 조건 DTO \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+게시물 요약 DTO 리스트 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_af95a626b357e2a024823878cc55d7723}\index{com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}!selectPostCount@{selectPostCount}}
+\index{selectPostCount@{selectPostCount}!com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}}
+\doxysubsubsection{\texorpdfstring{selectPostCount()}{selectPostCount()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_af95a626b357e2a024823878cc55d7723} 
+int com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper.\+select\+Post\+Count (\begin{DoxyParamCaption}\item[{@Param("{}condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}}}]{condition}{}\end{DoxyParamCaption})}
+
+
+
+검색 조건에 맞는 게시물의 총 개수를 조회합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em condition} & 검색 조건 DTO \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+게시물 개수 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_ae9121e8cf2498b223ba27a715699a03e}\index{com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}!update@{update}}
+\index{update@{update}!com.khao.PoorDeal.mapper.PostMapper@{com.khao.PoorDeal.mapper.PostMapper}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper_ae9121e8cf2498b223ba27a715699a03e} 
+void com.\+khao.\+Poor\+Deal.\+mapper.\+Post\+Mapper.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}}]{post}{}\end{DoxyParamCaption})}
+
+
+
+기존 게시물을 수정합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em post} & 수정할 게시물 객체 \\
+\hline
+\end{DoxyParams}
+
+
+이 인터페이스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/mapper/\mbox{\hyperlink{_post_mapper_8java}{Post\+Mapper.\+java}}\end{DoxyCompactItemize}

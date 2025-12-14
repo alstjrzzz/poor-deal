@@ -1,0 +1,38 @@
+\doxysection{Mail\+Mapper.\+java}
+\hypertarget{_mail_mapper_8java_source}{}\label{_mail_mapper_8java_source}\index{java/com/khao/PoorDeal/mapper/MailMapper.java@{java/com/khao/PoorDeal/mapper/MailMapper.java}}
+\mbox{\hyperlink{_mail_mapper_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.mapper;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.Optional;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Mapper;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Param;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00009}00009\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Mail;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00010}00010\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.MailResponse;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00011}00011\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.MailSummary;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00012}00012\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.PostSummary;}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00020}00020\ @Mapper}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00021}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper}{00021}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{interface\ }\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper}{MailMapper}}\ \{}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00028}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_abc0b9fd42a7a854375a1b60263bee6bc}{00028}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_abc0b9fd42a7a854375a1b60263bee6bc}{selectMailCountByMemberId}}(Long\ memberId);}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00036}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_aa93de69211e1aea0676684a405e79345}{00036}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_aa93de69211e1aea0676684a405e79345}{existsBySenderIdAndPostId}}(}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ @Param(\textcolor{stringliteral}{"{}senderId"{}})\ Long\ senderId,\ @Param(\textcolor{stringliteral}{"{}postId"{}})\ Long\ postId);}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00046}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ab758f1e2de0e2b5fa81ffbee810a7050}{00046}}\ \ \ \ \ \textcolor{keyword}{public}\ List<MailSummary>\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ab758f1e2de0e2b5fa81ffbee810a7050}{selectPagedMailsByMemberId}}(}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ @Param(\textcolor{stringliteral}{"{}offset"{}})\ \textcolor{keywordtype}{int}\ offset,\ @Param(\textcolor{stringliteral}{"{}limit"{}})\ \textcolor{keywordtype}{int}\ limit,\ @Param(\textcolor{stringliteral}{"{}memberId"{}})\ Long\ memberId);}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00053}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_aabac004fc03c6614d695fe3aec55c0eb}{00053}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_aabac004fc03c6614d695fe3aec55c0eb}{save}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}}\ mail);}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00060}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ae346ede79c2900efbb1059ea1c809f10}{00060}}\ \ \ \ \ \textcolor{keyword}{public}\ Optional<Mail>\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ae346ede79c2900efbb1059ea1c809f10}{findById}}(Long\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00067}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_a1d310f88a3f9f87bce9c8f9cc787850e}{00067}}\ \ \ \ \ \textcolor{keyword}{public}\ Optional<MailResponse>\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_a1d310f88a3f9f87bce9c8f9cc787850e}{findMailResponseById}}(Long\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00073}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ad338f4441166b110294c7dadfd5b6949}{00073}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ad338f4441166b110294c7dadfd5b6949}{updateMailStatus}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}}\ mail);}
+\DoxyCodeLine{\Hypertarget{_mail_mapper_8java_source_l00074}00074\ \}}
+
+\end{DoxyCode}

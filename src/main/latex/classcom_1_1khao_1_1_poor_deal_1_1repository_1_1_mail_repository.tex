@@ -1,0 +1,195 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository 클래스 참조}
+\hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository}{}\label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+
+
+com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a34e9208bf85fefec4fa72013a346a713}{select\+Mail\+Count\+By\+Member\+Id}} (Long member\+Id)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_adc0c79c047b04a2dec74c71490c11feb}{exists\+By\+Sender\+Id\+And\+Post\+Id}} (Long sender\+Id, Long post\+Id)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_mail_summary}{Mail\+Summary}} $>$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a4acd01ce8a9347019146ab2c35f271c9}{select\+Paged\+Mails\+By\+Member\+Id}} (int offset, int pagesize, Long member\+Id)
+\item 
+void \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_ac9d7dac1aa88be4ec56cefdc522906f2}{save}} (\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}} mail)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}} $>$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_aecfaa757904b78c4dcaf6c278e395656}{find\+By\+Id}} (Long id)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_mail_response}{Mail\+Response}} $>$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a245fcb305b5ec00e9f1b80c95f222153}{find\+Mail\+Response\+By\+Id}} (Long id)
+\item 
+void \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a0eeac5a212e3068177b9685549b19272}{update\+Mail\+Status}} (\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}} mail)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper}{Mail\+Mapper}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a70a5481f2c598509e89deb73a52215fd}{mail\+Mapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00025}{25}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_adc0c79c047b04a2dec74c71490c11feb}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!existsBySenderIdAndPostId@{existsBySenderIdAndPostId}}
+\index{existsBySenderIdAndPostId@{existsBySenderIdAndPostId}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{existsBySenderIdAndPostId()}{existsBySenderIdAndPostId()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_adc0c79c047b04a2dec74c71490c11feb} 
+boolean com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+exists\+By\+Sender\+Id\+And\+Post\+Id (\begin{DoxyParamCaption}\item[{Long}]{sender\+Id}{, }\item[{Long}]{post\+Id}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+com.\+khao.\+Poor\+Deal.\+mapper.\+Mail\+Mapper\#exists\+By\+Sender\+Id\+And\+Post\+Id(\+Long, Long) 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00033}{33}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mailMapper.existsBySenderIdAndPostId(senderId,\ postId);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_aecfaa757904b78c4dcaf6c278e395656}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!findById@{findById}}
+\index{findById@{findById}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{findById()}{findById()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_aecfaa757904b78c4dcaf6c278e395656} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}} $>$ com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+find\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ae346ede79c2900efbb1059ea1c809f10}{com.\+khao.\+Poor\+Deal.\+mapper.\+Mail\+Mapper.\+find\+By\+Id(\+Long)} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00041}{41}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{\ \textcolor{keywordflow}{return}\ mailMapper.findById(\textcolor{keywordtype}{id});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a245fcb305b5ec00e9f1b80c95f222153}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!findMailResponseById@{findMailResponseById}}
+\index{findMailResponseById@{findMailResponseById}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{findMailResponseById()}{findMailResponseById()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a245fcb305b5ec00e9f1b80c95f222153} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_mail_response}{Mail\+Response}} $>$ com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+find\+Mail\+Response\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_a1d310f88a3f9f87bce9c8f9cc787850e}{com.\+khao.\+Poor\+Deal.\+mapper.\+Mail\+Mapper.\+find\+Mail\+Response\+By\+Id(\+Long)} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00043}{43}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{\ \textcolor{keywordflow}{return}\ mailMapper.findMailResponseById(\textcolor{keywordtype}{id});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_ac9d7dac1aa88be4ec56cefdc522906f2}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!save@{save}}
+\index{save@{save}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_ac9d7dac1aa88be4ec56cefdc522906f2} 
+void com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}}}]{mail}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_aabac004fc03c6614d695fe3aec55c0eb}{com.\+khao.\+Poor\+Deal.\+mapper.\+Mail\+Mapper.\+save(\+Mail)} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00039}{39}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{\ mailMapper.save(mail);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a34e9208bf85fefec4fa72013a346a713}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!selectMailCountByMemberId@{selectMailCountByMemberId}}
+\index{selectMailCountByMemberId@{selectMailCountByMemberId}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{selectMailCountByMemberId()}{selectMailCountByMemberId()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a34e9208bf85fefec4fa72013a346a713} 
+int com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+select\+Mail\+Count\+By\+Member\+Id (\begin{DoxyParamCaption}\item[{Long}]{member\+Id}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_abc0b9fd42a7a854375a1b60263bee6bc}{com.\+khao.\+Poor\+Deal.\+mapper.\+Mail\+Mapper.\+select\+Mail\+Count\+By\+Member\+Id(\+Long)} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00030}{30}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mailMapper.selectMailCountByMemberId(memberId);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a4acd01ce8a9347019146ab2c35f271c9}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!selectPagedMailsByMemberId@{selectPagedMailsByMemberId}}
+\index{selectPagedMailsByMemberId@{selectPagedMailsByMemberId}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{selectPagedMailsByMemberId()}{selectPagedMailsByMemberId()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a4acd01ce8a9347019146ab2c35f271c9} 
+List$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_mail_summary}{Mail\+Summary}} $>$ com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+select\+Paged\+Mails\+By\+Member\+Id (\begin{DoxyParamCaption}\item[{int}]{offset}{, }\item[{int}]{pagesize}{, }\item[{Long}]{member\+Id}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+com.\+khao.\+Poor\+Deal.\+mapper.\+Mail\+Mapper\#select\+Paged\+Mails\+By\+Member\+Id(int, int, Long) 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00036}{36}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mailMapper.selectPagedMailsByMemberId(offset,\ pagesize,\ memberId);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a0eeac5a212e3068177b9685549b19272}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!updateMailStatus@{updateMailStatus}}
+\index{updateMailStatus@{updateMailStatus}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{updateMailStatus()}{updateMailStatus()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a0eeac5a212e3068177b9685549b19272} 
+void com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+update\+Mail\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_mail}{Mail}}}]{mail}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper_ad338f4441166b110294c7dadfd5b6949}{com.\+khao.\+Poor\+Deal.\+mapper.\+Mail\+Mapper.\+update\+Mail\+Status(\+Mail)} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00045}{45}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{\ mailMapper.updateMailStatus(mail);\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a70a5481f2c598509e89deb73a52215fd}\index{com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}!mailMapper@{mailMapper}}
+\index{mailMapper@{mailMapper}!com.khao.PoorDeal.repository.MailRepository@{com.khao.PoorDeal.repository.MailRepository}}
+\doxysubsubsection{\texorpdfstring{mailMapper}{mailMapper}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository_a70a5481f2c598509e89deb73a52215fd} 
+final \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper}{Mail\+Mapper}} com.\+khao.\+Poor\+Deal.\+repository.\+Mail\+Repository.\+mail\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_mail_repository_8java_source}{Mail\+Repository.\+java}} 파일의 \mbox{\hyperlink{_mail_repository_8java_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/repository/\mbox{\hyperlink{_mail_repository_8java}{Mail\+Repository.\+java}}\end{DoxyCompactItemize}

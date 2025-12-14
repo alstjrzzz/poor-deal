@@ -1,0 +1,147 @@
+\doxysection{S3\+Service.\+java}
+\hypertarget{_s3_service_8java_source}{}\label{_s3_service_8java_source}\index{java/com/khao/PoorDeal/service/S3Service.java@{java/com/khao/PoorDeal/service/S3Service.java}}
+\mbox{\hyperlink{_s3_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.service;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ java.util.stream.Collectors;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.springframework.beans.factory.annotation.Value;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.web.multipart.MultipartFile;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00012}00012\ \textcolor{keyword}{import}\ com.amazonaws.services.s3.AmazonS3;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00013}00013\ \textcolor{keyword}{import}\ com.amazonaws.services.s3.model.DeleteObjectsRequest;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00014}00014\ \textcolor{keyword}{import}\ com.amazonaws.services.s3.model.ListObjectsV2Request;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00015}00015\ \textcolor{keyword}{import}\ com.amazonaws.services.s3.model.ListObjectsV2Result;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00016}00016\ \textcolor{keyword}{import}\ com.amazonaws.services.s3.model.ObjectMetadata;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00017}00017\ \textcolor{keyword}{import}\ com.amazonaws.services.s3.model.PutObjectRequest;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00018}00018\ \textcolor{keyword}{import}\ com.amazonaws.services.s3.model.S3ObjectSummary;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00020}00020\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00028}00028\ @Service}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00029}00029\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00030}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service}{00030}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service}{S3Service}}\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00032}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{00032}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ AmazonS3\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}};}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00034}00034\ \ \ \ \ @Value(\textcolor{stringliteral}{"{}\$\{cloud.aws.s3.bucket\}"{}})}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00035}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{00035}}\ \ \ \ \ private\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}};}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00036}00036\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00044}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508}{00044}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508}{uploadFile}}(MultipartFile\ file,\ String\ path,\ Long\ postId)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ \textcolor{keyword}{null}\ ||\ file.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ return\ null;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ String\ key\ =\ path\ +\ postId\ +\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358}{getFileExtension}}(file.getOriginalFilename());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ ObjectMetadata\ objectMetadata\ =\ \textcolor{keyword}{new}\ ObjectMetadata();}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ objectMetadata.setContentLength(file.getSize());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ objectMetadata.setContentType(file.getContentType());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ amazonS3Client.putObject(new\ PutObjectRequest(bucket,\ key,\ file.getInputStream(),\ objectMetadata));}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \}\ catch\ (IOException\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}S3\ 파일\ 업로드\ 중\ 오류가\ 발생했습니다."{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}}.getUrl(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}},\ key).toString();}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00064}00064\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00071}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644}{00071}}\ \ \ \ \ \textcolor{keyword}{public}\ List<String>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644}{uploadFiles}}(List<MultipartFile>\ files,\ String\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ List<String>\ urlList\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (files\ ==\ \textcolor{keyword}{null}\ ||\ files.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ files.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ MultipartFile\ file\ =\ files.get(i);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ \textcolor{keyword}{null}\ ||\ file.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ String\ key\ =\ path\ +\ i\ +\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358}{getFileExtension}}(file.getOriginalFilename());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ ObjectMetadata\ objectMetadata\ =\ \textcolor{keyword}{new}\ ObjectMetadata();}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ objectMetadata.setContentLength(file.getSize());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ objectMetadata.setContentType(file.getContentType());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}}.putObject(\textcolor{keyword}{new}\ PutObjectRequest(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}},\ key,\ file.getInputStream(),\ objectMetadata));}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}S3\ 파일\ 업로드\ 중\ 오류가\ 발생했습니다."{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ urlList.add(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}}.getUrl(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}},\ key).toString());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ urlList;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00109}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a6a87847319f23e2cf718687262dac27d}{00109}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a6a87847319f23e2cf718687262dac27d}{deleteFolder}}(String\ prefix)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00111}00111\ \ \ \ \ \ \ \ \ ListObjectsV2Request\ listRequest\ =\ \textcolor{keyword}{new}\ ListObjectsV2Request()}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .withBucketName(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}})}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .withPrefix(prefix);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00115}00115\ \ \ \ \ \ \ \ \ ListObjectsV2Result\ listResult;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ listResult\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}}.listObjectsV2(listRequest);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ List<S3ObjectSummary>\ summaries\ =\ listResult.getObjectSummaries();}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (summaries.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ List<DeleteObjectsRequest.KeyVersion>\ keysToDelete\ =\ summaries.stream()}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .map(summary\ -\/>\ \textcolor{keyword}{new}\ DeleteObjectsRequest.KeyVersion(summary.getKey()))}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .collect(Collectors.toList());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ DeleteObjectsRequest\ deleteRequest\ =\ \textcolor{keyword}{new}\ DeleteObjectsRequest(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}}).withKeys(keysToDelete);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}}.deleteObjects(deleteRequest);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ listRequest.setContinuationToken(listResult.getNextContinuationToken());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00134}00134\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (listResult.isTruncated());}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00135}00135\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00136}00136\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00143}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450}{00143}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450}{deleteFile}}(String\ path,\ Long\ postId,\ String\ imageUrl)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00144}00144\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (imageUrl\ ==\ \textcolor{keyword}{null}\ ||\ imageUrl.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00147}00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00149}00149\ \ \ \ \ \ \ \ \ String\ extension\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358}{getFileExtension}}(imageUrl);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00150}00150\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00151}00151\ \ \ \ \ \ \ \ \ String\ key\ =\ path\ +\ postId\ +\ extension;}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}}.doesObjectExist(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}},\ key))\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazonS3Client}}.deleteObject(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}},\ key);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00157}00157\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}S3\ 파일\ 삭제\ 중\ 오류가\ 발생했습니다."{}},\ e);}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00159}00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00160}00160\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00167}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358}{00167}}\ \ \ \ \ \textcolor{keyword}{public}\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358}{getFileExtension}}(String\ fileName)\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileName\ ==\ \textcolor{keyword}{null}\ ||\ !fileName.contains(\textcolor{stringliteral}{"{}."{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fileName.substring(fileName.lastIndexOf(\textcolor{stringliteral}{"{}."{}}));}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s3_service_8java_source_l00175}00175\ \}}
+
+\end{DoxyCode}

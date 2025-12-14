@@ -1,0 +1,51 @@
+\doxysection{Custom\+Auth\+Failure\+Handler.\+java}
+\hypertarget{_custom_auth_failure_handler_8java_source}{}\label{_custom_auth_failure_handler_8java_source}\index{java/com/khao/PoorDeal/exception/CustomAuthFailureHandler.java@{java/com/khao/PoorDeal/exception/CustomAuthFailureHandler.java}}
+\mbox{\hyperlink{_custom_auth_failure_handler_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00001}\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1exception}{00001}}\ \textcolor{keyword}{package\ }com.khao.PoorDeal.exception;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.net.URLEncoder;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00006}00006\ \textcolor{keyword}{import}\ javax.servlet.ServletException;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00007}00007\ \textcolor{keyword}{import}\ javax.servlet.http.HttpServletRequest;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00008}00008\ \textcolor{keyword}{import}\ javax.servlet.http.HttpServletResponse;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.security.authentication.BadCredentialsException;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.springframework.security.authentication.InternalAuthenticationServiceException;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.springframework.security.authentication.LockedException;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00013}00013\ \textcolor{keyword}{import}\ org.springframework.security.core.AuthenticationException;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00014}00014\ \textcolor{keyword}{import}\ org.springframework.security.core.userdetails.UsernameNotFoundException;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00015}00015\ \textcolor{keyword}{import}\ org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00016}00016\ \textcolor{keyword}{import}\ org.springframework.stereotype.Component;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00018}00018\ @Component}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00019}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1exception_1_1_custom_auth_failure_handler}{00019}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1exception_1_1_custom_auth_failure_handler}{CustomAuthFailureHandler}}\ \textcolor{keyword}{extends}\ SimpleUrlAuthenticationFailureHandler\ \{}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00021}00021\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00022}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1exception_1_1_custom_auth_failure_handler_a61f2d38ab4c86e624a8ac809a5f38f3e}{00022}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1exception_1_1_custom_auth_failure_handler_a61f2d38ab4c86e624a8ac809a5f38f3e}{onAuthenticationFailure}}(HttpServletRequest\ request,\ HttpServletResponse\ response,}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ AuthenticationException\ \mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1exception}{exception}})\ \textcolor{keywordflow}{throws}\ IOException,\ ServletException\ \{}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00024}00024\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00025}00025\ \ \ \ \ \ \ \ \ String\ errorMessage;}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00026}00026\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1exception}{exception}}\ instanceof\ BadCredentialsException)\ \{}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ errorMessage\ =\ \textcolor{stringliteral}{"{}아이디\ 또는\ 비밀번호가\ 맞지\ 않습니다."{}};}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00029}00029\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1exception}{exception}}\ instanceof\ InternalAuthenticationServiceException)\ \{}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ errorMessage\ =\ \textcolor{stringliteral}{"{}내부\ 시스템\ 문제로\ 로그인할\ 수\ 없습니다."{}};}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1exception}{exception}}\ instanceof\ UsernameNotFoundException)\ \{}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ errorMessage\ =\ \textcolor{stringliteral}{"{}계정이\ 존재하지\ 않습니다."{}};}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1exception}{exception}}\ instanceof\ LockedException)\ \{}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ errorMessage\ =\ \textcolor{stringliteral}{"{}정지된\ 계정입니다."{}};}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ errorMessage\ =\ \textcolor{stringliteral}{"{}알\ 수\ 없는\ 이유로\ 로그인에\ 실패했습니다."{}};}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ errorMessage\ =\ URLEncoder.encode(errorMessage,\ \textcolor{stringliteral}{"{}UTF-\/8"{}});}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ setDefaultFailureUrl(\textcolor{stringliteral}{"{}/login?error=true\&message="{}}\ +\ errorMessage);}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ super.onAuthenticationFailure(request,\ response,\ \mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1exception}{exception}});}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_custom_auth_failure_handler_8java_source_l00045}00045\ \}}
+
+\end{DoxyCode}

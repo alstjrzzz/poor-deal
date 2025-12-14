@@ -1,0 +1,5 @@
+<map id="com.khao.PoorDeal.dto.StartProcessRequest" name="com.khao.PoorDeal.dto.StartProcessRequest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,205,185,355"/>
+<area shape="rect" id="Node000002" href="$enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_process_type.html" title=" " alt="" coords="7,5,183,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,133,98,189,92,189,92,133"/>
+</map>

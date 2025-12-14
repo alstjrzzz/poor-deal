@@ -1,0 +1,118 @@
+\doxysection{Report\+Controller.\+java}
+\hypertarget{_report_controller_8java_source}{}\label{_report_controller_8java_source}\index{java/com/khao/PoorDeal/controller/ReportController.java@{java/com/khao/PoorDeal/controller/ReportController.java}}
+\mbox{\hyperlink{_report_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.controller;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.security.Principal;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.security.core.userdetails.UsernameNotFoundException;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.springframework.stereotype.Controller;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.springframework.ui.Model;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.GetMapping;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.ModelAttribute;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.PostMapping;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.RequestParam;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00013}00013\ \textcolor{keyword}{import}\ org.springframework.web.servlet.mvc.support.RedirectAttributes;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00015}00015\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Member;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00016}00016\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.MemberRole;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00017}00017\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.ReportStatus;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00018}00018\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.ReportRequest;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00019}00019\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.ReportResponse;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00020}00020\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.MemberRepository;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00021}00021\ \textcolor{keyword}{import}\ com.khao.PoorDeal.service.MemberService;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00022}00022\ \textcolor{keyword}{import}\ com.khao.PoorDeal.service.ReportService;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00024}00024\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00032}00032\ @Controller}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00033}00033\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00034}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller}{00034}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller}{ReportController}}\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00036}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a01129ce21d70d0777a36933d5f858aa4}{00036}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service}{ReportService}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a01129ce21d70d0777a36933d5f858aa4}{reportService}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00037}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_add5e9a703b82881a7f34f81c73769893}{00037}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{MemberService}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_add5e9a703b82881a7f34f81c73769893}{memberService}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00038}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a81e963f645f7e28f0388a2d9cb55ad6e}{00038}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{MemberRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a81e963f645f7e28f0388a2d9cb55ad6e}{memberRepository}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00047}00047\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/report"{}})}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00048}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a6e162d5a81072beae4a17d39b9aa8b2b}{00048}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a6e162d5a81072beae4a17d39b9aa8b2b}{showReportForm}}(}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ @RequestParam(\textcolor{stringliteral}{"{}suspectId"{}})\ Long\ suspectId,}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ @RequestParam(value\ =\ \textcolor{stringliteral}{"{}postId"{}},\ required\ =\ false)\ Long\ postId,}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ Model\ model)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ suspect\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a81e963f645f7e28f0388a2d9cb55ad6e}{memberRepository}}.findById(suspectId)}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ UsernameNotFoundException(\textcolor{stringliteral}{"{}사용자를\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}suspectName"{}},\ suspect.getUserName());}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_request}{ReportRequest}}\ reportRequest\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_request}{ReportRequest}}.builder()}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_request_ae7b127b68a4f53cd3262f75b5bf6afc4}{suspectId}}(suspectId)}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .postId(postId)}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}reportRequest"{}},\ reportRequest);}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}report/reportForm"{}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00075}00075\ \ \ \ \ @PostMapping(\textcolor{stringliteral}{"{}/report/submit"{}})}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00076}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a5d1acc8e29be93269439f265ec49657b}{00076}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a5d1acc8e29be93269439f265ec49657b}{submitReport}}(}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ @ModelAttribute\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_request}{ReportRequest}}\ reportRequest,}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ Principal\ principal,}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ RedirectAttributes\ rttr)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ Long\ reporterId\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_add5e9a703b82881a7f34f81c73769893}{memberService}}.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ reportRequest.setReporterId(reporterId);}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ reportService.submitReport(reportRequest);}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}🚨\ 신고가\ 정상적으로\ 접수되었습니다.\ 관리자\ 검토\ 후\ 처리됩니다."{}});}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \}\ catch\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}신고\ 접수\ 중\ 오류가\ 발생했습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/"{}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00101}00101\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/admin/report/list"{}})}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00102}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a64e6c6d1b73b5c15565603b3dacf2fa7}{00102}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a64e6c6d1b73b5c15565603b3dacf2fa7}{listReports}}(Principal\ principal,\ RedirectAttributes\ rttr,\ Model\ model)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00104}00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ member\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_add5e9a703b82881a7f34f81c73769893}{memberService}}.findByUserId(principal.getName());}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00105}00105\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00106}00106\ \ \ \ \ \ \ \ \ if\ (member.getRole()\ !=\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_role}{MemberRole}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_role_a4db833863e7b351ed4745d89193216a0}{ROLE\_ADMIN}})\ \{\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}관리자만\ 접근할\ 수\ 있습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ return\ \textcolor{stringliteral}{"{}redirect:/"{}};\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00109}00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00111}00111\ \ \ \ \ \ \ \ \ List<ReportResponse>\ reports\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a01129ce21d70d0777a36933d5f858aa4}{reportService}}.getAllReports();}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00112}00112\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}reports"{}},\ reports);}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00113}00113\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}report/reportList"{}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00124}00124\ \ \ \ \ @PostMapping(\textcolor{stringliteral}{"{}/admin/report/process"{}})}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00125}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a34a72e0b60a9c94f04c0822f02e8fc74}{00125}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a34a72e0b60a9c94f04c0822f02e8fc74}{processReport}}(}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ @RequestParam(\textcolor{stringliteral}{"{}id"{}})\ Long\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ @RequestParam(\textcolor{stringliteral}{"{}status"{}})\ String\ statusStr,}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ RedirectAttributes\ rttr)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00129}00129\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}\ status\ =\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}.valueOf(statusStr);}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a01129ce21d70d0777a36933d5f858aa4}{reportService}}.processReport(\textcolor{keywordtype}{id},\ status);}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ String\ msg\ =\ \textcolor{stringliteral}{"{}신고\ 처리\ 완료"{}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(status\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status_abaa6f1f53e55e44c9f3f61ed6d2b2208}{APPROVED}})\ msg\ +=\ \textcolor{stringliteral}{"{}\ (승인/제재)"{}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(status\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status_a95b39e3a1fe666d9ed7d03ceba55ae50}{REJECTED}})\ msg\ +=\ \textcolor{stringliteral}{"{}\ (반려)"{}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}✅\ "{}}\ +\ msg\ +\ \textcolor{stringliteral}{"{}\ 되었습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00140}00140\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}처리\ 중\ 오류가\ 발생했습니다:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00142}00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00143}00143\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/admin/report/list"{}};}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00145}00145\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_controller_8java_source_l00146}00146\ \}}
+
+\end{DoxyCode}

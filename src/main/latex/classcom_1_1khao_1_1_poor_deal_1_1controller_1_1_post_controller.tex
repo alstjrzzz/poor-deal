@@ -1,0 +1,728 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller 클래스 참조}
+\hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller}{}\label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+
+
+com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a95f6d2ce4ccc4b933be7cb7848fc9258}{get\+Posts}} ( @Request\+Param(default\+Value="{}1"{}) int page, @Model\+Attribute("{}search\+Condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}} condition, Model model, Principal principal)
+\begin{DoxyCompactList}\small\item\em 메인 페이지. 게시물 목록을 페이징하여 조회합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a253f6b9c9cb73e98f9f910cb66dbe6bf}{new\+Post\+Form}} ()
+\begin{DoxyCompactList}\small\item\em 새 게시물 작성 폼 페이지를 반환합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ab2a82cb13162be183ae64fc27105804f}{add\+Post}} (@Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_post_request}{Add\+Post\+Request}} request, Principal principal, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em 새 게시물 작성을 처리합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a82b6379e2333c8c654848360c2c34021}{get\+Post}} (@Path\+Variable("{}post\+Id"{}) Long post\+Id, @Model\+Attribute("{}search\+Condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}} condition, @Request\+Param(default\+Value="{}1"{}) int page, Model model, Principal principal)
+\begin{DoxyCompactList}\small\item\em 특정 게시물의 상세 페이지를 조회합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a4bc645a05fd45ea28ee14e2782a17836}{add\+Comment}} (@Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_comment_request}{Add\+Comment\+Request}} request, Principal principal, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em 새 댓글 작성을 처리합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a3694b55251f65b0f4032279bc0583ec6}{update\+Comment}} (@Request\+Param("{}comment\+Id"{}) Long comment\+Id, @Request\+Param("{}post\+Id"{}) Long post\+Id, @Request\+Param("{}content"{}) String content, Principal principal, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em 댓글 수정을 처리합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a00209074f4267974504282cc0765863d}{delete\+Comment}} (@Request\+Param("{}comment\+Id"{}) Long comment\+Id, @Request\+Param("{}post\+Id"{}) Long post\+Id, Principal principal, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em 댓글 삭제를 처리합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a56d2d1ee6d7a05369dbcd3885b1b63e5}{edit\+Post\+Form}} (@Path\+Variable("{}post\+Id"{}) Long post\+Id, Model model, Principal principal)
+\begin{DoxyCompactList}\small\item\em 게시물 수정 폼 페이지를 반환합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a0ecf03bce54a849eea80a37d56595a39}{update\+Post}} (@Path\+Variable("{}post\+Id"{}) Long post\+Id, @Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_post_request}{Add\+Post\+Request}} request, Principal principal, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em 게시물 수정을 처리합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a10d08edc127fb75d33c74395e50b943d}{delete\+Post}} (@Path\+Variable("{}post\+Id"{}) Long post\+Id, Principal principal, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em 게시물 삭제를 처리합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a9c018267d62e2107dbc3b2fed622a6a9}{PAGESIZE}} = 10
+\item 
+int \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a65d9cef8f7ee7d3eab860c57a9b149e3}{BLOCK\+\_\+\+SIZE}} = 10
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service}{Post\+Service}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ac094c03c2d0e5875056584532e9d8ca7}{post\+Service}}
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{Member\+Service}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_aacb844200b4d7f8eeec1e7275c475c6b}{member\+Service}}
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_mail_service}{Mail\+Service}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a77d7d9831459f901176fd7e620107270}{mail\+Service}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00036}{36}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a4bc645a05fd45ea28ee14e2782a17836}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!addComment@{addComment}}
+\index{addComment@{addComment}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{addComment()}{addComment()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a4bc645a05fd45ea28ee14e2782a17836} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+add\+Comment (\begin{DoxyParamCaption}\item[{@Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_comment_request}{Add\+Comment\+Request}}}]{request}{, }\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+새 댓글 작성을 처리합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em request} & 댓글 추가 요청 DTO \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 게시물의 상세 페이지로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00169}{169}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ Long\ authorId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ Long\ postId\ =\ postService.createComment(request,\ authorId);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}댓글이\ 성공적으로\ 등록되었습니다."{}});}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/"{}}\ +\ postId;}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a4bc645a05fd45ea28ee14e2782a17836_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a4bc645a05fd45ea28ee14e2782a17836_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ab2a82cb13162be183ae64fc27105804f}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!addPost@{addPost}}
+\index{addPost@{addPost}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{addPost()}{addPost()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ab2a82cb13162be183ae64fc27105804f} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+add\+Post (\begin{DoxyParamCaption}\item[{@Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_post_request}{Add\+Post\+Request}}}]{request}{, }\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+새 게시물 작성을 처리합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em request} & 게시물 추가 요청 DTO \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+성공 시 메인 페이지("{}/"{})로, 실패 시 작성 폼으로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00106}{106}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ Long\ authorId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ postService.createPost(request,\ authorId);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}게시글이\ 성공적으로\ 등록되었습니다."{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IllegalArgumentException\ e)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}등록\ 실패:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/new"{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}오류\ 발생:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/"{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ab2a82cb13162be183ae64fc27105804f_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ab2a82cb13162be183ae64fc27105804f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a00209074f4267974504282cc0765863d}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!deleteComment@{deleteComment}}
+\index{deleteComment@{deleteComment}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{deleteComment()}{deleteComment()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a00209074f4267974504282cc0765863d} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+delete\+Comment (\begin{DoxyParamCaption}\item[{@Request\+Param("{}comment\+Id"{}) Long}]{comment\+Id}{, }\item[{@Request\+Param("{}post\+Id"{}) Long}]{post\+Id}{, }\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+댓글 삭제를 처리합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em comment\+Id} & 삭제할 댓글 ID \\
+\hline
+{\em post\+Id} & 댓글이 속한 게시물 ID \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 게시물의 상세 페이지로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00215}{215}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ Long\ userId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ postService.deleteComment(commentId,\ userId);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}댓글이\ 삭제되었습니다."{}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ e.getMessage());}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/"{}}\ +\ postId;}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a00209074f4267974504282cc0765863d_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a00209074f4267974504282cc0765863d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a10d08edc127fb75d33c74395e50b943d}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!deletePost@{deletePost}}
+\index{deletePost@{deletePost}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{deletePost()}{deletePost()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a10d08edc127fb75d33c74395e50b943d} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+delete\+Post (\begin{DoxyParamCaption}\item[{@Path\+Variable("{}post\+Id"{}) Long}]{post\+Id}{, }\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+게시물 삭제를 처리합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em post\+Id} & 삭제할 게시물 ID \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+성공 시 메인 페이지로, 실패 시 상세 페이지로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00285}{285}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ Long\ userId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ postService.deletePost(postId,\ userId);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}게시글이\ 삭제되었습니다."{}});}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}삭제\ 실패:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/"{}}\ +\ postId;}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/"{}};}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a10d08edc127fb75d33c74395e50b943d_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a10d08edc127fb75d33c74395e50b943d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a56d2d1ee6d7a05369dbcd3885b1b63e5}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!editPostForm@{editPostForm}}
+\index{editPostForm@{editPostForm}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{editPostForm()}{editPostForm()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a56d2d1ee6d7a05369dbcd3885b1b63e5} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+edit\+Post\+Form (\begin{DoxyParamCaption}\item[{@Path\+Variable("{}post\+Id"{}) Long}]{post\+Id}{, }\item[{Model}]{model}{, }\item[{Principal}]{principal}{}\end{DoxyParamCaption})}
+
+
+
+게시물 수정 폼 페이지를 반환합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em post\+Id} & 수정할 게시물 ID \\
+\hline
+{\em model} & 뷰에 전달할 모델 \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+"{}post/edit"{} 뷰. 작성자가 아니면 상세 페이지로 리다이렉트. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00239}{239}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ PostResponse\ post\ =\ postService.getPost(postId);}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ Long\ loginId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!post.getAuthorId().equals(loginId))\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/"{}}\ +\ postId;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}post"{}},\ post);}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}post/edit"{}};}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a56d2d1ee6d7a05369dbcd3885b1b63e5_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a56d2d1ee6d7a05369dbcd3885b1b63e5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a82b6379e2333c8c654848360c2c34021}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!getPost@{getPost}}
+\index{getPost@{getPost}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{getPost()}{getPost()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a82b6379e2333c8c654848360c2c34021} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+get\+Post (\begin{DoxyParamCaption}\item[{@Path\+Variable("{}post\+Id"{}) Long}]{post\+Id}{, }\item[{@Model\+Attribute("{}search\+Condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}}}]{condition}{, }\item[{@Request\+Param(default\+Value="{}1"{}) int}]{page}{, }\item[{Model}]{model}{, }\item[{Principal}]{principal}{}\end{DoxyParamCaption})}
+
+
+
+특정 게시물의 상세 페이지를 조회합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em post\+Id} & 조회할 게시물 ID \\
+\hline
+{\em condition} & 현재 검색 조건 (페이지 이동 시 유지) \\
+\hline
+{\em page} & 현재 페이지 번호 (페이지 이동 시 유지) \\
+\hline
+{\em model} & 뷰에 전달할 모델 \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+"{}post/detail"{} 뷰 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00134}{134}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ PostResponse\ post\ =\ postService.getPost(postId);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ List<CommentAndRepliesResponse>\ commentsAndReplies\ =\ postService.getCommentsAndReplies(postId);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ totalCommentCount\ =\ commentsAndReplies.stream()}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .mapToInt(cr\ -\/>\ 1\ +\ (cr.getReplies()\ !=\ \textcolor{keyword}{null}\ ?\ cr.getReplies().size()\ :\ 0))}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .sum();}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ isApplied\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ Long\ loginId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!loginId.equals(post.getAuthorId()))\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ isApplied\ =\ mailService.hasApplied(loginId,\ postId);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}post"{}},\ post);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}commentsAndReplies"{}},\ commentsAndReplies);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}totalCommentCount"{}},\ totalCommentCount);}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}isApplied"{}},\ isApplied);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}loginId"{}},\ loginId);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}currentPage"{}},\ page);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}post/detail"{}};}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a82b6379e2333c8c654848360c2c34021_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a82b6379e2333c8c654848360c2c34021_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a95f6d2ce4ccc4b933be7cb7848fc9258}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!getPosts@{getPosts}}
+\index{getPosts@{getPosts}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{getPosts()}{getPosts()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a95f6d2ce4ccc4b933be7cb7848fc9258} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+get\+Posts (\begin{DoxyParamCaption}\item[{@Request\+Param(default\+Value="{}1"{}) int}]{page}{, }\item[{@Model\+Attribute("{}search\+Condition"{}) \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{Post\+Search\+Condition}}}]{condition}{, }\item[{Model}]{model}{, }\item[{Principal}]{principal}{}\end{DoxyParamCaption})}
+
+
+
+메인 페이지. 게시물 목록을 페이징하여 조회합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em page} & 요청 페이지 번호 \\
+\hline
+{\em condition} & 검색 조건 (타입, 키워드) \\
+\hline
+{\em model} & 뷰에 전달할 모델 \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+"{}post/list"{} 뷰 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00057}{57}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ totalCount\ =\ postService.getPostCount(condition);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ totalPages\ =\ (int)\ Math.ceil((\textcolor{keywordtype}{double})\ totalCount\ /\ PAGESIZE);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (totalPages\ ==\ 0)\ totalPages\ =\ 1;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ offset\ =\ (page\ -\/\ 1)\ *\ PAGESIZE;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ startPage\ =\ ((page\ -\/\ 1)\ /\ BLOCK\_SIZE)\ *\ BLOCK\_SIZE\ +\ 1;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ endPage\ =\ startPage\ +\ BLOCK\_SIZE\ -\/\ 1;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (endPage\ >\ totalPages)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ endPage\ =\ totalPages;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ List<PostSummary>\ postList\ =\ postService.getPagedPostsSummary(offset,\ PAGESIZE,\ condition);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}postList"{}},\ postList);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}currentPage"{}},\ page);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}totalPages"{}},\ totalPages);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}startPage"{}},\ startPage);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}endPage"{}},\ endPage);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (principal\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ Long\ point\ =\ memberService.findByUserId(principal.getName()).getPoint();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}myPoint"{}},\ point);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}post/list"{}};}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a95f6d2ce4ccc4b933be7cb7848fc9258_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a95f6d2ce4ccc4b933be7cb7848fc9258_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a253f6b9c9cb73e98f9f910cb66dbe6bf}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!newPostForm@{newPostForm}}
+\index{newPostForm@{newPostForm}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{newPostForm()}{newPostForm()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a253f6b9c9cb73e98f9f910cb66dbe6bf} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+new\+Post\+Form (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+새 게시물 작성 폼 페이지를 반환합니다. 
+
+\begin{DoxyReturn}{반환값}
+"{}post/write"{} 뷰 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00094}{94}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}post/write"{}};}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a253f6b9c9cb73e98f9f910cb66dbe6bf_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a253f6b9c9cb73e98f9f910cb66dbe6bf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a3694b55251f65b0f4032279bc0583ec6}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!updateComment@{updateComment}}
+\index{updateComment@{updateComment}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{updateComment()}{updateComment()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a3694b55251f65b0f4032279bc0583ec6} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+update\+Comment (\begin{DoxyParamCaption}\item[{@Request\+Param("{}comment\+Id"{}) Long}]{comment\+Id}{, }\item[{@Request\+Param("{}post\+Id"{}) Long}]{post\+Id}{, }\item[{@Request\+Param("{}content"{}) String}]{content}{, }\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+댓글 수정을 처리합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em comment\+Id} & 수정할 댓글 ID \\
+\hline
+{\em post\+Id} & 댓글이 속한 게시물 ID \\
+\hline
+{\em content} & 새로운 댓글 내용 \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+해당 게시물의 상세 페이지로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00189}{189}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ Long\ userId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ postService.updateComment(commentId,\ content,\ userId);}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}댓글이\ 수정되었습니다."{}});}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ e.getMessage());}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/"{}}\ +\ postId;}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a3694b55251f65b0f4032279bc0583ec6_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a3694b55251f65b0f4032279bc0583ec6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a0ecf03bce54a849eea80a37d56595a39}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!updatePost@{updatePost}}
+\index{updatePost@{updatePost}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{updatePost()}{updatePost()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a0ecf03bce54a849eea80a37d56595a39} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+update\+Post (\begin{DoxyParamCaption}\item[{@Path\+Variable("{}post\+Id"{}) Long}]{post\+Id}{, }\item[{@Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_post_request}{Add\+Post\+Request}}}]{request}{, }\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+게시물 수정을 처리합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em post\+Id} & 수정할 게시물 ID \\
+\hline
+{\em request} & 게시물 수정 요청 DTO \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+성공 시 상세 페이지로, 실패 시 수정 폼으로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00260}{260}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ Long\ userId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ postService.updatePost(postId,\ request,\ userId);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}게시글이\ 수정되었습니다."{}});}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}수정\ 실패:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/"{}}\ +\ postId\ +\ \textcolor{stringliteral}{"{}/edit"{}};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/post/"{}}\ +\ postId;}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a0ecf03bce54a849eea80a37d56595a39_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a0ecf03bce54a849eea80a37d56595a39_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a65d9cef8f7ee7d3eab860c57a9b149e3}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!BLOCK\_SIZE@{BLOCK\_SIZE}}
+\index{BLOCK\_SIZE@{BLOCK\_SIZE}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_SIZE}{BLOCK\_SIZE}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a65d9cef8f7ee7d3eab860c57a9b149e3} 
+int com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+BLOCK\+\_\+\+SIZE = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00042}{42}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a77d7d9831459f901176fd7e620107270}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!mailService@{mailService}}
+\index{mailService@{mailService}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{mailService}{mailService}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a77d7d9831459f901176fd7e620107270} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_mail_service}{Mail\+Service}} com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+mail\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00046}{46}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_aacb844200b4d7f8eeec1e7275c475c6b}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!memberService@{memberService}}
+\index{memberService@{memberService}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{memberService}{memberService}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_aacb844200b4d7f8eeec1e7275c475c6b} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{Member\+Service}} com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+member\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00045}{45}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a9c018267d62e2107dbc3b2fed622a6a9}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!PAGESIZE@{PAGESIZE}}
+\index{PAGESIZE@{PAGESIZE}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{PAGESIZE}{PAGESIZE}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_a9c018267d62e2107dbc3b2fed622a6a9} 
+int com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+PAGESIZE = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00039}{39}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ac094c03c2d0e5875056584532e9d8ca7}\index{com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}!postService@{postService}}
+\index{postService@{postService}!com.khao.PoorDeal.controller.PostController@{com.khao.PoorDeal.controller.PostController}}
+\doxysubsubsection{\texorpdfstring{postService}{postService}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_post_controller_ac094c03c2d0e5875056584532e9d8ca7} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service}{Post\+Service}} com.\+khao.\+Poor\+Deal.\+controller.\+Post\+Controller.\+post\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_post_controller_8java_source}{Post\+Controller.\+java}} 파일의 \mbox{\hyperlink{_post_controller_8java_source_l00044}{44}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/controller/\mbox{\hyperlink{_post_controller_8java}{Post\+Controller.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,48 @@
+\doxysection{Auth\+Details\+Service.\+java}
+\hypertarget{_auth_details_service_8java_source}{}\label{_auth_details_service_8java_source}\index{java/com/khao/PoorDeal/service/AuthDetailsService.java@{java/com/khao/PoorDeal/service/AuthDetailsService.java}}
+\mbox{\hyperlink{_auth_details_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00001}\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1service}{00001}}\ \textcolor{keyword}{package\ }com.khao.PoorDeal.service;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.Collections;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.NoSuchElementException;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.security.core.GrantedAuthority;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.springframework.security.core.authority.SimpleGrantedAuthority;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.springframework.security.core.userdetails.User;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.security.core.userdetails.UserDetails;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.security.core.userdetails.UserDetailsService;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00011}00011\ \textcolor{keyword}{import}\ org.springframework.security.core.userdetails.UsernameNotFoundException;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00012}00012\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00014}00014\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Member;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00015}00015\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00016}00016\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.MemberRepository;}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00024}00024\ @Service}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00025}00025\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00026}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service}{00026}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service}{AuthDetailsService}}\ \textcolor{keyword}{implements}\ UserDetailsService\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00028}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_ab5492748be2f6b5fc2fda77cef7dc208}{00028}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{MemberRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_ab5492748be2f6b5fc2fda77cef7dc208}{memberRepository}};}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00029}00029\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00036}00036\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00037}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_a799c91ebcb5f020aec02333efa640997}{00037}}\ \ \ \ \ \textcolor{keyword}{public}\ UserDetails\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_a799c91ebcb5f020aec02333efa640997}{loadUserByUsername}}(String\ userId)\ \textcolor{keywordflow}{throws}\ UsernameNotFoundException\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ member\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_details_service_ab5492748be2f6b5fc2fda77cef7dc208}{memberRepository}}.findByUserId(userId).orElseThrow(}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ()\ -\/>\ \textcolor{keyword}{new}\ UsernameNotFoundException(userId\ +\ \textcolor{stringliteral}{"{}\ 사용자를\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ GrantedAuthority\ authority\ =\ \textcolor{keyword}{new}\ SimpleGrantedAuthority(member.getRole().name());}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ User(}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ member.getUserId(),}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ member.getPassword(),}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ \ \textcolor{comment}{//\ enabled\ (계정\ 활성화\ 여부)}}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ \ \textcolor{comment}{//\ accountNonExpired\ (계정\ 만료\ 여부)}}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ \ \textcolor{comment}{//\ credentialsNonExpired\ (비밀번호\ 만료\ 여부)}}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ !member.\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a0a571852ad9aa9dc64c5bc1b34bc309d}{isBlock}}(),\ \textcolor{comment}{//\ accountNonLocked\ (계정\ 잠금\ 여부)\ -\/>\ isBlock이\ true면\ false(잠김)가\ 되어야\ 함}}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ Collections.singleton(authority)}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_auth_details_service_8java_source_l00054}00054\ \}}
+
+\end{DoxyCode}

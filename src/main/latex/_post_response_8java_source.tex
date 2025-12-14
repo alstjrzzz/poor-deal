@@ -1,0 +1,40 @@
+\doxysection{Post\+Response.\+java}
+\hypertarget{_post_response_8java_source}{}\label{_post_response_8java_source}\index{java/com/khao/PoorDeal/dto/PostResponse.java@{java/com/khao/PoorDeal/dto/PostResponse.java}}
+\mbox{\hyperlink{_post_response_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.dto;}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.time.LocalDateTime;}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00005}00005\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Post;}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00006}00006\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.PostType;}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00008}00008\ \textcolor{keyword}{import}\ lombok.Builder;}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00009}00009\ \textcolor{keyword}{import}\ lombok.Getter;}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00010}00010\ \textcolor{keyword}{import}\ lombok.Setter;}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00018}00018\ @Getter}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00019}00019\ @Setter}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00020}00020\ @Builder}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00021}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{00021}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{PostResponse}}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00024}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_ad123426159cd456009b508b82cfaa932}{00024}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_ad123426159cd456009b508b82cfaa932}{id}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00026}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_ab814f1353b1b49e5e4d21bfb948df0e3}{00026}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_ab814f1353b1b49e5e4d21bfb948df0e3}{title}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00028}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_aa6a2b38aa220da9eb922d50b6d8f1e15}{00028}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_aa6a2b38aa220da9eb922d50b6d8f1e15}{content}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00030}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a1708721421041d9ac483374db8fa6212}{00030}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a1708721421041d9ac483374db8fa6212}{authorId}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00032}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a471f9001e6043a644b61b84e9d40e25d}{00032}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a471f9001e6043a644b61b84e9d40e25d}{image}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00034}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a6309d3ee25b1ccd3a94580b6592ee509}{00034}}\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a6309d3ee25b1ccd3a94580b6592ee509}{type}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00036}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_aeafe7dd9d866dc0e3a02f92ef8ce1986}{00036}}\ \ \ \ \ \textcolor{keyword}{private}\ LocalDateTime\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_aeafe7dd9d866dc0e3a02f92ef8ce1986}{createdAt}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00038}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a5ab9e026268fb849000187bc8fa3cea1}{00038}}\ \ \ \ \ \textcolor{keyword}{private}\ LocalDateTime\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a5ab9e026268fb849000187bc8fa3cea1}{updatedAt}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00040}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_aaee1b47ab2e8117b6556583c77c6547d}{00040}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_aaee1b47ab2e8117b6556583c77c6547d}{isAvailable}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00042}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_ac0fa926e74fc832744515533725e4ed0}{00042}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_ac0fa926e74fc832744515533725e4ed0}{isDeleted}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00043}00043\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00045}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_acad088a930b2c103712d6b83147c91b4}{00045}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_acad088a930b2c103712d6b83147c91b4}{price}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00046}00046\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00048}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a707ec7c17aaea66804a5b9b3b228e040}{00048}}\ \ \ \ \ \textcolor{keyword}{private}\ Integer\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a707ec7c17aaea66804a5b9b3b228e040}{hiringQuota}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00050}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a0ffddc1d3ad6b284a6eed198cbb5f18f}{00050}}\ \ \ \ \ \textcolor{keyword}{private}\ Integer\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a0ffddc1d3ad6b284a6eed198cbb5f18f}{filledCount}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00051}00051\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00053}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a26ad2b1efaa4fccbd622ec472d7256b3}{00053}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_a26ad2b1efaa4fccbd622ec472d7256b3}{author}};}
+\DoxyCodeLine{\Hypertarget{_post_response_8java_source_l00054}00054\ \}}
+
+\end{DoxyCode}

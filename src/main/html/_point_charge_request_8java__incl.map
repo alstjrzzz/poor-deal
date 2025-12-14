@@ -1,0 +1,7 @@
+<map id="java/com/khao/PoorDeal/dto/PointChargeRequest.java" name="java/com/khao/PoorDeal/dto/PointChargeRequest.java">
+<area shape="rect" id="Node000001" title="포인트 충전 요청 시 사용되는 DTO 클래스입니다." alt="" coords="22,5,218,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,109,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,50,78,85,74,82,101,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="132,96,235,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,47,166,82,162,85,134,50"/>
+</map>

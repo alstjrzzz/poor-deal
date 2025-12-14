@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: com.khao.PoorDeal.service.S3Service 클래스 참조</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html','','classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">com.khao.PoorDeal.service.S3Service 클래스 참조</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+com.khao.PoorDeal.service.S3Service에 대한 협력 다이어그램:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service__coll__graph.png" border="0" usemap="#acom_8khao_8_poor_deal_8service_8_s3_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="acom_8khao_8_poor_deal_8service_8_s3_service_coll__map" id="acom_8khao_8_poor_deal_8service_8_s3_service_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,181,197"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 멤버 함수</h2></td></tr>
+<tr class="memitem:a38c39bed6472d272f3a035d9ee461508" id="r_a38c39bed6472d272f3a035d9ee461508"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38c39bed6472d272f3a035d9ee461508">uploadFile</a> (MultipartFile file, String path, Long postId)</td></tr>
+<tr class="memdesc:a38c39bed6472d272f3a035d9ee461508"><td class="mdescLeft">&#160;</td><td class="mdescRight">단일 파일을 S3에 업로드합니다.  <br /></td></tr>
+<tr class="memitem:a76f4ee06f273084e7987ff718094e644" id="r_a76f4ee06f273084e7987ff718094e644"><td class="memItemLeft" align="right" valign="top">List&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76f4ee06f273084e7987ff718094e644">uploadFiles</a> (List&lt; MultipartFile &gt; files, String path)</td></tr>
+<tr class="memdesc:a76f4ee06f273084e7987ff718094e644"><td class="mdescLeft">&#160;</td><td class="mdescRight">여러 파일을 S3에 업로드합니다.  <br /></td></tr>
+<tr class="memitem:a6a87847319f23e2cf718687262dac27d" id="r_a6a87847319f23e2cf718687262dac27d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a87847319f23e2cf718687262dac27d">deleteFolder</a> (String prefix)</td></tr>
+<tr class="memdesc:a6a87847319f23e2cf718687262dac27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">S3의 특정 폴더(prefix)에 있는 모든 객체를 삭제합니다.  <br /></td></tr>
+<tr class="memitem:aee83097d92f316a08d284dfe65535450" id="r_aee83097d92f316a08d284dfe65535450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee83097d92f316a08d284dfe65535450">deleteFile</a> (String path, Long postId, String imageUrl)</td></tr>
+<tr class="memdesc:aee83097d92f316a08d284dfe65535450"><td class="mdescLeft">&#160;</td><td class="mdescRight">S3에서 특정 파일을 삭제합니다.  <br /></td></tr>
+<tr class="memitem:a5f08172d1fc51fe911a0aac07f84e358" id="r_a5f08172d1fc51fe911a0aac07f84e358"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f08172d1fc51fe911a0aac07f84e358">getFileExtension</a> (String fileName)</td></tr>
+<tr class="memdesc:a5f08172d1fc51fe911a0aac07f84e358"><td class="mdescLeft">&#160;</td><td class="mdescRight">파일 이름에서 확장자를 추출합니다.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 속성</h2></td></tr>
+<tr class="memitem:a59715050bdd875b2f58f0c63916994df" id="r_a59715050bdd875b2f58f0c63916994df"><td class="memItemLeft" align="right" valign="top">final AmazonS3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a></td></tr>
+<tr class="memitem:a9eecabb7d417ac4512f013bf82f8bd70" id="r_a9eecabb7d417ac4512f013bf82f8bd70"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">상세한 설명</h2>
+<div class="textblock">
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00030">30</a> 번째 라인에서 정의되었습니다.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">멤버 함수 문서화</h2>
+<a id="aee83097d92f316a08d284dfe65535450" name="aee83097d92f316a08d284dfe65535450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee83097d92f316a08d284dfe65535450">&#9670;&#160;</a></span>deleteFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.khao.PoorDeal.service.S3Service.deleteFile </td>
+          <td>(</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Long</td>          <td class="paramname"><span class="paramname"><em>postId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>imageUrl</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>S3에서 특정 파일을 삭제합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>파일이 저장된 경로 </td></tr>
+    <tr><td class="paramname">postId</td><td>파일명으로 사용된 게시물 ID </td></tr>
+    <tr><td class="paramname">imageUrl</td><td>삭제할 파일의 전체 URL </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00143">143</a> 번째 라인에서 정의되었습니다.</p>
+<div class="fragment"><div class="line"><span class="lineno">  143</span>                                                                      {</div>
+<div class="line"><span class="lineno">  144</span>        </div>
+<div class="line"><span class="lineno">  145</span>        <span class="keywordflow">if</span> (imageUrl == <span class="keyword">null</span> || imageUrl.isEmpty()) {</div>
+<div class="line"><span class="lineno">  146</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  147</span>        }</div>
+<div class="line"><span class="lineno">  148</span> </div>
+<div class="line"><span class="lineno">  149</span>        String extension = getFileExtension(imageUrl);</div>
+<div class="line"><span class="lineno">  150</span>        </div>
+<div class="line"><span class="lineno">  151</span>        String key = path + postId + extension;</div>
+<div class="line"><span class="lineno">  152</span> </div>
+<div class="line"><span class="lineno">  153</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  154</span>            <span class="keywordflow">if</span> (amazonS3Client.doesObjectExist(bucket, key)) {</div>
+<div class="line"><span class="lineno">  155</span>                amazonS3Client.deleteObject(bucket, key);</div>
+<div class="line"><span class="lineno">  156</span>            }</div>
+<div class="line"><span class="lineno">  157</span>        } <span class="keywordflow">catch</span> (Exception e) {</div>
+<div class="line"><span class="lineno">  158</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;S3 파일 삭제 중 오류가 발생했습니다.&quot;</span>, e);</div>
+<div class="line"><span class="lineno">  159</span>        }</div>
+<div class="line"><span class="lineno">  160</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450_cgraph.png" border="0" usemap="#aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450_cgraph" loading="lazy" alt=""/></div>
+<map name="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450_cgraph" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450_cgraph">
+<area shape="rect" title="S3에서 특정 파일을 삭제합니다." alt="" coords="5,5,192,48"/>
+<area shape="rect" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358" title="파일 이름에서 확장자를 추출합니다." alt="" coords="240,5,426,48"/>
+<area shape="poly" title=" " alt="" coords="192,24,224,24,224,29,192,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6a87847319f23e2cf718687262dac27d" name="a6a87847319f23e2cf718687262dac27d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a87847319f23e2cf718687262dac27d">&#9670;&#160;</a></span>deleteFolder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.khao.PoorDeal.service.S3Service.deleteFolder </td>
+          <td>(</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>prefix</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>S3의 특정 폴더(prefix)에 있는 모든 객체를 삭제합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prefix</td><td>삭제할 폴더 경로 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00109">109</a> 번째 라인에서 정의되었습니다.</p>
+<div class="fragment"><div class="line"><span class="lineno">  109</span>                                            {</div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  111</span>        ListObjectsV2Request listRequest = <span class="keyword">new</span> ListObjectsV2Request()</div>
+<div class="line"><span class="lineno">  112</span>                .withBucketName(bucket)</div>
+<div class="line"><span class="lineno">  113</span>                .withPrefix(prefix);</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>        ListObjectsV2Result listResult;</div>
+<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">  117</span>            listResult = amazonS3Client.listObjectsV2(listRequest);</div>
+<div class="line"><span class="lineno">  118</span>            List&lt;S3ObjectSummary&gt; summaries = listResult.getObjectSummaries();</div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  120</span>            <span class="keywordflow">if</span> (summaries.isEmpty()) {</div>
+<div class="line"><span class="lineno">  121</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  122</span>            }</div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>            List&lt;DeleteObjectsRequest.KeyVersion&gt; keysToDelete = summaries.stream()</div>
+<div class="line"><span class="lineno">  125</span>                    .map(summary -&gt; <span class="keyword">new</span> DeleteObjectsRequest.KeyVersion(summary.getKey()))</div>
+<div class="line"><span class="lineno">  126</span>                    .collect(Collectors.toList());</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>            DeleteObjectsRequest deleteRequest = <span class="keyword">new</span> DeleteObjectsRequest(bucket).withKeys(keysToDelete);</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>            amazonS3Client.deleteObjects(deleteRequest);</div>
+<div class="line"><span class="lineno">  131</span> </div>
+<div class="line"><span class="lineno">  132</span>            listRequest.setContinuationToken(listResult.getNextContinuationToken());</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>        } <span class="keywordflow">while</span> (listResult.isTruncated());</div>
+<div class="line"><span class="lineno">  135</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5f08172d1fc51fe911a0aac07f84e358" name="a5f08172d1fc51fe911a0aac07f84e358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f08172d1fc51fe911a0aac07f84e358">&#9670;&#160;</a></span>getFileExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.khao.PoorDeal.service.S3Service.getFileExtension </td>
+          <td>(</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>fileName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>파일 이름에서 확장자를 추출합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>파일 이름 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>파일 확장자 (예: ".jpg") </dd></dl>
+
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00167">167</a> 번째 라인에서 정의되었습니다.</p>
+<div class="fragment"><div class="line"><span class="lineno">  167</span>                                                    {</div>
+<div class="line"><span class="lineno">  168</span> </div>
+<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">if</span> (fileName == <span class="keyword">null</span> || !fileName.contains(<span class="stringliteral">&quot;.&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  170</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">  171</span>        }</div>
+<div class="line"><span class="lineno">  172</span> </div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">return</span> fileName.substring(fileName.lastIndexOf(<span class="stringliteral">&quot;.&quot;</span>));</div>
+<div class="line"><span class="lineno">  174</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+이 함수를 호출하는 함수들에 대한 그래프입니다.:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358_icgraph.png" border="0" usemap="#aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358_icgraph" loading="lazy" alt=""/></div>
+<map name="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358_icgraph" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358_icgraph">
+<area shape="rect" title="파일 이름에서 확장자를 추출합니다." alt="" coords="240,96,426,139"/>
+<area shape="rect" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#aee83097d92f316a08d284dfe65535450" title="S3에서 특정 파일을 삭제합니다." alt="" coords="5,5,192,48"/>
+<area shape="poly" title=" " alt="" coords="265,92,191,62,160,51,162,46,193,58,267,87"/>
+<area shape="rect" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a38c39bed6472d272f3a035d9ee461508" title="단일 파일을 S3에 업로드합니다." alt="" coords="5,96,192,139"/>
+<area shape="poly" title=" " alt="" coords="224,120,192,120,192,115,224,115"/>
+<area shape="rect" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a76f4ee06f273084e7987ff718094e644" title="여러 파일을 S3에 업로드합니다." alt="" coords="5,163,192,205"/>
+<area shape="poly" title=" " alt="" coords="242,146,177,165,176,159,240,141"/>
+<area shape="poly" title=" " alt="" coords="137,83,122,77,98,75,76,77,63,81,57,87,59,95,54,96,52,86,60,77,75,71,99,69,124,72,139,78"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a38c39bed6472d272f3a035d9ee461508" name="a38c39bed6472d272f3a035d9ee461508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38c39bed6472d272f3a035d9ee461508">&#9670;&#160;</a></span>uploadFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.khao.PoorDeal.service.S3Service.uploadFile </td>
+          <td>(</td>
+          <td class="paramtype">MultipartFile</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Long</td>          <td class="paramname"><span class="paramname"><em>postId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>단일 파일을 S3에 업로드합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>업로드할 MultipartFile 객체 </td></tr>
+    <tr><td class="paramname">path</td><td>S3 내부에 저장될 경로 (예: "post/") </td></tr>
+    <tr><td class="paramname">postId</td><td>파일명으로 사용될 게시물 ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>업로드된 파일의 S3 URL </dd></dl>
+
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00044">44</a> 번째 라인에서 정의되었습니다.</p>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>                                                                           {</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span> (file == <span class="keyword">null</span> || file.isEmpty()) {</div>
+<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">   48</span>        }</div>
+<div class="line"><span class="lineno">   49</span>        </div>
+<div class="line"><span class="lineno">   50</span>        String key = path + postId + getFileExtension(file.getOriginalFilename());</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>        ObjectMetadata objectMetadata = <span class="keyword">new</span> ObjectMetadata();</div>
+<div class="line"><span class="lineno">   53</span>        objectMetadata.setContentLength(file.getSize());</div>
+<div class="line"><span class="lineno">   54</span>        objectMetadata.setContentType(file.getContentType());</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">   57</span>            amazonS3Client.putObject(<span class="keyword">new</span> PutObjectRequest(bucket, key, file.getInputStream(), objectMetadata));</div>
+<div class="line"><span class="lineno">   58</span>        } <span class="keywordflow">catch</span> (IOException e) {</div>
+<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;S3 파일 업로드 중 오류가 발생했습니다.&quot;</span>, e);</div>
+<div class="line"><span class="lineno">   60</span>        }</div>
+<div class="line"><span class="lineno">   61</span>        </div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> amazonS3Client.getUrl(bucket, key).toString();</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_cgraph.png" border="0" usemap="#aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_cgraph" loading="lazy" alt=""/></div>
+<map name="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_cgraph" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_cgraph">
+<area shape="rect" title="단일 파일을 S3에 업로드합니다." alt="" coords="5,29,192,72"/>
+<area shape="poly" title=" " alt="" coords="54,29,52,19,60,10,75,5,99,3,124,5,139,11,137,16,122,10,98,8,76,10,63,15,57,21,59,28"/>
+<area shape="rect" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358" title="파일 이름에서 확장자를 추출합니다." alt="" coords="240,29,426,72"/>
+<area shape="poly" title=" " alt="" coords="192,48,224,48,224,53,192,53"/>
+</map>
+</div>
+<div class="dynheader">
+이 함수를 호출하는 함수들에 대한 그래프입니다.:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_icgraph.png" border="0" usemap="#aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_icgraph" loading="lazy" alt=""/></div>
+<map name="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_icgraph" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_icgraph">
+<area shape="rect" title="단일 파일을 S3에 업로드합니다." alt="" coords="5,29,192,72"/>
+<area shape="poly" title=" " alt="" coords="128,16,117,10,98,8,81,10,71,15,66,21,68,28,63,29,61,19,67,10,80,5,99,3,119,5,131,11"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a76f4ee06f273084e7987ff718094e644" name="a76f4ee06f273084e7987ff718094e644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76f4ee06f273084e7987ff718094e644">&#9670;&#160;</a></span>uploadFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; String &gt; com.khao.PoorDeal.service.S3Service.uploadFiles </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; MultipartFile &gt;</td>          <td class="paramname"><span class="paramname"><em>files</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>여러 파일을 S3에 업로드합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">files</td><td>업로드할 MultipartFile 리스트 </td></tr>
+    <tr><td class="paramname">path</td><td>S3 내부에 저장될 경로 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>업로드된 파일들의 S3 URL 리스트 </dd></dl>
+
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00071">71</a> 번째 라인에서 정의되었습니다.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                                            {</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>        List&lt;String&gt; urlList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">if</span> (files == <span class="keyword">null</span> || files.isEmpty()) {</div>
+<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">   77</span>        }</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; files.size(); i++) {</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>            MultipartFile file = files.get(i);</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">if</span> (file == <span class="keyword">null</span> || file.isEmpty()) {</div>
+<div class="line"><span class="lineno">   84</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   85</span>            }</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>            String key = path + i + getFileExtension(file.getOriginalFilename());</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>            ObjectMetadata objectMetadata = <span class="keyword">new</span> ObjectMetadata();</div>
+<div class="line"><span class="lineno">   90</span>            objectMetadata.setContentLength(file.getSize());</div>
+<div class="line"><span class="lineno">   91</span>            objectMetadata.setContentType(file.getContentType());</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">   94</span>                amazonS3Client.putObject(<span class="keyword">new</span> PutObjectRequest(bucket, key, file.getInputStream(), objectMetadata));</div>
+<div class="line"><span class="lineno">   95</span>            } <span class="keywordflow">catch</span> (IOException e) {</div>
+<div class="line"><span class="lineno">   96</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;S3 파일 업로드 중 오류가 발생했습니다.&quot;</span>, e);</div>
+<div class="line"><span class="lineno">   97</span>            }</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>            urlList.add(amazonS3Client.getUrl(bucket, key).toString());</div>
+<div class="line"><span class="lineno">  100</span>        }</div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">return</span> urlList;</div>
+<div class="line"><span class="lineno">  103</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644_cgraph.png" border="0" usemap="#aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644_cgraph" loading="lazy" alt=""/></div>
+<map name="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644_cgraph" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644_cgraph">
+<area shape="rect" title="여러 파일을 S3에 업로드합니다." alt="" coords="5,5,192,48"/>
+<area shape="rect" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358" title="파일 이름에서 확장자를 추출합니다." alt="" coords="240,5,426,48"/>
+<area shape="poly" title=" " alt="" coords="192,24,224,24,224,29,192,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">멤버 데이터 문서화</h2>
+<a id="a59715050bdd875b2f58f0c63916994df" name="a59715050bdd875b2f58f0c63916994df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59715050bdd875b2f58f0c63916994df">&#9670;&#160;</a></span>amazonS3Client</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">final AmazonS3 com.khao.PoorDeal.service.S3Service.amazonS3Client</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00032">32</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a9eecabb7d417ac4512f013bf82f8bd70" name="a9eecabb7d417ac4512f013bf82f8bd70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eecabb7d417ac4512f013bf82f8bd70">&#9670;&#160;</a></span>bucket</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.khao.PoorDeal.service.S3Service.bucket</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"><a class="el" href="_s3_service_8java_source.html">S3Service.java</a> 파일의 <a class="el" href="_s3_service_8java_source.html#l00035">35</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<hr/>이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.:<ul>
+<li>java/com/khao/PoorDeal/service/<a class="el" href="_s3_service_8java_source.html">S3Service.java</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>com</b></li><li class="navelem"><b>khao</b></li><li class="navelem"><b>PoorDeal</b></li><li class="navelem"><a href="namespacecom_1_1khao_1_1_poor_deal_1_1service.html">service</a></li><li class="navelem"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html">S3Service</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: java/com/khao/PoorDeal/service/S3Service.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_s3_service_8java_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">S3Service.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_s3_service_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>com.khao.PoorDeal.service;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.io.IOException;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> java.util.ArrayList;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> java.util.stream.Collectors;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> org.springframework.stereotype.Service;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> com.amazonaws.services.s3.AmazonS3;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> com.amazonaws.services.s3.model.DeleteObjectsRequest;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">import</span> com.amazonaws.services.s3.model.ListObjectsV2Request;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">import</span> com.amazonaws.services.s3.model.ListObjectsV2Result;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">import</span> com.amazonaws.services.s3.model.ObjectMetadata;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">import</span> com.amazonaws.services.s3.model.PutObjectRequest;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">import</span> com.amazonaws.services.s3.model.S3ObjectSummary;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">import</span> lombok.RequiredArgsConstructor;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>@Service</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>@RequiredArgsConstructor</div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html">   30</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html">S3Service</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">   32</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> AmazonS3 <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    @Value(<span class="stringliteral">&quot;${cloud.aws.s3.bucket}&quot;</span>)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">   35</a></span>    private String <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a38c39bed6472d272f3a035d9ee461508">   44</a></span>    public String <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a38c39bed6472d272f3a035d9ee461508">uploadFile</a>(MultipartFile file, String path, Long postId) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">if</span> (file == <span class="keyword">null</span> || file.isEmpty()) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            return null;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        String key = path + postId + <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358">getFileExtension</a>(file.getOriginalFilename());</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        ObjectMetadata objectMetadata = <span class="keyword">new</span> ObjectMetadata();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        objectMetadata.setContentLength(file.getSize());</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        objectMetadata.setContentType(file.getContentType());</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            amazonS3Client.putObject(new PutObjectRequest(bucket, key, file.getInputStream(), objectMetadata));</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        } catch (IOException e) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;S3 파일 업로드 중 오류가 발생했습니다.&quot;</span>, e);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>.getUrl(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>, key).toString();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a76f4ee06f273084e7987ff718094e644">   71</a></span>    <span class="keyword">public</span> List&lt;String&gt; <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a76f4ee06f273084e7987ff718094e644">uploadFiles</a>(List&lt;MultipartFile&gt; files, String path) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        List&lt;String&gt; urlList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">if</span> (files == <span class="keyword">null</span> || files.isEmpty()) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; files.size(); i++) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            MultipartFile file = files.get(i);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">if</span> (file == <span class="keyword">null</span> || file.isEmpty()) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            String key = path + i + <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358">getFileExtension</a>(file.getOriginalFilename());</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            ObjectMetadata objectMetadata = <span class="keyword">new</span> ObjectMetadata();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            objectMetadata.setContentLength(file.getSize());</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            objectMetadata.setContentType(file.getContentType());</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>.putObject(<span class="keyword">new</span> PutObjectRequest(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>, key, file.getInputStream(), objectMetadata));</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            } <span class="keywordflow">catch</span> (IOException e) {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;S3 파일 업로드 중 오류가 발생했습니다.&quot;</span>, e);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            urlList.add(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>.getUrl(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>, key).toString());</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">return</span> urlList;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
+</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a6a87847319f23e2cf718687262dac27d">  109</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a6a87847319f23e2cf718687262dac27d">deleteFolder</a>(String prefix) {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        ListObjectsV2Request listRequest = <span class="keyword">new</span> ListObjectsV2Request()</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                .withBucketName(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                .withPrefix(prefix);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        ListObjectsV2Result listResult;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            listResult = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>.listObjectsV2(listRequest);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            List&lt;S3ObjectSummary&gt; summaries = listResult.getObjectSummaries();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">if</span> (summaries.isEmpty()) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            List&lt;DeleteObjectsRequest.KeyVersion&gt; keysToDelete = summaries.stream()</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                    .map(summary -&gt; <span class="keyword">new</span> DeleteObjectsRequest.KeyVersion(summary.getKey()))</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                    .collect(Collectors.toList());</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            DeleteObjectsRequest deleteRequest = <span class="keyword">new</span> DeleteObjectsRequest(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>).withKeys(keysToDelete);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>.deleteObjects(deleteRequest);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            listRequest.setContinuationToken(listResult.getNextContinuationToken());</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        } <span class="keywordflow">while</span> (listResult.isTruncated());</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    </div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#aee83097d92f316a08d284dfe65535450">  143</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#aee83097d92f316a08d284dfe65535450">deleteFile</a>(String path, Long postId, String imageUrl) {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">if</span> (imageUrl == <span class="keyword">null</span> || imageUrl.isEmpty()) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        String extension = <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358">getFileExtension</a>(imageUrl);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        String key = path + postId + extension;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>.doesObjectExist(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>, key)) {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">amazonS3Client</a>.deleteObject(<a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">bucket</a>, key);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        } <span class="keywordflow">catch</span> (Exception e) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;S3 파일 삭제 중 오류가 발생했습니다.&quot;</span>, e);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
+</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span></div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358">  167</a></span>    <span class="keyword">public</span> String <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358">getFileExtension</a>(String fileName) {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">if</span> (fileName == <span class="keyword">null</span> || !fileName.contains(<span class="stringliteral">&quot;.&quot;</span>)) {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">return</span> fileName.substring(fileName.lastIndexOf(<span class="stringliteral">&quot;.&quot;</span>));</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    }</div>
+</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html">com.khao.PoorDeal.service.S3Service</a></div><div class="ttdef"><b>Definition</b> <a href="#l00030">S3Service.java:30</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html_a38c39bed6472d272f3a035d9ee461508"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a38c39bed6472d272f3a035d9ee461508">com.khao.PoorDeal.service.S3Service.uploadFile</a></div><div class="ttdeci">String uploadFile(MultipartFile file, String path, Long postId)</div><div class="ttdoc">단일 파일을 S3에 업로드합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00044">S3Service.java:44</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html_a59715050bdd875b2f58f0c63916994df"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a59715050bdd875b2f58f0c63916994df">com.khao.PoorDeal.service.S3Service.amazonS3Client</a></div><div class="ttdeci">final AmazonS3 amazonS3Client</div><div class="ttdef"><b>Definition</b> <a href="#l00032">S3Service.java:32</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html_a5f08172d1fc51fe911a0aac07f84e358"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358">com.khao.PoorDeal.service.S3Service.getFileExtension</a></div><div class="ttdeci">String getFileExtension(String fileName)</div><div class="ttdoc">파일 이름에서 확장자를 추출합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00167">S3Service.java:167</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html_a6a87847319f23e2cf718687262dac27d"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a6a87847319f23e2cf718687262dac27d">com.khao.PoorDeal.service.S3Service.deleteFolder</a></div><div class="ttdeci">void deleteFolder(String prefix)</div><div class="ttdoc">S3의 특정 폴더(prefix)에 있는 모든 객체를 삭제합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00109">S3Service.java:109</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html_a76f4ee06f273084e7987ff718094e644"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a76f4ee06f273084e7987ff718094e644">com.khao.PoorDeal.service.S3Service.uploadFiles</a></div><div class="ttdeci">List&lt; String &gt; uploadFiles(List&lt; MultipartFile &gt; files, String path)</div><div class="ttdoc">여러 파일을 S3에 업로드합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00071">S3Service.java:71</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html_a9eecabb7d417ac4512f013bf82f8bd70"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a9eecabb7d417ac4512f013bf82f8bd70">com.khao.PoorDeal.service.S3Service.bucket</a></div><div class="ttdeci">String bucket</div><div class="ttdef"><b>Definition</b> <a href="#l00035">S3Service.java:35</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_html_aee83097d92f316a08d284dfe65535450"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#aee83097d92f316a08d284dfe65535450">com.khao.PoorDeal.service.S3Service.deleteFile</a></div><div class="ttdeci">void deleteFile(String path, Long postId, String imageUrl)</div><div class="ttdoc">S3에서 특정 파일을 삭제합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00143">S3Service.java:143</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a href="dir_8a22873406ddef3ffbbc0bacea2033ba.html">com</a></li><li class="navelem"><a href="dir_9f2e58735fa2df8715252159e6b4023e.html">khao</a></li><li class="navelem"><a href="dir_d1e74712c97f301cac73aa91e8259784.html">PoorDeal</a></li><li class="navelem"><a href="dir_ef3d32e1f92f9ff504583519d6817cd3.html">service</a></li><li class="navelem"><a href="_s3_service_8java.html">S3Service.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+\doxysection{Post\+Service.\+java}
+\hypertarget{_post_service_8java_source}{}\label{_post_service_8java_source}\index{java/com/khao/PoorDeal/service/PostService.java@{java/com/khao/PoorDeal/service/PostService.java}}
+\mbox{\hyperlink{_post_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.service;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ java.util.NoSuchElementException;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ java.util.stream.Collectors;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.transaction.annotation.Transactional;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00012}00012\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Comment;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00013}00013\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.CommentStatus;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00014}00014\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.ParentType;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00015}00015\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Post;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00016}00016\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.PostType;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00017}00017\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.AddCommentRequest;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00018}00018\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.AddPostRequest;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00019}00019\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.CommentAndRepliesResponse;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00020}00020\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.CommentResponse;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00021}00021\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.PostResponse;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00022}00022\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.PostSearchCondition;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00023}00023\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.PostSummary;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00024}00024\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.CommentRepository;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00025}00025\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.PostRepository;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00027}00027\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00035}00035\ @Service}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00036}00036\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00037}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service}{00037}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service}{PostService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00039}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a5b9a36481eb38ed02fb2afe88f0bcbe3}{00039}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service}{S3Service}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a5b9a36481eb38ed02fb2afe88f0bcbe3}{s3Service}};}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00040}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{00040}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository}{PostRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}};}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00041}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{00041}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository}{CommentRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}};}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00048}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a1c8508796bfc2ffaa571b78dd45edd10}{00048}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a1c8508796bfc2ffaa571b78dd45edd10}{getPostCount}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{PostSearchCondition}}\ condition)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.selectPostCount(condition);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00051}00051\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00059}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a589803e75cc4486aba1c6429701690ed}{00059}}\ \ \ \ \ \textcolor{keyword}{public}\ List<PostSummary>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a589803e75cc4486aba1c6429701690ed}{getPagedPostsSummary}}(\textcolor{keywordtype}{int}\ offset,\ \textcolor{keywordtype}{int}\ pagesize,\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{PostSearchCondition}}\ condition)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.selectPagedPosts(offset,\ pagesize,\ condition);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00062}00062\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00069}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a2b0ca637abf1d73f1c346ebc992e584f}{00069}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{PostResponse}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a2b0ca637abf1d73f1c346ebc992e584f}{getPost}}(Long\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.findById(\textcolor{keywordtype}{id}).orElseThrow(}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ()\ -\/>\ \textcolor{keyword}{new}\ NoSuchElementException(\textcolor{stringliteral}{"{}해당\ 게시글이\ 존재하지\ 않습니다:\ "{}}\ +\ \textcolor{keywordtype}{id}));}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00073}00073\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00079}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a48ba63b1cacff5dc47af331b96d59e38}{00079}}\ \ \ \ \ \textcolor{keyword}{public}\ List<CommentAndRepliesResponse>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a48ba63b1cacff5dc47af331b96d59e38}{getCommentsAndReplies}}(Long\ postId)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ List<CommentResponse>\ comments\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.findByParentIdAndParentType(postId,\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type_a628668c764ba34e415748cb0d2a41fce}{POST}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ List<Long>\ commentIdList\ =\ comments.stream().map(CommentResponse::getId).collect(Collectors.toList());}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ List<CommentResponse>\ replies\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!commentIdList.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ replies\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.findByParentIdListInAndParentType(commentIdList,\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type_addb94252756562a69e2fc69a30374034}{COMMENT}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (replies\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ replies\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ Map<Long,\ List<CommentResponse>>\ repliesMap\ =\ replies.stream()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .collect(Collectors.groupingBy(CommentResponse::getParentId));}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ comments.stream()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .map(comment\ -\/>\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ List<CommentResponse>\ repliesForCurrentComment\ =\ repliesMap.getOrDefault(}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comment.getId(),\ \textcolor{keyword}{new}\ ArrayList<>()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_and_replies_response}{CommentAndRepliesResponse}}.builder()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_and_replies_response_adbdc17b41a3986b8ef901f0e8c8f6bb6}{comment}}(comment)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .replies(repliesForCurrentComment)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}).collect(Collectors.toList());}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00105}00105\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00112}00112\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00113}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a1198ff1efbae9f98baf3b1fec00582ee}{00113}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a1198ff1efbae9f98baf3b1fec00582ee}{createPost}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_post_request}{AddPostRequest}}\ request,\ Long\ authorId)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00114}00114\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}\ postType;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ postType\ =\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}.valueOf(request.getType().toUpperCase());}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00118}00118\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IllegalArgumentException\ |\ NullPointerException\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ postType\ =\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type_a2089e429abeee34b206ebbcc69a45893}{FREE}};}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00120}00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00122}00122\ \ \ \ \ \ \ \ \ Long\ price\ =\ 0L;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00123}00123\ \ \ \ \ \ \ \ \ Integer\ hiringQuota\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (postType\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type_ae60e764f848ea9270b7ef5188f665604}{TRADE}})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getPrice()\ ==\ \textcolor{keyword}{null}\ ||\ request.getPrice()\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}거래\ 금액은\ 0원\ 이상이어야\ 합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ price\ =\ request.getPrice();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00130}00130\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (postType\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type_a0c897038a8730c4929df630f9625b0ea}{JOB}})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getHiringQuota()\ ==\ \textcolor{keyword}{null}\ ||\ request.getHiringQuota()\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}모집\ 인원은\ 1명\ 이상이어야\ 합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ hiringQuota\ =\ request.getHiringQuota();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00135}00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00137}00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}\ post\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}.builder()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_a15627504a4c130319f66b09cd1e09887}{title}}(request.getTitle())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .content(request.getContent())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .authorId(authorId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .type(postType)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .isAvailable(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .price(price)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .hiringQuota(hiringQuota)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .filledCount(0)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00147}00147\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00148}00148\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.insert(post);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00149}00149\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00150}00150\ \ \ \ \ \ \ \ \ Long\ postId\ =\ post.getId();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00151}00151\ \ \ \ \ \ \ \ \ String\ path\ =\ \textcolor{stringliteral}{"{}post/"{}};}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00152}00152\ \ \ \ \ \ \ \ \ String\ imageUrl\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a5b9a36481eb38ed02fb2afe88f0bcbe3}{s3Service}}.uploadFile(request.getImage(),\ path,\ postId);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00153}00153\ \ \ \ \ \ \ \ \ post.setImage(imageUrl);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00154}00154\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00155}00155\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.update(post);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00156}00156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00157}00157\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00165}00165\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00166}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a3ba2f602fa4b20caf5c711913f9357a1}{00166}}\ \ \ \ \ \textcolor{keyword}{public}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a3ba2f602fa4b20caf5c711913f9357a1}{createComment}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_comment_request}{AddCommentRequest}}\ request,\ Long\ authorId)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00167}00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}\ parentType;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ parentType\ =\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}.valueOf(request.getParentType().toUpperCase());}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00170}00170\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}유효하지\ 않은\ 부모\ 타입입니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00172}00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00173}00173\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parentType\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type_addb94252756562a69e2fc69a30374034}{COMMENT}})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response}{CommentResponse}}\ parentComment\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.findById(request.getParentId())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ NoSuchElementException(\textcolor{stringliteral}{"{}부모\ 댓글을\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parentComment.getParentType()\ !=\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type_a628668c764ba34e415748cb0d2a41fce}{POST}})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}대댓글에는\ 댓글을\ 달\ 수\ 없습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00181}00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00182}00182\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00183}00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}\ comment\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}.builder()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_accbd18d1f59327ef99db8daeaa348854}{parentType}}(parentType)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ .parentId(request.getParentId())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ .authorId(authorId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ .content(request.getContent())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ .status(\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status}{CommentStatus}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status_a2636ab1158b6b5e3f628ddad88e27411}{ACTIVE}})}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00191}00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.save(comment);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parentType\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type_a628668c764ba34e415748cb0d2a41fce}{POST}})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ request.getParentId();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00195}00195\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response}{CommentResponse}}\ parentComment\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.findById(request.getParentId()).get();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parentComment.getParentId();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00198}00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00200}00200\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00209}00209\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00210}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a9900e7d65b8eb9798838512b79d0556f}{00210}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a9900e7d65b8eb9798838512b79d0556f}{updateComment}}(Long\ commentId,\ String\ newContent,\ Long\ userId)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00211}00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response}{CommentResponse}}\ existing\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.findById(commentId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ NoSuchElementException(\textcolor{stringliteral}{"{}댓글이\ 존재하지\ 않습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00213}00213\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!existing.getAuthorId().equals(userId))\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}작성자만\ 수정할\ 수\ 있습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00216}00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00218}00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}\ comment\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}.builder()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_a6492872971e5d0a53d1fae63a8762c55}{id}}(existing.getId())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .content(newContent)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .status(\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status}{CommentStatus}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status_a9e5f6c6122d8197e8b2293595b050857}{MODIFIED}})}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00223}00223\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00224}00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.update(comment);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00225}00225\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00234}00234\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00235}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aeb895a978dda01f84311cf4c7eff6b3d}{00235}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aeb895a978dda01f84311cf4c7eff6b3d}{deleteComment}}(Long\ commentId,\ Long\ userId)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00236}00236\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response}{CommentResponse}}\ existing\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.findById(commentId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ NoSuchElementException(\textcolor{stringliteral}{"{}댓글이\ 존재하지\ 않습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!existing.getAuthorId().equals(userId))\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}작성자만\ 삭제할\ 수\ 있습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00241}00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00243}00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}\ comment\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}.builder()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_a6492872971e5d0a53d1fae63a8762c55}{id}}(existing.getId())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .content(\textcolor{stringliteral}{"{}삭제된\ 댓글입니다."{}})}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .status(\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status}{CommentStatus}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status_a2ef628699cc8ef63d6e2f1999fdc7599}{DELETED}})}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00249}00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_aa67e8407a1fd6d271da1dfa5059c7572}{commentRepository}}.update(comment);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00250}00250\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00251}00251\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00260}00260\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00261}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a9095a9e089ad6e4a5903f40f5e1830f2}{00261}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a9095a9e089ad6e4a5903f40f5e1830f2}{updatePost}}(Long\ postId,\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_add_post_request}{AddPostRequest}}\ request,\ Long\ userId)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00262}00262\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00263}00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{PostResponse}}\ existing\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.findById(postId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ NoSuchElementException(\textcolor{stringliteral}{"{}게시글을\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!existing.getAuthorId().equals(userId))\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}작성자만\ 수정할\ 수\ 있습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00268}00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00270}00270\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}\ postType\ =\ existing.getType();\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00272}00272\ \ \ \ \ \ \ \ \ String\ imageUrl\ =\ existing.getImage();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getImage()\ !=\ \textcolor{keyword}{null}\ \&\&\ !request.getImage().isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a5b9a36481eb38ed02fb2afe88f0bcbe3}{s3Service}}.deleteFile(\textcolor{stringliteral}{"{}post/"{}},\ postId,\ existing.getImage());}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ imageUrl\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a5b9a36481eb38ed02fb2afe88f0bcbe3}{s3Service}}.uploadFile(request.getImage(),\ \textcolor{stringliteral}{"{}post/"{}},\ postId);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00276}00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00277}00277\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00278}00278\ \ \ \ \ \ \ \ \ Long\ price\ =\ 0L;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00279}00279\ \ \ \ \ \ \ \ \ Integer\ hiringQuota\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (postType\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type_ae60e764f848ea9270b7ef5188f665604}{TRADE}})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getPrice()\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getPrice()\ <\ 0)\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}거래\ 금액은\ 0원\ 이상이어야\ 합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ price\ =\ request.getPrice();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ price\ =\ existing.getPrice();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00288}00288\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (postType\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type}{PostType}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type_a0c897038a8730c4929df630f9625b0ea}{JOB}})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getHiringQuota()\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getHiringQuota()\ <=\ 0)\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}모집\ 인원은\ 1명\ 이상이어야\ 합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hiringQuota\ =\ request.getHiringQuota();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hiringQuota\ =\ existing.getHiringQuota();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00295}00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00297}00297\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}\ post\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}.builder()}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_a6934b5184f4bc3ab6deb2efa2b03d4ed}{id}}(postId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .title(request.getTitle())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .content(request.getContent())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .authorId(userId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .type(postType)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .price(price)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .hiringQuota(hiringQuota)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .filledCount(existing.getFilledCount())}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .isAvailable(existing.\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_aaee1b47ab2e8117b6556583c77c6547d}{isAvailable}}())\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .image(imageUrl)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00310}00310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.update(post);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00311}00311\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00320}00320\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00321}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a944d32345b7bb12fb92b5e87d50bbd4d}{00321}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a944d32345b7bb12fb92b5e87d50bbd4d}{deletePost}}(Long\ postId,\ Long\ userId)\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00322}00322\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response}{PostResponse}}\ existing\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.findById(postId)}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ NoSuchElementException(\textcolor{stringliteral}{"{}게시글을\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00325}00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!existing.getAuthorId().equals(userId))\ \{}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}작성자만\ 삭제할\ 수\ 있습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00327}00327\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00329}00329\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_post_service_a29335ba1b1836ca52da93a5963bb7eb9}{postRepository}}.delete(postId);}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00330}00330\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_service_8java_source_l00331}00331\ \}}
+
+\end{DoxyCode}

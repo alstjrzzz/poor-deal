@@ -1,0 +1,39 @@
+\doxysection{Auth\+Service.\+java}
+\hypertarget{_auth_service_8java_source}{}\label{_auth_service_8java_source}\index{java/com/khao/PoorDeal/service/AuthService.java@{java/com/khao/PoorDeal/service/AuthService.java}}
+\mbox{\hyperlink{_auth_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.service;}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ org.springframework.security.crypto.password.PasswordEncoder;}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Member;}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.MemberRole;}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00010}00010\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.MemberRepository;}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00018}00018\ @Service}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00019}00019\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00020}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service}{00020}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service}{AuthService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00021}00021\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00022}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a34215e7a8caf6bc0cc8cdf63f0f35a2d}{00022}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{MemberRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a34215e7a8caf6bc0cc8cdf63f0f35a2d}{memberRepository}};}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00023}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a99654072d85bb7bfddebdd79782e013d}{00023}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ PasswordEncoder\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a99654072d85bb7bfddebdd79782e013d}{passwordEncoder}};}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00024}00024\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00030}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a729fb0dd4209f5b13838fdb34127f426}{00030}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a729fb0dd4209f5b13838fdb34127f426}{register}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ inputMember)\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ member\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}.builder()}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a0745bb8c3e186739c88045a8dc0c16c8}{userId}}(inputMember.getUserId())}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .password(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a99654072d85bb7bfddebdd79782e013d}{passwordEncoder}}.encode(inputMember.getPassword()))}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .userName(inputMember.getUserName())}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .email(inputMember.getEmail())}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .role(\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_role}{MemberRole}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_role_ac66fb0603ea45262d7730a36f5c102c7}{ROLE\_USER}})}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .point(0L)}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .isBlock(\textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service_a34215e7a8caf6bc0cc8cdf63f0f35a2d}{memberRepository}}.save(member);}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_auth_service_8java_source_l00044}00044\ \}}
+
+\end{DoxyCode}

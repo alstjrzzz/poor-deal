@@ -1,0 +1,330 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller 클래스 참조}
+\hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller}{}\label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+
+
+com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a6e162d5a81072beae4a17d39b9aa8b2b}{show\+Report\+Form}} ( @Request\+Param("{}suspect\+Id"{}) Long suspect\+Id, @Request\+Param(value="{}post\+Id"{}, required=false) Long post\+Id, Model model)
+\begin{DoxyCompactList}\small\item\em 사용자 신고 폼 페이지를 반환합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a5d1acc8e29be93269439f265ec49657b}{submit\+Report}} ( @Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_request}{Report\+Request}} report\+Request, Principal principal, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em 사용자 신고 제출을 처리합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a64e6c6d1b73b5c15565603b3dacf2fa7}{list\+Reports}} (Principal principal, Redirect\+Attributes rttr, Model model)
+\begin{DoxyCompactList}\small\item\em (관리자) 전체 신고 목록 페이지를 조회합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a34a72e0b60a9c94f04c0822f02e8fc74}{process\+Report}} ( @Request\+Param("{}id"{}) Long id, @Request\+Param("{}status"{}) String status\+Str, Redirect\+Attributes rttr)
+\begin{DoxyCompactList}\small\item\em (관리자) 신고를 처리(승인/반려)합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service}{Report\+Service}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a01129ce21d70d0777a36933d5f858aa4}{report\+Service}}
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{Member\+Service}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_add5e9a703b82881a7f34f81c73769893}{member\+Service}}
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{Member\+Repository}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a81e963f645f7e28f0388a2d9cb55ad6e}{member\+Repository}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00034}{34}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a64e6c6d1b73b5c15565603b3dacf2fa7}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}!listReports@{listReports}}
+\index{listReports@{listReports}!com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+\doxysubsubsection{\texorpdfstring{listReports()}{listReports()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a64e6c6d1b73b5c15565603b3dacf2fa7} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller.\+list\+Reports (\begin{DoxyParamCaption}\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{, }\item[{Model}]{model}{}\end{DoxyParamCaption})}
+
+
+
+(관리자) 전체 신고 목록 페이지를 조회합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+{\em model} & 뷰에 전달할 모델 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+"{}report/report\+List"{} 뷰. 관리자가 아닐 경우 메인 페이지로 리다이렉트. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00102}{102}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ Member\ member\ =\ memberService.findByUserId(principal.getName());}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (member.getRole()\ !=\ MemberRole.ROLE\_ADMIN)\ \{\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}관리자만\ 접근할\ 수\ 있습니다."{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/"{}};\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ List<ReportResponse>\ reports\ =\ reportService.getAllReports();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}reports"{}},\ reports);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}report/reportList"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a64e6c6d1b73b5c15565603b3dacf2fa7_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a64e6c6d1b73b5c15565603b3dacf2fa7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a34a72e0b60a9c94f04c0822f02e8fc74}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}!processReport@{processReport}}
+\index{processReport@{processReport}!com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+\doxysubsubsection{\texorpdfstring{processReport()}{processReport()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a34a72e0b60a9c94f04c0822f02e8fc74} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller.\+process\+Report (\begin{DoxyParamCaption}\item[{@Request\+Param("{}id"{}) Long}]{id}{, }\item[{@Request\+Param("{}status"{}) String}]{status\+Str}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+(관리자) 신고를 처리(승인/반려)합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em id} & 처리할 신고 ID \\
+\hline
+{\em status\+Str} & 새로운 신고 상태 문자열 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+신고 목록 페이지("{}/admin/report/list"{})로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00125}{125}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ ReportStatus\ status\ =\ ReportStatus.valueOf(statusStr);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ reportService.processReport(\textcolor{keywordtype}{id},\ status);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ String\ msg\ =\ \textcolor{stringliteral}{"{}신고\ 처리\ 완료"{}};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(status\ ==\ ReportStatus.APPROVED)\ msg\ +=\ \textcolor{stringliteral}{"{}\ (승인/제재)"{}};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(status\ ==\ ReportStatus.REJECTED)\ msg\ +=\ \textcolor{stringliteral}{"{}\ (반려)"{}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}✅\ "{}}\ +\ msg\ +\ \textcolor{stringliteral}{"{}\ 되었습니다."{}});}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}처리\ 중\ 오류가\ 발생했습니다:\ "{}}\ +\ e.getMessage());}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/admin/report/list"{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a34a72e0b60a9c94f04c0822f02e8fc74_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a34a72e0b60a9c94f04c0822f02e8fc74_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a6e162d5a81072beae4a17d39b9aa8b2b}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}!showReportForm@{showReportForm}}
+\index{showReportForm@{showReportForm}!com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+\doxysubsubsection{\texorpdfstring{showReportForm()}{showReportForm()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a6e162d5a81072beae4a17d39b9aa8b2b} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller.\+show\+Report\+Form (\begin{DoxyParamCaption}\item[{@Request\+Param("{}suspect\+Id"{}) Long}]{suspect\+Id}{, }\item[{@Request\+Param(value="{}post\+Id"{}, required=false) Long}]{post\+Id}{, }\item[{Model}]{model}{}\end{DoxyParamCaption})}
+
+
+
+사용자 신고 폼 페이지를 반환합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em suspect\+Id} & 피신고자 ID \\
+\hline
+{\em post\+Id} & 신고 대상 게시물 ID (선택 사항) \\
+\hline
+{\em model} & 뷰에 전달할 모델 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+"{}report/report\+Form"{} 뷰 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00048}{48}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ Member\ suspect\ =\ memberRepository.findById(suspectId)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ UsernameNotFoundException(\textcolor{stringliteral}{"{}사용자를\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}suspectName"{}},\ suspect.getUserName());}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ ReportRequest\ reportRequest\ =\ ReportRequest.builder()}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .suspectId(suspectId)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .postId(postId)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}reportRequest"{}},\ reportRequest);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}report/reportForm"{}};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a6e162d5a81072beae4a17d39b9aa8b2b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a6e162d5a81072beae4a17d39b9aa8b2b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a5d1acc8e29be93269439f265ec49657b}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}!submitReport@{submitReport}}
+\index{submitReport@{submitReport}!com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+\doxysubsubsection{\texorpdfstring{submitReport()}{submitReport()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a5d1acc8e29be93269439f265ec49657b} 
+String com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller.\+submit\+Report (\begin{DoxyParamCaption}\item[{@Model\+Attribute \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_request}{Report\+Request}}}]{report\+Request}{, }\item[{Principal}]{principal}{, }\item[{Redirect\+Attributes}]{rttr}{}\end{DoxyParamCaption})}
+
+
+
+사용자 신고 제출을 처리합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em report\+Request} & 신고 요청 DTO \\
+\hline
+{\em principal} & 현재 로그인한 사용자 정보 \\
+\hline
+{\em rttr} & 리다이렉트 시 전달할 속성 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+메인 페이지("{}/"{})로 리다이렉트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00076}{76}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ Long\ reporterId\ =\ memberService.findByUserId(principal.getName()).getId();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ reportRequest.setReporterId(reporterId);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ reportService.submitReport(reportRequest);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}🚨\ 신고가\ 정상적으로\ 접수되었습니다.\ 관리자\ 검토\ 후\ 처리됩니다."{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ rttr.addFlashAttribute(\textcolor{stringliteral}{"{}error"{}},\ \textcolor{stringliteral}{"{}신고\ 접수\ 중\ 오류가\ 발생했습니다."{}});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a5d1acc8e29be93269439f265ec49657b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a5d1acc8e29be93269439f265ec49657b_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a81e963f645f7e28f0388a2d9cb55ad6e}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}!memberRepository@{memberRepository}}
+\index{memberRepository@{memberRepository}!com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+\doxysubsubsection{\texorpdfstring{memberRepository}{memberRepository}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a81e963f645f7e28f0388a2d9cb55ad6e} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{Member\+Repository}} com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller.\+member\+Repository\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00038}{38}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_add5e9a703b82881a7f34f81c73769893}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}!memberService@{memberService}}
+\index{memberService@{memberService}!com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+\doxysubsubsection{\texorpdfstring{memberService}{memberService}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_add5e9a703b82881a7f34f81c73769893} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{Member\+Service}} com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller.\+member\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00037}{37}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a01129ce21d70d0777a36933d5f858aa4}\index{com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}!reportService@{reportService}}
+\index{reportService@{reportService}!com.khao.PoorDeal.controller.ReportController@{com.khao.PoorDeal.controller.ReportController}}
+\doxysubsubsection{\texorpdfstring{reportService}{reportService}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_report_controller_a01129ce21d70d0777a36933d5f858aa4} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service}{Report\+Service}} com.\+khao.\+Poor\+Deal.\+controller.\+Report\+Controller.\+report\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_report_controller_8java_source}{Report\+Controller.\+java}} 파일의 \mbox{\hyperlink{_report_controller_8java_source_l00036}{36}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/controller/\mbox{\hyperlink{_report_controller_8java}{Report\+Controller.\+java}}\end{DoxyCompactItemize}

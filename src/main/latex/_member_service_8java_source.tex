@@ -1,0 +1,28 @@
+\doxysection{Member\+Service.\+java}
+\hypertarget{_member_service_8java_source}{}\label{_member_service_8java_source}\index{java/com/khao/PoorDeal/service/MemberService.java@{java/com/khao/PoorDeal/service/MemberService.java}}
+\mbox{\hyperlink{_member_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.service;}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ org.springframework.security.core.userdetails.UsernameNotFoundException;}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Member;}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.MemberRepository;}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00017}00017\ @Service}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00018}00018\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00019}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{00019}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{MemberService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00021}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a0571c8b55e4833dd12f5376eb3db3174}{00021}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{MemberRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a0571c8b55e4833dd12f5376eb3db3174}{memberRepository}};}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00022}00022\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00029}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a2cf7404d42275002635e406fc45ef6de}{00029}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a2cf7404d42275002635e406fc45ef6de}{findByUserId}}(String\ userId)\ \{}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a0571c8b55e4833dd12f5376eb3db3174}{memberRepository}}.findByUserId(userId).orElseThrow(}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ()\ -\/>\ \textcolor{keyword}{new}\ UsernameNotFoundException(userId\ +\ \textcolor{stringliteral}{"{}\ 사용자를\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_member_service_8java_source_l00034}00034\ \}}
+
+\end{DoxyCode}

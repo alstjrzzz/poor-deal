@@ -1,0 +1,64 @@
+\doxysection{Trade\+Service.\+java}
+\hypertarget{_trade_service_8java_source}{}\label{_trade_service_8java_source}\index{java/com/khao/PoorDeal/service/TradeService.java@{java/com/khao/PoorDeal/service/TradeService.java}}
+\mbox{\hyperlink{_trade_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.service;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.springframework.transaction.annotation.Transactional;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Mail;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00007}00007\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Member;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.MemberRepository;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.TradeRepository;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00011}00011\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00019}00019\ @Service}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00020}00020\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00021}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service}{00021}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service}{TradeService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00023}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_abbf8466860dc20ae3fb0d65ef105543d}{00023}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_trade_repository}{TradeRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_abbf8466860dc20ae3fb0d65ef105543d}{tradeRepository}};}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00024}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_aeaacca8135a7ffce4e4317b319263436}{00024}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{MemberRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_aeaacca8135a7ffce4e4317b319263436}{memberRepository}};}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00025}00025\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00032}00032\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00033}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_ac55ed20f5d07f68f0cfb9139e601e19c}{00033}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_ac55ed20f5d07f68f0cfb9139e601e19c}{chargePoint}}(Long\ memberId,\ Long\ amount)\ \{}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (amount\ ==\ \textcolor{keyword}{null}\ ||\ amount\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}충전\ 금액은\ 0보다\ 커야\ 합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ member\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_aeaacca8135a7ffce4e4317b319263436}{memberRepository}}.findById(memberId)}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}회원\ 정보를\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_abbf8466860dc20ae3fb0d65ef105543d}{tradeRepository}}.updateMemberPoint(memberId,\ member.getPoint()\ +\ amount);}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00044}00044\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00054}00054\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00055}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_ad6b187e259ba84398b7b0f3b2c516bc2}{00055}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_ad6b187e259ba84398b7b0f3b2c516bc2}{tradePoint}}(Long\ senderId,\ Long\ receiverId,\ Long\ amount)\ \{}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (amount\ ==\ \textcolor{keyword}{null}\ ||\ amount\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}유효한\ 금액(0\ 초과)을\ 입력해야\ 합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ sender\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_aeaacca8135a7ffce4e4317b319263436}{memberRepository}}.findById(senderId)}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}보내는\ 사람을\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ receiver\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_aeaacca8135a7ffce4e4317b319263436}{memberRepository}}.findById(receiverId)}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .orElseThrow(()\ -\/>\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}받는\ 사람을\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sender.getPoint()\ <\ amount)\ \{}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}잔액이\ 부족하여\ 포인트\ 이체에\ 실패했습니다.\ 현재\ 잔액:\ "{}}\ +\ sender.getPoint());}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ sender.setPoint(sender.getPoint()\ -\/\ amount);}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ receiver.setPoint(receiver.getPoint()\ +\ amount);}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_abbf8466860dc20ae3fb0d65ef105543d}{tradeRepository}}.updateMemberPoint(senderId,\ sender.getPoint());}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service_abbf8466860dc20ae3fb0d65ef105543d}{tradeRepository}}.updateMemberPoint(receiverId,\ receiver.getPoint());}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_trade_service_8java_source_l00079}00079\ \}}
+
+\end{DoxyCode}

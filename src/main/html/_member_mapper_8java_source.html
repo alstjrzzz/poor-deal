@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: java/com/khao/PoorDeal/mapper/MemberMapper.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_member_mapper_8java_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MemberMapper.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_member_mapper_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>com.khao.PoorDeal.mapper;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.util.Optional;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.apache.ibatis.annotations.Param;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> com.khao.PoorDeal.domain.Member;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>@Mapper</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html">   17</a></span><span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html">MemberMapper</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a3c1053e7dafadb36b8701b84c5807d8d">   23</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a3c1053e7dafadb36b8701b84c5807d8d">save</a>(<a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member.html">Member</a> member);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a823d61acf29da5f76c2eca41b30b4259">   30</a></span>    <span class="keyword">public</span> Optional&lt;Member&gt; <a class="code hl_function" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a823d61acf29da5f76c2eca41b30b4259">findByUserId</a>(String userId);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a2d15cb3edf1c7e7abe2bc767ccb865bb">   37</a></span>    <span class="keyword">public</span> Optional&lt;Member&gt; <a class="code hl_function" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a2d15cb3edf1c7e7abe2bc767ccb865bb">findById</a>(Long <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#adc8d5ac9bbf23a80fbb628ffedb2fd51">   44</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#adc8d5ac9bbf23a80fbb628ffedb2fd51">updateBlockStatus</a>(@Param(<span class="stringliteral">&quot;id&quot;</span>) Long <span class="keywordtype">id</span>, @Param(<span class="stringliteral">&quot;isBlock&quot;</span>) <span class="keywordtype">boolean</span> isBlock);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member.html">com.khao.PoorDeal.domain.Member</a></div><div class="ttdef"><b>Definition</b> <a href="_member_8java_source.html#l00025">Member.java:25</a></div></div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper_html"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html">com.khao.PoorDeal.mapper.MemberMapper</a></div><div class="ttdef"><b>Definition</b> <a href="#l00017">MemberMapper.java:17</a></div></div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper_html_a2d15cb3edf1c7e7abe2bc767ccb865bb"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a2d15cb3edf1c7e7abe2bc767ccb865bb">com.khao.PoorDeal.mapper.MemberMapper.findById</a></div><div class="ttdeci">Optional&lt; Member &gt; findById(Long id)</div><div class="ttdoc">고유 ID로 회원을 찾아 반환합니다.</div></div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper_html_a3c1053e7dafadb36b8701b84c5807d8d"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a3c1053e7dafadb36b8701b84c5807d8d">com.khao.PoorDeal.mapper.MemberMapper.save</a></div><div class="ttdeci">void save(Member member)</div><div class="ttdoc">새로운 회원을 데이터베이스에 저장합니다.</div></div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper_html_a823d61acf29da5f76c2eca41b30b4259"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#a823d61acf29da5f76c2eca41b30b4259">com.khao.PoorDeal.mapper.MemberMapper.findByUserId</a></div><div class="ttdeci">Optional&lt; Member &gt; findByUserId(String userId)</div><div class="ttdoc">사용자 ID로 회원을 찾아 반환합니다.</div></div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper_html_adc8d5ac9bbf23a80fbb628ffedb2fd51"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html#adc8d5ac9bbf23a80fbb628ffedb2fd51">com.khao.PoorDeal.mapper.MemberMapper.updateBlockStatus</a></div><div class="ttdeci">void updateBlockStatus(@Param(&quot;id&quot;) Long id, @Param(&quot;isBlock&quot;) boolean isBlock)</div><div class="ttdoc">회원의 계정 차단 상태를 업데이트합니다.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a href="dir_8a22873406ddef3ffbbc0bacea2033ba.html">com</a></li><li class="navelem"><a href="dir_9f2e58735fa2df8715252159e6b4023e.html">khao</a></li><li class="navelem"><a href="dir_d1e74712c97f301cac73aa91e8259784.html">PoorDeal</a></li><li class="navelem"><a href="dir_c6766d48d8b0f6b729767aeb3cc4aad8.html">mapper</a></li><li class="navelem"><a href="_member_mapper_8java.html">MemberMapper.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

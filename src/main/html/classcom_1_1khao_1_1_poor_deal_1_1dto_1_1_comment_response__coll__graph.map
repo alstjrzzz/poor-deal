@@ -1,0 +1,7 @@
+<map id="com.khao.PoorDeal.dto.CommentResponse" name="com.khao.PoorDeal.dto.CommentResponse">
+<area shape="rect" id="Node000001" title=" " alt="" coords="89,205,298,419"/>
+<area shape="rect" id="Node000002" href="$enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type.html" title=" " alt="" coords="5,16,181,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,121,145,188,140,191,112,123"/>
+<area shape="rect" id="Node000003" href="$enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status.html" title=" " alt="" coords="205,5,381,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,134,246,191,241,189,265,132"/>
+</map>
