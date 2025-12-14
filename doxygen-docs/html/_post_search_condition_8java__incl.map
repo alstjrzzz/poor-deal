@@ -1,7 +1,0 @@
-<map id="src/main/java/com/khao/PoorDeal/dto/PostSearchCondition.java" name="src/main/java/com/khao/PoorDeal/dto/PostSearchCondition.java">
-<area shape="rect" id="Node000001" title="게시물 검색 조건을 담는 DTO 클래스입니다." alt="" coords="53,5,309,48"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,192,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,47,130,87,126,83,160,50"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="216,104,312,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,46,244,93,239,92,199,51"/>
-</map>

@@ -1,4 +1,0 @@
-var dir_d8517d8b842053dc3dd7dde525dd9163 =
-[
-    [ "khao", "dir_9a39265795821581f2848fd3ef544ea1.html", "dir_9a39265795821581f2848fd3ef544ea1" ]
-];
