@@ -2,32 +2,68 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.khao.PoorDeal.mapper.MemberMapper">
 
-    <insert id="save" parameterType="com.khao.PoorDeal.domain.Member"> 
-    
-	    <selectKey keyProperty="id" resultType="long" order="BEFORE">
-	        SELECT SEQ_MEMBER_ID.NEXTVAL FROM DUAL
-	    </selectKey>
-	    
-	    INSERT INTO MEMBER (
-	        ID, USER_ID, 
-	        PASSWORD, 
-	        USER_NAME, 
-	        EMAIL, 
-	        ROLE
-	    ) VALUES (
-	        #{id}, #{userId}, 
-	        #{password}, 
-	        #{userName}, 
-	        #{email}, 
-	        #{role}
-	    )
-	</insert>
+    <resultMap id="MemberResultMap" type="com.khao.PoorDeal.domain.Member">
+        <id property="id" column="ID" />
+        <result property="userId" column="USER_ID" />
+        <result property="password" column="PASSWORD" />
+        <result property="userName" column="USER_NAME" />
+        <result property="email" column="EMAIL" />
+        <result property="point" column="POINT" />
+        <result property="role" column="ROLE" /> <result property="isBlock" column="IS_BLOCK" />
+    </resultMap>
 
-	<select id="findByUserId" parameterType="string"
-			resultType="com.khao.PoorDeal.domain.Member">
-		SELECT *
-		FROM MEMBER
-		WHERE USER_ID = #{userId}
-	</select>
-	
+    <insert id="save" parameterType="com.khao.PoorDeal.domain.Member" 
+            useGeneratedKeys="true" keyProperty="id" keyColumn="ID">
+        INSERT INTO MEMBERS (
+            USER_ID, 
+            PASSWORD, 
+            USER_NAME, 
+            EMAIL, 
+            POINT, 
+            ROLE,
+            IS_BLOCK
+        ) VALUES (
+            #{userId}, 
+            #{password}, 
+            #{userName}, 
+            #{email}, 
+            #{point}, 
+            #{role},     #{isBlock}
+        )
+    </insert>
+
+    <select id="findByUserId" parameterType="string" resultMap="MemberResultMap">
+        SELECT 
+            ID,
+            USER_ID,
+            PASSWORD,
+            USER_NAME,
+            EMAIL,
+            POINT,
+            ROLE,
+            IS_BLOCK
+        FROM MEMBERS
+        WHERE USER_ID = #{userId}
+    </select>
+    
+    <select id="findById" parameterType="Long" resultMap="MemberResultMap">
+        SELECT 
+            ID,
+            USER_ID,
+            PASSWORD,
+            USER_NAME,
+            EMAIL,
+            POINT,
+            ROLE, 
+            IS_BLOCK
+        FROM MEMBERS
+        WHERE ID = #{id}
+    </select>
+    
+    <update id="updateBlockStatus">
+	    UPDATE MEMBERS
+	    SET IS_BLOCK = #{isBlock}
+	    WHERE ID = #{id}
+	</update>
+
 </mapper>

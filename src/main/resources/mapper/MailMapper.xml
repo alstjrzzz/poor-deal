@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.khao.PoorDeal.mapper.MailMapper">
+
+	<select id="selectMailCountByMemberId" resultType="int">
+        SELECT COUNT(id) 
+        FROM MAILS
+        WHERE RECEIVER_ID = #{memberId} 
+           OR SENDER_ID = #{memberId}
+    </select>
+	
+	<select id="existsBySenderIdAndPostId" resultType="boolean">
+	    SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
+	    FROM MAILS
+	    WHERE SENDER_ID = #{senderId} 
+	      AND POST_ID = #{postId}
+	</select>
+    
+    <select id="selectPagedMailsByMemberId" resultType="com.khao.PoorDeal.dto.MailSummary">
+	    SELECT
+	        M.id,
+	        M.sender_id AS senderId,
+			S.user_name AS sender,
+			M.receiver_id AS receiverId,
+			R.user_name AS receiver,
+			M.process_type AS processType,
+	        M.title,
+	        M.created_at AS createdAt
+	    FROM
+	        MAILS M
+	    INNER JOIN 
+	        MEMBERS S ON M.sender_id = S.id   INNER JOIN 
+	        MEMBERS R ON M.receiver_id = R.id WHERE 
+	        M.RECEIVER_ID = #{memberId} 
+	        OR M.SENDER_ID = #{memberId}      ORDER BY 
+	        M.id DESC                         OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY
+	</select>
+
+    <insert id="save" parameterType="com.khao.PoorDeal.domain.Mail"
+            useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO MAILS (
+            SENDER_ID,
+            RECEIVER_ID,
+            POST_ID,
+            PROCESS_TYPE,
+            PROCESS_STATUS,
+            TITLE,
+            CONTENT,
+            AMOUNT
+            ) VALUES (
+            #{senderId},
+            #{receiverId},
+            #{postId},
+            #{processType, jdbcType=VARCHAR},
+            #{processStatus, jdbcType=VARCHAR},
+            #{title},
+            #{content, jdbcType=CLOB},
+            #{amount}
+        )
+    </insert>
+
+    <select id="findById" parameterType="long" resultType="com.khao.PoorDeal.domain.Mail">
+        SELECT 
+            ID,
+            SENDER_ID,
+            RECEIVER_ID,
+            POST_ID,
+            PROCESS_TYPE,
+            PROCESS_STATUS,
+            TITLE,
+            CONTENT,
+            AMOUNT,
+            CREATED_AT
+        FROM MAILS
+        WHERE ID = #{id}
+    </select>
+
+	<select id="findMailResponseById" parameterType="long"
+		resultType="com.khao.PoorDeal.dto.MailResponse">
+	    SELECT
+	        M.id,
+	        M.sender_id AS senderId,
+	        TS.user_name AS sender, 
+	        M.receiver_id AS receiverId,
+	        TR.user_name AS receiver,
+			M.post_id AS postId,
+	        M.process_type AS processType,
+	        M.process_status AS processStatus,
+	        M.title,
+	        M.content,
+	        M.amount,
+	        M.created_at AS createdAt
+	    FROM
+	        MAILS M
+	    INNER JOIN 
+	        MEMBERS TS ON M.sender_id = TS.id
+	    INNER JOIN 
+	        MEMBERS TR ON M.receiver_id = TR.id
+	    WHERE
+	        M.id = #{id}
+	</select>
+	
+	<update id="updateMailStatus" parameterType="com.khao.PoorDeal.domain.Mail">
+	    UPDATE MAILS
+	    SET PROCESS_STATUS = #{processStatus, jdbcType=VARCHAR}
+	    WHERE ID = #{id}
+	</update>
+
+</mapper>

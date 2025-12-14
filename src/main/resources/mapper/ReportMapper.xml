@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.khao.PoorDeal.mapper.ReportMapper">
+
+    <resultMap id="ReportResponseMap" type="com.khao.PoorDeal.dto.ReportResponse">
+        <id property="id" column="ID" />
+        <result property="reason" column="REASON" />
+        <result property="reporterId" column="REPORTER_ID" />
+        <result property="reporterName" column="REPORTER_NAME" /> <result property="postId" column="POST_ID" />
+        <result property="suspectId" column="SUSPECT_ID" />
+        <result property="suspectName" column="SUSPECT_NAME" /> <result property="status" column="STATUS" />
+        <result property="createdAt" column="CREATED_AT" />
+    </resultMap>
+
+    <resultMap id="ReportResultMap" type="com.khao.PoorDeal.domain.Report">
+        <id property="id" column="ID" />
+        <result property="reason" column="REASON" />
+        <result property="reporterId" column="REPORTER_ID" />
+        <result property="postId" column="POST_ID" />
+        <result property="suspectId" column="SUSPECT_ID" />
+        <result property="status" column="STATUS" />
+        <result property="createdAt" column="CREATED_AT" />
+    </resultMap>
+
+    <insert id="save" parameterType="com.khao.PoorDeal.domain.Report"
+	        useGeneratedKeys="true" keyProperty="id" keyColumn="ID">
+	    INSERT INTO REPORTS (
+	        REASON,
+	        REPORTER_ID,
+	        POST_ID,
+	        SUSPECT_ID,
+	        STATUS,
+	        CREATED_AT
+	    ) VALUES (
+	        #{reason},
+	        #{reporterId},
+	        #{postId},
+	        #{suspectId},
+	        #{status, jdbcType=VARCHAR},
+	        SYSDATE  )
+	</insert>
+
+    <select id="findAllResponses" resultMap="ReportResponseMap">
+        SELECT 
+            r.ID, 
+            r.REASON, 
+            r.REPORTER_ID, 
+            m1.USER_NAME AS REPORTER_NAME, 
+            r.POST_ID, 
+            r.SUSPECT_ID, 
+            m2.USER_NAME AS SUSPECT_NAME, 
+            r.STATUS, 
+            r.CREATED_AT
+        FROM REPORTS r
+        LEFT JOIN MEMBERS m1 ON r.REPORTER_ID = m1.ID
+        LEFT JOIN MEMBERS m2 ON r.SUSPECT_ID = m2.ID
+        ORDER BY r.ID DESC
+    </select>
+
+    <select id="findById" resultMap="ReportResultMap">
+        SELECT * FROM REPORTS WHERE ID = #{id}
+    </select>
+
+    <update id="updateStatus">
+        UPDATE REPORTS
+        SET STATUS = #{status, jdbcType=VARCHAR}
+        WHERE ID = #{id}
+    </update>
+
+</mapper>

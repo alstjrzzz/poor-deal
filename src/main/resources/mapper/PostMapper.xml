@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.khao.PoorDeal.mapper.PostMapper">
+
+    <sql id="search">
+        <if test="condition.type != null">
+            AND P.type = #{condition.type}
+        </if>
+        
+        <if test="condition.keyword != null and condition.keyword != ''">
+            AND (
+                P.title LIKE '%' || #{condition.keyword} || '%'
+                OR 
+                P.content LIKE '%' || #{condition.keyword} || '%'
+            )
+        </if>
+    </sql>
+
+    <select id="selectPostCount" resultType="int">
+        SELECT COUNT(P.id) 
+        FROM POSTS P
+        WHERE P.is_deleted = 0
+        <include refid="search"/> </select>
+    
+    <update id="update" parameterType="com.khao.PoorDeal.domain.Post">
+        UPDATE POSTS
+        SET
+            title = #{title},
+            content = #{content},
+            image = #{image, jdbcType=VARCHAR},
+            type = #{type, jdbcType=VARCHAR},
+            price = #{price, jdbcType=NUMERIC},
+            hiring_quota = #{hiringQuota, jdbcType=NUMERIC},
+            filled_count = #{filledCount, jdbcType=NUMERIC},
+            is_available = #{isAvailable},
+            updated_at = CURRENT_TIMESTAMP  WHERE
+            id = #{id}
+    </update>
+    
+    <update id="delete" parameterType="long">
+        UPDATE POSTS SET is_deleted = 1 WHERE id = #{id}
+    </update>
+    
+    <select id="selectPagedPosts" resultType="com.khao.PoorDeal.dto.PostSummary">
+        SELECT 
+            P.id, 
+            P.title, 
+            M.user_name AS author,
+            P.type,
+            P.created_at AS createdAt,
+            P.updated_at AS updatedAt 
+        FROM POSTS P
+        INNER JOIN MEMBERS M ON P.author_id = M.id 
+        WHERE P.is_deleted = 0 
+        <include refid="search"/> ORDER BY P.id DESC
+        OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY
+    </select>
+    
+    <insert id="insert" parameterType="com.khao.PoorDeal.domain.Post" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO POSTS (
+            title, content, author_id, image, type, 
+            price, hiring_quota, filled_count, created_at, is_available, is_deleted
+        ) VALUES (
+            #{title}, #{content}, #{authorId}, #{image, jdbcType=VARCHAR}, #{type, jdbcType=VARCHAR}, 
+            #{price, jdbcType=NUMERIC}, #{hiringQuota, jdbcType=NUMERIC}, #{filledCount}, CURRENT_TIMESTAMP, #{isAvailable}, 0
+        )
+    </insert>
+    
+    <select id="findById" resultType="com.khao.PoorDeal.dto.PostResponse">
+        SELECT
+            P.id, 
+            P.title, 
+            P.content, 
+            P.author_id AS authorId, 
+            P.image, 
+            P.type, 
+            P.created_at AS createdAt,
+            P.updated_at AS updatedAt, 
+            P.is_available AS isAvailable,
+            P.is_deleted AS isDeleted,
+            P.price, 
+            P.hiring_quota AS hiringQuota, 
+            P.filled_count AS filledCount,
+            M.user_name AS author
+        FROM POSTS P
+        INNER JOIN MEMBERS M ON P.author_id = M.id
+        WHERE P.id = #{id} AND P.is_deleted = 0 </select>
+    
+</mapper>

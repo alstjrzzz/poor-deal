@@ -5,13 +5,17 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Member {
 
 	private Long id;
@@ -31,5 +35,9 @@ public class Member {
 	@Email(message = "이메일 형식이 올바르지 않습니다.")
 	private String email;
 	
-	private String role;
+	private Long point;
+	
+	private MemberRole role;
+	
+	private boolean isBlock;
 }
