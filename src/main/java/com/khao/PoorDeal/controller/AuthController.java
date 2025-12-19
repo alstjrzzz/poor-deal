@@ -14,6 +14,12 @@ import com.khao.PoorDeal.domain.Member;
 import lombok.RequiredArgsConstructor;
 import com.khao.PoorDeal.service.AuthService;
 
+/**
+ * @file AuthController.java
+ * @brief 회원 가입 및 로그인 관련 웹 요청을 처리하는 컨트롤러 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Controller
 @RequiredArgsConstructor
 public class AuthController {
@@ -22,8 +28,9 @@ public class AuthController {
 	
 	
 	/**
-	 * 회원가입 폼
-	 * @return register.jsp
+	 * @brief 회원가입 폼 페이지를 반환합니다.
+	 * @param model 뷰에 전달할 모델
+	 * @return "register" 뷰 (register.jsp)
 	 */
 	@GetMapping("/register")
 	public String register(Model model) {
@@ -34,10 +41,11 @@ public class AuthController {
 	}
 	
 	/**
-	 * 회원가입 후 로그인 페이지로 리다이렉트
-	 * @param member
-	 * @param rttr
-	 * @return home.jsp
+	 * @brief 회원가입 요청을 처리합니다.
+	 * @details @Valid를 통해 Member 객체의 유효성을 검사하고, 성공 시 회원을 등록한 후 로그인 페이지로 리다이렉트합니다.
+	 * @param member 폼에서 전송된 회원 정보
+	 * @param bindingResult 유효성 검사 결과
+	 * @return 성공 시 "redirect:/login", 실패 시 "register" 뷰
 	 */
 	@PostMapping("/register")
 	public String register(@Valid Member member, BindingResult bindingResult) {
@@ -52,9 +60,8 @@ public class AuthController {
 	}
 	
 	/**
-	 * 로그인 폼
-	 * @param model
-	 * @return login.jsp
+	 * @brief 로그인 폼 페이지를 반환합니다.
+	 * @return "login" 뷰 (login.jsp)
 	 */
 	@GetMapping("/login")
 	public String login() {
@@ -63,6 +70,7 @@ public class AuthController {
 	}
 	
 	/**
-	 * 로그인, 로그아웃은 Spring Security 위임
+	 * @brief 로그인 및 로그아웃 처리는 Spring Security에 위임됩니다.
+	 * @see com.khao.PoorDeal.config.SecurityConfig
 	 */
 }

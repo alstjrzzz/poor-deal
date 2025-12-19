@@ -1,0 +1,11 @@
+<map id="com.khao.PoorDeal.service.ReportService" name="com.khao.PoorDeal.service.ReportService">
+<area shape="rect" id="Node000001" title=" " alt="" coords="119,448,295,576"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository.html" title=" " alt="" coords="5,227,195,376"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,374,160,423,165,432,160,434,155,425,131,377"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper.html" title=" " alt="" coords="12,5,188,155"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,154,103,209,98,209,98,154"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository.html" title=" " alt="" coords="219,227,408,376"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="290,377,268,425,263,435,258,432,263,423,285,375"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html" title=" " alt="" coords="225,5,402,155"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="316,154,316,209,311,209,311,154"/>
+</map>

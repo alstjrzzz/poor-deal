@@ -1,0 +1,11 @@
+PROJECT_NAME           = "PoorDeal"
+OUTPUT_DIRECTORY       = doxygen-docs
+INPUT                  = "C:/Users/gnfle/poor-deal/src/main/java" "C:/Users/gnfle/poor-deal" "C:/Users/gnfle/poor-deal/doxygen-groups.dox"
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+HAVE_DOT               = YES
+UML_LOOK               = YES
+GENERATE_LATEX         = NO
+FILE_PATTERNS          = *.java
+USE_MDFILE_AS_MAINPAGE = README.md
+ALIASES               += "Valid="

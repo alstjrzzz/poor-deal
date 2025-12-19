@@ -1,0 +1,15 @@
+<map id="java/com/khao/PoorDeal/domain/Report.java" name="java/com/khao/PoorDeal/domain/Report.java">
+<area shape="rect" id="Node000001" title="사용자 신고 정보를 담는 도메인 클래스입니다." alt="" coords="433,5,597,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,172,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="433,46,171,95,170,90,432,41"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="196,96,373,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="457,51,336,93,335,88,455,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="398,96,505,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="501,50,473,85,469,82,497,47"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="529,96,632,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="534,47,563,82,559,86,530,50"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="656,96,836,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="575,46,696,88,694,93,574,51"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="860,96,962,123"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="598,42,845,92,844,97,597,47"/>
+</map>

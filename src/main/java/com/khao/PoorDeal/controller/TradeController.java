@@ -15,6 +15,12 @@ import com.khao.PoorDeal.service.TradeService;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @file TradeController.java
+ * @brief 포인트 충전 등 거래 관련 웹 요청을 처리하는 컨트롤러 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Controller
 @RequiredArgsConstructor
 public class TradeController {
@@ -23,7 +29,8 @@ public class TradeController {
     private final MemberService memberService;
     
     /**
-     * 충전 폼 페이지 표시
+     * @brief 포인트 충전 폼 페이지를 반환합니다.
+     * @return "trade/charge" 뷰
      */
     @GetMapping("/trade/charge")
     public String showChargeForm() { 
@@ -31,7 +38,11 @@ public class TradeController {
     }
 
     /**
-     * 포인트 충전 처리
+     * @brief 포인트 충전 요청을 처리합니다.
+     * @param request 포인트 충전 요청 DTO
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 성공 시 메인 페이지("/")로, 실패 시 충전 폼으로 리다이렉트
      */
     @PostMapping("/trade/charge")
     public String chargePoint(@ModelAttribute PointChargeRequest request, 

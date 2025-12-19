@@ -1,0 +1,37 @@
+\doxysection{Comment\+Response.\+java}
+\hypertarget{_comment_response_8java_source}{}\label{_comment_response_8java_source}\index{java/com/khao/PoorDeal/dto/CommentResponse.java@{java/com/khao/PoorDeal/dto/CommentResponse.java}}
+\mbox{\hyperlink{_comment_response_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.dto;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.time.LocalDateTime;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00005}00005\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.CommentStatus;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00006}00006\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.ParentType;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00008}00008\ \textcolor{keyword}{import}\ lombok.AllArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00009}00009\ \textcolor{keyword}{import}\ lombok.Builder;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00010}00010\ \textcolor{keyword}{import}\ lombok.Getter;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00011}00011\ \textcolor{keyword}{import}\ lombok.NoArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00012}00012\ \textcolor{keyword}{import}\ lombok.Setter;}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00020}00020\ @Getter}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00021}00021\ @Setter}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00022}00022\ @Builder}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00023}00023\ @NoArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00024}00024\ @AllArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00025}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response}{00025}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response}{CommentResponse}}\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00028}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_adae751dd8134256cc30afc2f87eb48d4}{00028}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_adae751dd8134256cc30afc2f87eb48d4}{id}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00030}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_ac15d0a3130bc2b145b96275268c0828a}{00030}}\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_ac15d0a3130bc2b145b96275268c0828a}{parentType}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00032}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a1c93684c1907819ef5c98826168b651e}{00032}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a1c93684c1907819ef5c98826168b651e}{parentId}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00034}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a5c3fe246ee97d6551e997f6c2c0dbac4}{00034}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a5c3fe246ee97d6551e997f6c2c0dbac4}{authorId}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00036}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a3181847cbde2acb4b59fc29e8a6028a2}{00036}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a3181847cbde2acb4b59fc29e8a6028a2}{author}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00038}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_ac926e2ff9b9a542ce482408638d85568}{00038}}\ \ \ \ \ \textcolor{keyword}{private}\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_ac926e2ff9b9a542ce482408638d85568}{content}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00040}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_afd6188afdf16a96ce61498c4aa375778}{00040}}\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_status}{CommentStatus}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_afd6188afdf16a96ce61498c4aa375778}{status}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00042}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_ab0387a4fabbde426499d2cdcceab023c}{00042}}\ \ \ \ \ \textcolor{keyword}{private}\ LocalDateTime\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_ab0387a4fabbde426499d2cdcceab023c}{updatedAt}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00044}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a39a9cd6aa516b373d06230c3a0a7fbfe}{00044}}\ \ \ \ \ \textcolor{keyword}{private}\ LocalDateTime\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_comment_response_a39a9cd6aa516b373d06230c3a0a7fbfe}{createdAt}};}
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00045}00045\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_comment_response_8java_source_l00046}00046\ \}}
+
+\end{DoxyCode}

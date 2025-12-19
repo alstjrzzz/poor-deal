@@ -1,0 +1,38 @@
+\doxysection{Member\+Repository.\+java}
+\hypertarget{_member_repository_8java_source}{}\label{_member_repository_8java_source}\index{java/com/khao/PoorDeal/repository/MemberRepository.java@{java/com/khao/PoorDeal/repository/MemberRepository.java}}
+\mbox{\hyperlink{_member_repository_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.repository;}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.Optional;}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.stereotype.Repository;}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00007}00007\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Member;}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00008}00008\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00009}00009\ \textcolor{keyword}{import}\ com.khao.PoorDeal.mapper.MemberMapper;}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00017}00017\ @Repository}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00018}00018\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00019}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{00019}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{MemberRepository}}\ \{}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00021}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a0e695b8f1e9457e5b86b0952130bcc84}{00021}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper}{MemberMapper}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a0e695b8f1e9457e5b86b0952130bcc84}{memberMapper}};}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00022}00022\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00024}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a2dddc99ade38d77c1f17f0dcc62ce301}{00024}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a2dddc99ade38d77c1f17f0dcc62ce301}{save}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ member)\ \{}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a0e695b8f1e9457e5b86b0952130bcc84}{memberMapper}}.save(member);}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00027}00027\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00029}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a3af9fec37bb9c667d0e91a72d21711c7}{00029}}\ \ \ \ \ \textcolor{keyword}{public}\ Optional<Member>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a3af9fec37bb9c667d0e91a72d21711c7}{findByUserId}}(String\ userId)\ \{}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a0e695b8f1e9457e5b86b0952130bcc84}{memberMapper}}.findByUserId(userId);}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00032}00032\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00034}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_ac710dc858d50b7e38a7215a6947abf50}{00034}}\ \ \ \ \ \textcolor{keyword}{public}\ Optional<Member>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_ac710dc858d50b7e38a7215a6947abf50}{findById}}(Long\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a0e695b8f1e9457e5b86b0952130bcc84}{memberMapper}}.findById(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00039}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_ad339ae3b9246b672404fc9a95e35c6e6}{00039}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_ad339ae3b9246b672404fc9a95e35c6e6}{updateBlockStatus}}(Long\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{boolean}\ isBlock)\ \{}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository_a0e695b8f1e9457e5b86b0952130bcc84}{memberMapper}}.updateBlockStatus(\textcolor{keywordtype}{id},\ isBlock);}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_member_repository_8java_source_l00042}00042\ \}}
+
+\end{DoxyCode}

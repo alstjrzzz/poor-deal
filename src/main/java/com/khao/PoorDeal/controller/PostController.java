@@ -25,6 +25,12 @@ import com.khao.PoorDeal.service.PostService;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @file PostController.java
+ * @brief 게시물 및 댓글 관련 CRUD 웹 요청을 처리하는 컨트롤러 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Controller
 @RequiredArgsConstructor
 public class PostController {
@@ -39,6 +45,14 @@ public class PostController {
     private final MemberService memberService;
     private final MailService mailService;
     
+    /**
+     * @brief 메인 페이지. 게시물 목록을 페이징하여 조회합니다.
+     * @param page 요청 페이지 번호
+     * @param condition 검색 조건 (타입, 키워드)
+     * @param model 뷰에 전달할 모델
+     * @param principal 현재 로그인한 사용자 정보
+     * @return "post/list" 뷰
+     */
     @GetMapping("/")
     public String getPosts(
             @RequestParam(defaultValue = "1") int page,
@@ -72,13 +86,21 @@ public class PostController {
         return "post/list";
     }
     
+    /**
+     * @brief 새 게시물 작성 폼 페이지를 반환합니다.
+     * @return "post/write" 뷰
+     */
     @GetMapping("/post/new")
     public String newPostForm() {
         return "post/write";
     }
 
     /**
-     * 게시글 작성 처리
+     * @brief 새 게시물 작성을 처리합니다.
+     * @param request 게시물 추가 요청 DTO
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 성공 시 메인 페이지("/")로, 실패 시 작성 폼으로 리다이렉트
      */
     @PostMapping("/post")
     public String addPost(@ModelAttribute AddPostRequest request, 
@@ -99,6 +121,15 @@ public class PostController {
         }
     }
     
+    /**
+     * @brief 특정 게시물의 상세 페이지를 조회합니다.
+     * @param postId 조회할 게시물 ID
+     * @param condition 현재 검색 조건 (페이지 이동 시 유지)
+     * @param page 현재 페이지 번호 (페이지 이동 시 유지)
+     * @param model 뷰에 전달할 모델
+     * @param principal 현재 로그인한 사용자 정보
+     * @return "post/detail" 뷰
+     */
     @GetMapping("/post/{postId}")
     public String getPost(@PathVariable("postId") Long postId,
                         @ModelAttribute("searchCondition") PostSearchCondition condition, 
@@ -127,6 +158,13 @@ public class PostController {
         return "post/detail";
     }
 
+    /**
+     * @brief 새 댓글 작성을 처리합니다.
+     * @param request 댓글 추가 요청 DTO
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 해당 게시물의 상세 페이지로 리다이렉트
+     */
     @PostMapping("/comment")
     public String addComment(@ModelAttribute AddCommentRequest request,
             Principal principal, RedirectAttributes rttr) {
@@ -138,6 +176,15 @@ public class PostController {
         return "redirect:/post/" + postId;
     }
 
+    /**
+     * @brief 댓글 수정을 처리합니다.
+     * @param commentId 수정할 댓글 ID
+     * @param postId 댓글이 속한 게시물 ID
+     * @param content 새로운 댓글 내용
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 해당 게시물의 상세 페이지로 리다이렉트
+     */
     @PostMapping("/comment/update")
     public String updateComment(@RequestParam("commentId") Long commentId,
                                 @RequestParam("postId") Long postId,
@@ -156,6 +203,14 @@ public class PostController {
         return "redirect:/post/" + postId;
     }
 
+    /**
+     * @brief 댓글 삭제를 처리합니다.
+     * @param commentId 삭제할 댓글 ID
+     * @param postId 댓글이 속한 게시물 ID
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 해당 게시물의 상세 페이지로 리다이렉트
+     */
     @PostMapping("/comment/delete")
     public String deleteComment(@RequestParam("commentId") Long commentId,
                                 @RequestParam("postId") Long postId,
@@ -173,6 +228,13 @@ public class PostController {
         return "redirect:/post/" + postId;
     }
 
+    /**
+     * @brief 게시물 수정 폼 페이지를 반환합니다.
+     * @param postId 수정할 게시물 ID
+     * @param model 뷰에 전달할 모델
+     * @param principal 현재 로그인한 사용자 정보
+     * @return "post/edit" 뷰. 작성자가 아니면 상세 페이지로 리다이렉트.
+     */
     @GetMapping("/post/{postId}/edit")
     public String editPostForm(@PathVariable("postId") Long postId, Model model, Principal principal) {
         PostResponse post = postService.getPost(postId);
@@ -186,6 +248,14 @@ public class PostController {
         return "post/edit";
     }
 
+    /**
+     * @brief 게시물 수정을 처리합니다.
+     * @param postId 수정할 게시물 ID
+     * @param request 게시물 수정 요청 DTO
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 성공 시 상세 페이지로, 실패 시 수정 폼으로 리다이렉트
+     */
     @PostMapping("/post/{postId}/edit")
     public String updatePost(@PathVariable("postId") Long postId,
                              @ModelAttribute AddPostRequest request,
@@ -204,6 +274,13 @@ public class PostController {
         return "redirect:/post/" + postId;
     }
 
+    /**
+     * @brief 게시물 삭제를 처리합니다.
+     * @param postId 삭제할 게시물 ID
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 성공 시 메인 페이지로, 실패 시 상세 페이지로 리다이렉트
+     */
     @PostMapping("/post/{postId}/delete")
     public String deletePost(@PathVariable("postId") Long postId,
                              Principal principal, RedirectAttributes rttr) {

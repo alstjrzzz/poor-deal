@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: java/com/khao/PoorDeal/controller/MailController.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_mail_controller_8java_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MailController.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_mail_controller_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>com.khao.PoorDeal.controller;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.security.Principal;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> java.util.NoSuchElementException;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> org.springframework.stereotype.Controller;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> org.springframework.ui.Model;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> org.springframework.web.bind.annotation.ModelAttribute;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">import</span> org.springframework.web.servlet.mvc.support.RedirectAttributes;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">import</span> com.khao.PoorDeal.dto.MailResponse;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">import</span> com.khao.PoorDeal.dto.MailSummary;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">import</span> com.khao.PoorDeal.dto.PostResponse;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">import</span> com.khao.PoorDeal.dto.ProcessActionRequest;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">import</span> com.khao.PoorDeal.dto.StartProcessRequest;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">import</span> com.khao.PoorDeal.repository.PostRepository;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">import</span> com.khao.PoorDeal.service.MailService;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">import</span> com.khao.PoorDeal.service.MemberService;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">import</span> lombok.RequiredArgsConstructor;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>@Controller</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>@RequiredArgsConstructor</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html">   35</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html">MailController</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a48a64795a7581583312de91817516ce5">   37</a></span>    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a48a64795a7581583312de91817516ce5">PAGESIZE</a> = 10;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a32b82bae14a58681527e697cf1188db5">   38</a></span>    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a32b82bae14a58681527e697cf1188db5">BLOCK_SIZE</a> = 10;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a257fafc26b1c6bab459a6eeda97067a0">   40</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_mail_service.html">MailService</a> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a257fafc26b1c6bab459a6eeda97067a0">mailService</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a36b76bf8d4ce6b7d8e1136116f581d94">   41</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service.html">MemberService</a> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a36b76bf8d4ce6b7d8e1136116f581d94">memberService</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#ae5fbab89491a22266e6777278f0f4dd5">   42</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository.html">PostRepository</a> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#ae5fbab89491a22266e6777278f0f4dd5">postRepository</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    @GetMapping(<span class="stringliteral">&quot;/mail&quot;</span>)</div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#afaaee14b77b61311ce1be2df5fb7899c">   52</a></span>    public String <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#afaaee14b77b61311ce1be2df5fb7899c">getMails</a>(@RequestParam(defaultValue = <span class="stringliteral">&quot;1&quot;</span>) <span class="keywordtype">int</span> page,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            Model model, Principal principal) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        Long memberId = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a36b76bf8d4ce6b7d8e1136116f581d94">memberService</a>.findByUserId(principal.getName()).getId();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">int</span> totalCount = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a257fafc26b1c6bab459a6eeda97067a0">mailService</a>.getMailCountByMemberId(memberId);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">int</span> totalPages = (<span class="keywordtype">int</span>) Math.ceil((<span class="keywordtype">double</span>) totalCount / <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a48a64795a7581583312de91817516ce5">PAGESIZE</a>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        if (totalPages == 0) totalPages = 1;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">int</span> offset = (page - 1) * <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a48a64795a7581583312de91817516ce5">PAGESIZE</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordtype">int</span> startPage = ((page - 1) / <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a32b82bae14a58681527e697cf1188db5">BLOCK_SIZE</a>) * <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a32b82bae14a58681527e697cf1188db5">BLOCK_SIZE</a> + 1;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">int</span> endPage = startPage + <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a32b82bae14a58681527e697cf1188db5">BLOCK_SIZE</a> - 1;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">if</span> (endPage &gt; totalPages) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            endPage = totalPages;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        List&lt;MailSummary&gt; mailList = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a257fafc26b1c6bab459a6eeda97067a0">mailService</a>.getPagedMailsSummaryByMemberId(offset, <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a48a64795a7581583312de91817516ce5">PAGESIZE</a>, memberId);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        model.addAttribute(<span class="stringliteral">&quot;mailList&quot;</span>, mailList);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        model.addAttribute(<span class="stringliteral">&quot;loginId&quot;</span>, memberId);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        model.addAttribute(<span class="stringliteral">&quot;currentPage&quot;</span>, page);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        model.addAttribute(<span class="stringliteral">&quot;totalPages&quot;</span>, totalPages);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        model.addAttribute(<span class="stringliteral">&quot;startPage&quot;</span>, startPage);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        model.addAttribute(<span class="stringliteral">&quot;endPage&quot;</span>, endPage);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;mail/list&quot;</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    @GetMapping(<span class="stringliteral">&quot;/mail/{mailId}&quot;</span>)</div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a7c56c6833f122db106be89aed0103719">   89</a></span>    public String <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a7c56c6833f122db106be89aed0103719">getMail</a>(@PathVariable(<span class="stringliteral">&quot;mailId&quot;</span>) Long mailId, Model model, Principal principal) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_mail_response.html">MailResponse</a> mail = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a257fafc26b1c6bab459a6eeda97067a0">mailService</a>.getMailResponse(mailId);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        Long memberId = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a36b76bf8d4ce6b7d8e1136116f581d94">memberService</a>.findByUserId(principal.getName()).getId();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        if (memberId != mail.getSenderId() &amp;&amp; memberId != mail.getReceiverId()) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            throw new RuntimeException(<span class="stringliteral">&quot;잘못된 접근입니다.&quot;</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        model.addAttribute(<span class="stringliteral">&quot;mail&quot;</span>, mail);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        model.addAttribute(<span class="stringliteral">&quot;loginId&quot;</span>, memberId);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;mail/detail&quot;</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    @PostMapping(<span class="stringliteral">&quot;/mail/request&quot;</span>)</div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#aee6444e7b6f87841b87c34d4479bfc37">  112</a></span>    public String <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#aee6444e7b6f87841b87c34d4479bfc37">startProcess</a>(@ModelAttribute <a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html">StartProcessRequest</a> request, </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            Principal principal, RedirectAttributes rttr) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        Long senderId = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a36b76bf8d4ce6b7d8e1136116f581d94">memberService</a>.findByUserId(principal.getName()).getId();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        Long postId = request.getPostId();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html">PostResponse</a> post = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#ae5fbab89491a22266e6777278f0f4dd5">postRepository</a>.findById(postId).orElseThrow(</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                () -&gt; <span class="keyword">new</span> NoSuchElementException(<span class="stringliteral">&quot;해당 게시글이 존재하지 않습니다: &quot;</span> + postId));</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">if</span> (senderId == post.getAuthorId()) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            rttr.addFlashAttribute(<span class="stringliteral">&quot;error&quot;</span>, <span class="stringliteral">&quot;자신이 작성한 게시글에는 요청할 수 없습니다.&quot;</span>);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            return <span class="stringliteral">&quot;redirect:/post/&quot;</span> + postId;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            mailService.startNewProcess(request, senderId);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;요청이 성공적으로 전송되었습니다! 🚀&quot;</span>);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            return <span class="stringliteral">&quot;redirect:/mail&quot;</span>; </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        } catch (Exception e) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            rttr.addFlashAttribute(<span class="stringliteral">&quot;error&quot;</span>, <span class="stringliteral">&quot;요청 실패: &quot;</span> + e.getMessage());</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;redirect:/post/&quot;</span> + postId;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    @PostMapping(<span class="stringliteral">&quot;/mail/action&quot;</span>)</div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#ab9a71c93834761e3d2c561c3e4e387f9">  144</a></span>    public String <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#ab9a71c93834761e3d2c561c3e4e387f9">processAction</a>(@ModelAttribute <a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_process_action_request.html">ProcessActionRequest</a> request, Principal principal, </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            RedirectAttributes rttr) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            Long senderId = <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a36b76bf8d4ce6b7d8e1136116f581d94">memberService</a>.findByUserId(principal.getName()).getId();</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a257fafc26b1c6bab459a6eeda97067a0">mailService</a>.handleProcessAction(request, senderId);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <span class="keywordflow">switch</span> (request.getActionType()) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                <span class="keywordflow">case</span> SET_CONDITIONS:</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                    rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;📝 거래 조건 설정이 완료되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keywordflow">case</span> ACCEPT_TRADE:</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                    rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;🤝 거래가 승인되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                <span class="keywordflow">case</span> REJECT_TRADE:</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                    rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;🚫 거래가 취소되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                <span class="keywordflow">case</span> TRANSFER:</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                    rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;💸 이체 처리가 완료되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                <span class="keywordflow">case</span> ACCEPT_RECRUIT:</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                    rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;🎉 구인(채용) 처리가 완료되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                <span class="keywordflow">case</span> REJECT_RECRUIT:</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                    rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;🚫 구인 거절 처리가 완료되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                    rttr.addFlashAttribute(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;작업이 완료되었습니다.&quot;</span>);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;redirect:/mail&quot;</span>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        } <span class="keywordflow">catch</span> (Exception e) {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            rttr.addFlashAttribute(<span class="stringliteral">&quot;error&quot;</span>, <span class="stringliteral">&quot;오류 발생: &quot;</span> + e.getMessage());</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;redirect:/mail/&quot;</span> + request.getMailId();</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    }    </div>
+</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html">com.khao.PoorDeal.controller.MailController</a></div><div class="ttdef"><b>Definition</b> <a href="#l00035">MailController.java:35</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_a257fafc26b1c6bab459a6eeda97067a0"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a257fafc26b1c6bab459a6eeda97067a0">com.khao.PoorDeal.controller.MailController.mailService</a></div><div class="ttdeci">final MailService mailService</div><div class="ttdef"><b>Definition</b> <a href="#l00040">MailController.java:40</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_a32b82bae14a58681527e697cf1188db5"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a32b82bae14a58681527e697cf1188db5">com.khao.PoorDeal.controller.MailController.BLOCK_SIZE</a></div><div class="ttdeci">int BLOCK_SIZE</div><div class="ttdef"><b>Definition</b> <a href="#l00038">MailController.java:38</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_a36b76bf8d4ce6b7d8e1136116f581d94"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a36b76bf8d4ce6b7d8e1136116f581d94">com.khao.PoorDeal.controller.MailController.memberService</a></div><div class="ttdeci">final MemberService memberService</div><div class="ttdef"><b>Definition</b> <a href="#l00041">MailController.java:41</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_a48a64795a7581583312de91817516ce5"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a48a64795a7581583312de91817516ce5">com.khao.PoorDeal.controller.MailController.PAGESIZE</a></div><div class="ttdeci">int PAGESIZE</div><div class="ttdef"><b>Definition</b> <a href="#l00037">MailController.java:37</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_a7c56c6833f122db106be89aed0103719"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#a7c56c6833f122db106be89aed0103719">com.khao.PoorDeal.controller.MailController.getMail</a></div><div class="ttdeci">String getMail(@PathVariable(&quot;mailId&quot;) Long mailId, Model model, Principal principal)</div><div class="ttdoc">특정 쪽지의 상세 내용을 조회합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00089">MailController.java:89</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_ab9a71c93834761e3d2c561c3e4e387f9"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#ab9a71c93834761e3d2c561c3e4e387f9">com.khao.PoorDeal.controller.MailController.processAction</a></div><div class="ttdeci">String processAction(@ModelAttribute ProcessActionRequest request, Principal principal, RedirectAttributes rttr)</div><div class="ttdoc">프로세스 내에서 사용자의 액션(수락, 거절 등)을 처리합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00144">MailController.java:144</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_ae5fbab89491a22266e6777278f0f4dd5"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#ae5fbab89491a22266e6777278f0f4dd5">com.khao.PoorDeal.controller.MailController.postRepository</a></div><div class="ttdeci">final PostRepository postRepository</div><div class="ttdef"><b>Definition</b> <a href="#l00042">MailController.java:42</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_aee6444e7b6f87841b87c34d4479bfc37"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#aee6444e7b6f87841b87c34d4479bfc37">com.khao.PoorDeal.controller.MailController.startProcess</a></div><div class="ttdeci">String startProcess(@ModelAttribute StartProcessRequest request, Principal principal, RedirectAttributes rttr)</div><div class="ttdoc">새로운 프로세스(거래, 구인)를 시작하는 요청을 처리합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00112">MailController.java:112</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller_html_afaaee14b77b61311ce1be2df5fb7899c"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_mail_controller.html#afaaee14b77b61311ce1be2df5fb7899c">com.khao.PoorDeal.controller.MailController.getMails</a></div><div class="ttdeci">String getMails(@RequestParam(defaultValue=&quot;1&quot;) int page, Model model, Principal principal)</div><div class="ttdoc">현재 로그인한 사용자의 쪽지 목록을 페이징하여 조회합니다.</div><div class="ttdef"><b>Definition</b> <a href="#l00052">MailController.java:52</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_mail_response_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_mail_response.html">com.khao.PoorDeal.dto.MailResponse</a></div><div class="ttdef"><b>Definition</b> <a href="_mail_response_8java_source.html#l00021">MailResponse.java:21</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html">com.khao.PoorDeal.dto.PostResponse</a></div><div class="ttdef"><b>Definition</b> <a href="_post_response_8java_source.html#l00021">PostResponse.java:21</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_process_action_request_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_process_action_request.html">com.khao.PoorDeal.dto.ProcessActionRequest</a></div><div class="ttdef"><b>Definition</b> <a href="_process_action_request_8java_source.html#l00014">ProcessActionRequest.java:14</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_start_process_request.html">com.khao.PoorDeal.dto.StartProcessRequest</a></div><div class="ttdef"><b>Definition</b> <a href="_start_process_request_8java_source.html#l00019">StartProcessRequest.java:19</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository.html">com.khao.PoorDeal.repository.PostRepository</a></div><div class="ttdef"><b>Definition</b> <a href="_post_repository_8java_source.html#l00024">PostRepository.java:24</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_mail_service_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_mail_service.html">com.khao.PoorDeal.service.MailService</a></div><div class="ttdef"><b>Definition</b> <a href="_mail_service_8java_source.html#l00036">MailService.java:36</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service.html">com.khao.PoorDeal.service.MemberService</a></div><div class="ttdef"><b>Definition</b> <a href="_member_service_8java_source.html#l00019">MemberService.java:19</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a href="dir_8a22873406ddef3ffbbc0bacea2033ba.html">com</a></li><li class="navelem"><a href="dir_9f2e58735fa2df8715252159e6b4023e.html">khao</a></li><li class="navelem"><a href="dir_d1e74712c97f301cac73aa91e8259784.html">PoorDeal</a></li><li class="navelem"><a href="dir_90126addf9d1d33295779f804c1d50b7.html">controller</a></li><li class="navelem"><a href="_mail_controller_8java.html">MailController.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

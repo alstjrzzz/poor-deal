@@ -1,0 +1,140 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+repository.\+Report\+Repository 클래스 참조}
+\hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository}{}\label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository}\index{com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}}
+
+
+com.\+khao.\+Poor\+Deal.\+repository.\+Report\+Repository에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a1e3f3a6129add226c1c18f80d44c0d2e}{save}} (\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}} report)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_response}{Report\+Response}} $>$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_adb8c2d7f99ccd296e3074b91e4d9a53f}{find\+All\+Responses}} ()
+\item 
+\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_abdfb986d5a7b3e377bdb2928fcb318cc}{find\+By\+Id}} (Long id)
+\item 
+void \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a2804a11dc70f6bdb7872d8e321369a6d}{update\+Status}} (Long id, \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{Report\+Status}} status)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper}{Report\+Mapper}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a9ddd6617f5b3064075eff2ca9bf799ee}{report\+Mapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_report_repository_8java_source}{Report\+Repository.\+java}} 파일의 \mbox{\hyperlink{_report_repository_8java_source_l00022}{22}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_adb8c2d7f99ccd296e3074b91e4d9a53f}\index{com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}!findAllResponses@{findAllResponses}}
+\index{findAllResponses@{findAllResponses}!com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}}
+\doxysubsubsection{\texorpdfstring{findAllResponses()}{findAllResponses()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_adb8c2d7f99ccd296e3074b91e4d9a53f} 
+List$<$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_response}{Report\+Response}} $>$ com.\+khao.\+Poor\+Deal.\+repository.\+Report\+Repository.\+find\+All\+Responses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a80d4aef0e52d845efa81a50f59dbbf0d}{com.\+khao.\+Poor\+Deal.\+mapper.\+Report\+Mapper.\+find\+All\+Responses()} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_report_repository_8java_source}{Report\+Repository.\+java}} 파일의 \mbox{\hyperlink{_report_repository_8java_source_l00032}{32}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reportMapper.findAllResponses();}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_abdfb986d5a7b3e377bdb2928fcb318cc}\index{com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}!findById@{findById}}
+\index{findById@{findById}!com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}}
+\doxysubsubsection{\texorpdfstring{findById()}{findById()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_abdfb986d5a7b3e377bdb2928fcb318cc} 
+\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}} com.\+khao.\+Poor\+Deal.\+repository.\+Report\+Repository.\+find\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a0aca4dcb8afb42ab03744a58a2a93e87}{com.\+khao.\+Poor\+Deal.\+mapper.\+Report\+Mapper.\+find\+By\+Id(\+Long)} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_report_repository_8java_source}{Report\+Repository.\+java}} 파일의 \mbox{\hyperlink{_report_repository_8java_source_l00037}{37}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reportMapper.findById(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a1e3f3a6129add226c1c18f80d44c0d2e}\index{com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}!save@{save}}
+\index{save@{save}!com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a1e3f3a6129add226c1c18f80d44c0d2e} 
+void com.\+khao.\+Poor\+Deal.\+repository.\+Report\+Repository.\+save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}}}]{report}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+\doxylink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a5c855408dac42db46231745f45b2e1ec}{com.\+khao.\+Poor\+Deal.\+mapper.\+Report\+Mapper.\+save(\+Report)} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_report_repository_8java_source}{Report\+Repository.\+java}} 파일의 \mbox{\hyperlink{_report_repository_8java_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ reportMapper.save(report);}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a2804a11dc70f6bdb7872d8e321369a6d}\index{com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}!updateStatus@{updateStatus}}
+\index{updateStatus@{updateStatus}!com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}}
+\doxysubsubsection{\texorpdfstring{updateStatus()}{updateStatus()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a2804a11dc70f6bdb7872d8e321369a6d} 
+void com.\+khao.\+Poor\+Deal.\+repository.\+Report\+Repository.\+update\+Status (\begin{DoxyParamCaption}\item[{Long}]{id}{, }\item[{\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{Report\+Status}}}]{status}{}\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{참고}
+com.\+khao.\+Poor\+Deal.\+mapper.\+Report\+Mapper\#update\+Status(\+Long, Report\+Status) 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_report_repository_8java_source}{Report\+Repository.\+java}} 파일의 \mbox{\hyperlink{_report_repository_8java_source_l00042}{42}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ reportMapper.updateStatus(\textcolor{keywordtype}{id},\ status);}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a9ddd6617f5b3064075eff2ca9bf799ee}\index{com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}!reportMapper@{reportMapper}}
+\index{reportMapper@{reportMapper}!com.khao.PoorDeal.repository.ReportRepository@{com.khao.PoorDeal.repository.ReportRepository}}
+\doxysubsubsection{\texorpdfstring{reportMapper}{reportMapper}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository_a9ddd6617f5b3064075eff2ca9bf799ee} 
+final \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper}{Report\+Mapper}} com.\+khao.\+Poor\+Deal.\+repository.\+Report\+Repository.\+report\+Mapper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_report_repository_8java_source}{Report\+Repository.\+java}} 파일의 \mbox{\hyperlink{_report_repository_8java_source_l00024}{24}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/repository/\mbox{\hyperlink{_report_repository_8java}{Report\+Repository.\+java}}\end{DoxyCompactItemize}

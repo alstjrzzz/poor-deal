@@ -1,0 +1,7 @@
+<map id="com.khao.PoorDeal.domain.Mail" name="com.khao.PoorDeal.domain.Mail">
+<area shape="rect" id="Node000001" title=" " alt="" coords="107,355,306,573"/>
+<area shape="rect" id="Node000002" href="$enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_process_type.html" title=" " alt="" coords="5,80,181,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,207,165,338,160,339,113,209"/>
+<area shape="rect" id="Node000003" href="$enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_process_status.html" title=" " alt="" coords="205,5,438,283"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,283,254,340,249,338,269,281"/>
+</map>

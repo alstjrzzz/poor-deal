@@ -1,0 +1,35 @@
+\doxysection{Comment\+Repository.\+java}
+\hypertarget{_comment_repository_8java_source}{}\label{_comment_repository_8java_source}\index{java/com/khao/PoorDeal/repository/CommentRepository.java@{java/com/khao/PoorDeal/repository/CommentRepository.java}}
+\mbox{\hyperlink{_comment_repository_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00001}\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1repository}{00001}}\ \textcolor{keyword}{package\ }com.khao.PoorDeal.repository;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.Optional;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.stereotype.Repository;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00008}00008\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Comment;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00009}00009\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.ParentType;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00010}00010\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.CommentResponse;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00011}00011\ \textcolor{keyword}{import}\ com.khao.PoorDeal.mapper.CommentMapper;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00013}00013\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00021}00021\ @Repository}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00022}00022\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00023}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository}{00023}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository}{CommentRepository}}\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00025}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a244f245160709a3dc6d8a7a3fee45381}{00025}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_comment_mapper}{CommentMapper}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a244f245160709a3dc6d8a7a3fee45381}{commentMapper}};}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00026}00026\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00028}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a2e03a6d75b854e78b2d72fdeaee6503f}{00028}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a2e03a6d75b854e78b2d72fdeaee6503f}{save}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}\ comment)\ \{\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a244f245160709a3dc6d8a7a3fee45381}{commentMapper}}.save(comment);\ \}}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00030}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_ac758587c9449628c008e0ff9eab9aa24}{00030}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_ac758587c9449628c008e0ff9eab9aa24}{update}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment}{Comment}}\ comment)\ \{\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a244f245160709a3dc6d8a7a3fee45381}{commentMapper}}.update(comment);\ \}}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00032}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a4e4f3a02ce771af0c144d65cf10da93e}{00032}}\ \ \ \ \ \textcolor{keyword}{public}\ Optional<CommentResponse>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a4e4f3a02ce771af0c144d65cf10da93e}{findById}}(Long\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a244f245160709a3dc6d8a7a3fee45381}{commentMapper}}.findById(\textcolor{keywordtype}{id});\ \}}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00034}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a731af7ff478676f52f37d5607723f0ce}{00034}}\ \ \ \ \ \textcolor{keyword}{public}\ List<CommentResponse>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a731af7ff478676f52f37d5607723f0ce}{findByParentIdAndParentType}}(Long\ parentId,\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}\ parentType)\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a244f245160709a3dc6d8a7a3fee45381}{commentMapper}}.findByParentIdAndParentType(parentId,\ parentType);\ \}}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00037}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a6251a197a4e556f62feb7db9743c06d0}{00037}}\ \ \ \ \ \textcolor{keyword}{public}\ List<CommentResponse>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a6251a197a4e556f62feb7db9743c06d0}{findByParentIdListInAndParentType}}(List<Long>\ parentIds,\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type}{ParentType}}\ parentType)\ \{}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_a244f245160709a3dc6d8a7a3fee45381}{commentMapper}}.findByParentIdListInAndParentType(parentIds,\ parentType);\ \}}
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00039}00039\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_comment_repository_8java_source_l00040}00040\ \}}
+
+\end{DoxyCode}

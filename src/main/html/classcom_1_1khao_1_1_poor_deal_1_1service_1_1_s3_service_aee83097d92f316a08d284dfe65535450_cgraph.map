@@ -1,0 +1,5 @@
+<map id="com.khao.PoorDeal.service.S3Service.deleteFile" name="com.khao.PoorDeal.service.S3Service.deleteFile">
+<area shape="rect" id="Node000001" title="S3에서 특정 파일을 삭제합니다." alt="" coords="5,5,192,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service.html#a5f08172d1fc51fe911a0aac07f84e358" title="파일 이름에서 확장자를 추출합니다." alt="" coords="240,5,426,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,24,224,24,224,29,192,29"/>
+</map>

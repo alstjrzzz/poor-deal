@@ -1,0 +1,28 @@
+\doxysection{Report\+Mapper.\+java}
+\hypertarget{_report_mapper_8java_source}{}\label{_report_mapper_8java_source}\index{java/com/khao/PoorDeal/mapper/ReportMapper.java@{java/com/khao/PoorDeal/mapper/ReportMapper.java}}
+\mbox{\hyperlink{_report_mapper_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.mapper;}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Mapper;}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.apache.ibatis.annotations.Param;}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00008}00008\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Report;}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00009}00009\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.ReportStatus;}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00010}00010\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.ReportResponse;}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00018}00018\ @Mapper}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00019}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper}{00019}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{interface\ }\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper}{ReportMapper}}\ \{}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00020}00020\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00025}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a5c855408dac42db46231745f45b2e1ec}{00025}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a5c855408dac42db46231745f45b2e1ec}{save}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}}\ report);}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00031}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a80d4aef0e52d845efa81a50f59dbbf0d}{00031}}\ \ \ \ \ List<ReportResponse>\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a80d4aef0e52d845efa81a50f59dbbf0d}{findAllResponses}}();}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00038}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a0aca4dcb8afb42ab03744a58a2a93e87}{00038}}\ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a0aca4dcb8afb42ab03744a58a2a93e87}{findById}}(Long\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00045}\mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a09a9aa3e72072e6618b97feac8e7a942}{00045}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_report_mapper_a09a9aa3e72072e6618b97feac8e7a942}{updateStatus}}(@Param(\textcolor{stringliteral}{"{}id"{}})\ Long\ \textcolor{keywordtype}{id},\ @Param(\textcolor{stringliteral}{"{}status"{}})\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}\ status);}
+\DoxyCodeLine{\Hypertarget{_report_mapper_8java_source_l00046}00046\ \}}
+
+\end{DoxyCode}

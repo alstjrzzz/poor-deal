@@ -1,0 +1,49 @@
+\doxysection{Member.\+java}
+\hypertarget{_member_8java_source}{}\label{_member_8java_source}\index{java/com/khao/PoorDeal/domain/Member.java@{java/com/khao/PoorDeal/domain/Member.java}}
+\mbox{\hyperlink{_member_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.domain;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00003}00003\ \textcolor{keyword}{import}\ javax.validation.constraints.Pattern;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.hibernate.validator.constraints.Email;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.hibernate.validator.constraints.NotEmpty;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00008}00008\ \textcolor{keyword}{import}\ lombok.AllArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00009}00009\ \textcolor{keyword}{import}\ lombok.Builder;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00010}00010\ \textcolor{keyword}{import}\ lombok.Getter;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00011}00011\ \textcolor{keyword}{import}\ lombok.NoArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00012}00012\ \textcolor{keyword}{import}\ lombok.Setter;}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00020}00020\ @Getter}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00021}00021\ @Setter}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00022}00022\ @Builder}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00023}00023\ @NoArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00024}00024\ @AllArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00025}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{00025}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ \{}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00028}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a73b95ff6983497ecf5b3992eb2dcfdb6}{00028}}\ \ \ \ \ \textcolor{keyword}{private}\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a73b95ff6983497ecf5b3992eb2dcfdb6}{id}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00029}00029\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00031}00031\ \ \ \ \ @NotEmpty(message\ =\ \textcolor{stringliteral}{"{}아이디는\ 필수\ 입력\ 값입니다."{}})}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00032}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a0745bb8c3e186739c88045a8dc0c16c8}{00032}}\ \ \ \ \ private\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a0745bb8c3e186739c88045a8dc0c16c8}{userId}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00033}00033\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00035}00035\ \ \ \ \ @NotEmpty(message\ =\ \textcolor{stringliteral}{"{}비밀번호는\ 필수\ 입력\ 값입니다."{}})}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00036}00036\ \ \ \ \ @Pattern(regexp\ =\ \textcolor{stringliteral}{"{}\string^(?=.*[A-\/Za-\/z])(?=.*\(\backslash\)d)(?=.*[@\$!\%*\#?\&])[A-\/Za-\/z\(\backslash\)d@\$!\%*\#?\&]\{8,\}\$"{}},}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ message\ =\ \textcolor{stringliteral}{"{}비밀번호는\ 8자\ 이상이며,\ 영문/숫자/특수문자를\ 포함해야\ 합니다."{}})}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00038}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_ab9d96a458764ae7aaa50a7e2405c2d68}{00038}}\ \ \ \ \ private\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_ab9d96a458764ae7aaa50a7e2405c2d68}{password}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00039}00039\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00041}00041\ \ \ \ \ @NotEmpty(message\ =\ \textcolor{stringliteral}{"{}이름은\ 필수\ 입력\ 값입니다."{}})}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00042}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a5b5ff4e1551f1b892464ae6cd6451447}{00042}}\ \ \ \ \ private\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a5b5ff4e1551f1b892464ae6cd6451447}{userName}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00043}00043\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00045}00045\ \ \ \ \ @NotEmpty(message\ =\ \textcolor{stringliteral}{"{}이메일은\ 필수\ 입력\ 값입니다."{}})}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00046}00046\ \ \ \ \ @Email(message\ =\ \textcolor{stringliteral}{"{}이메일\ 형식이\ 올바르지\ 않습니다."{}})}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00047}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_ac6e9c3204168296808a2de12338a96e4}{00047}}\ \ \ \ \ private\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_ac6e9c3204168296808a2de12338a96e4}{email}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00050}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a562058b21c064f032eb4ca1d1672b6dc}{00050}}\ \ \ \ \ private\ Long\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a562058b21c064f032eb4ca1d1672b6dc}{point}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00051}00051\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00053}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_ad4836e7ae25b6be25951e106d45e9ea9}{00053}}\ \ \ \ \ private\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_role}{MemberRole}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_ad4836e7ae25b6be25951e106d45e9ea9}{role}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00056}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a0a571852ad9aa9dc64c5bc1b34bc309d}{00056}}\ \ \ \ \ private\ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member_a0a571852ad9aa9dc64c5bc1b34bc309d}{isBlock}};}
+\DoxyCodeLine{\Hypertarget{_member_8java_source_l00057}00057\ \}}
+
+\end{DoxyCode}

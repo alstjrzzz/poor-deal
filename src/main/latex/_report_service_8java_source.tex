@@ -1,0 +1,62 @@
+\doxysection{Report\+Service.\+java}
+\hypertarget{_report_service_8java_source}{}\label{_report_service_8java_source}\index{java/com/khao/PoorDeal/service/ReportService.java@{java/com/khao/PoorDeal/service/ReportService.java}}
+\mbox{\hyperlink{_report_service_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.service;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.transaction.annotation.Transactional;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00008}00008\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Report;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00009}00009\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.ReportStatus;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00010}00010\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.ReportRequest;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00011}00011\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.ReportResponse;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00012}00012\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.MemberRepository;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00013}00013\ \textcolor{keyword}{import}\ com.khao.PoorDeal.repository.ReportRepository;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00015}00015\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00023}00023\ @Service}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00024}00024\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00025}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service}{00025}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service}{ReportService}}\ \{}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00027}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_af06ba5d8aa46fcdbfef9ae8f19d5bf9a}{00027}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_report_repository}{ReportRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_af06ba5d8aa46fcdbfef9ae8f19d5bf9a}{reportRepository}};}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00028}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a2ec6ff30f80d62656bd57b5b72e90ecc}{00028}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{MemberRepository}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a2ec6ff30f80d62656bd57b5b72e90ecc}{memberRepository}};}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00035}00035\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00036}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a6034127cc3133781ba4b8746458da21a}{00036}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a6034127cc3133781ba4b8746458da21a}{submitReport}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_report_request}{ReportRequest}}\ request)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (request.getReporterId().equals(request.getSuspectId()))\ \{}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalArgumentException(\textcolor{stringliteral}{"{}자기\ 자신을\ 신고할\ 수\ 없습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}}\ report\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}}.builder()}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_a2341743fa31d75b47cd245f12b9de233}{reason}}(request.getReason())}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .reporterId(request.getReporterId())}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .postId(request.getPostId())}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .suspectId(request.getSuspectId())}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .status(\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status_a0225e8053fa06b5511b02ce748a1dcf5}{PENDING}})}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .build();}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_af06ba5d8aa46fcdbfef9ae8f19d5bf9a}{reportRepository}}.save(report);}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00057}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a430d66f9c58c5886c5e61d1925324213}{00057}}\ \ \ \ \ \textcolor{keyword}{public}\ List<ReportResponse>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a430d66f9c58c5886c5e61d1925324213}{getAllReports}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_af06ba5d8aa46fcdbfef9ae8f19d5bf9a}{reportRepository}}.findAllResponses();}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00067}00067\ \ \ \ \ @Transactional}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00068}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a5cfdec81699379d9398410730cb0380c}{00068}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a5cfdec81699379d9398410730cb0380c}{processReport}}(Long\ reportId,\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}\ newStatus)\ \{}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_af06ba5d8aa46fcdbfef9ae8f19d5bf9a}{reportRepository}}.updateStatus(reportId,\ newStatus);}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newStatus\ ==\ \mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status}{ReportStatus}}.\mbox{\hyperlink{enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report_status_abaa6f1f53e55e44c9f3f61ed6d2b2208}{APPROVED}})\ \{}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_report}{Report}}\ report\ =\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_af06ba5d8aa46fcdbfef9ae8f19d5bf9a}{reportRepository}}.findById(reportId);}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_report_service_a2ec6ff30f80d62656bd57b5b72e90ecc}{memberRepository}}.updateBlockStatus(report.getSuspectId(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_report_service_8java_source_l00077}00077\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: java/com/khao/PoorDeal/repository/CommentRepository.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_comment_repository_8java_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CommentRepository.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_comment_repository_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacecom_1_1khao_1_1_poor_deal_1_1repository.html">    1</a></span><span class="keyword">package </span>com.khao.PoorDeal.repository;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> java.util.Optional;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.springframework.stereotype.Repository;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> com.khao.PoorDeal.domain.Comment;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> com.khao.PoorDeal.domain.ParentType;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> com.khao.PoorDeal.dto.CommentResponse;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> com.khao.PoorDeal.mapper.CommentMapper;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> lombok.RequiredArgsConstructor;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>@Repository</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>@RequiredArgsConstructor</div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html">   23</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html">CommentRepository</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">   25</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_comment_mapper.html">CommentMapper</a> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">commentMapper</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a2e03a6d75b854e78b2d72fdeaee6503f">   28</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a2e03a6d75b854e78b2d72fdeaee6503f">save</a>(<a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment.html">Comment</a> comment) { <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">commentMapper</a>.save(comment); }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#ac758587c9449628c008e0ff9eab9aa24">   30</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#ac758587c9449628c008e0ff9eab9aa24">update</a>(<a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment.html">Comment</a> comment) { <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">commentMapper</a>.update(comment); }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a4e4f3a02ce771af0c144d65cf10da93e">   32</a></span>    <span class="keyword">public</span> Optional&lt;CommentResponse&gt; <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a4e4f3a02ce771af0c144d65cf10da93e">findById</a>(Long <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">commentMapper</a>.findById(<span class="keywordtype">id</span>); }</div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a731af7ff478676f52f37d5607723f0ce">   34</a></span>    <span class="keyword">public</span> List&lt;CommentResponse&gt; <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a731af7ff478676f52f37d5607723f0ce">findByParentIdAndParentType</a>(Long parentId, <a class="code hl_class" href="enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type.html">ParentType</a> parentType) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">commentMapper</a>.findByParentIdAndParentType(parentId, parentType); }</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a6251a197a4e556f62feb7db9743c06d0">   37</a></span>    <span class="keyword">public</span> List&lt;CommentResponse&gt; <a class="code hl_function" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a6251a197a4e556f62feb7db9743c06d0">findByParentIdListInAndParentType</a>(List&lt;Long&gt; parentIds, <a class="code hl_class" href="enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type.html">ParentType</a> parentType) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">commentMapper</a>.findByParentIdListInAndParentType(parentIds, parentType); }</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_comment.html">com.khao.PoorDeal.domain.Comment</a></div><div class="ttdef"><b>Definition</b> <a href="_comment_8java_source.html#l00019">Comment.java:19</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html">com.khao.PoorDeal.repository.CommentRepository</a></div><div class="ttdef"><b>Definition</b> <a href="#l00023">CommentRepository.java:23</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_html_a244f245160709a3dc6d8a7a3fee45381"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a244f245160709a3dc6d8a7a3fee45381">com.khao.PoorDeal.repository.CommentRepository.commentMapper</a></div><div class="ttdeci">final CommentMapper commentMapper</div><div class="ttdef"><b>Definition</b> <a href="#l00025">CommentRepository.java:25</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_html_a2e03a6d75b854e78b2d72fdeaee6503f"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a2e03a6d75b854e78b2d72fdeaee6503f">com.khao.PoorDeal.repository.CommentRepository.save</a></div><div class="ttdeci">void save(Comment comment)</div><div class="ttdef"><b>Definition</b> <a href="#l00028">CommentRepository.java:28</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_html_a4e4f3a02ce771af0c144d65cf10da93e"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a4e4f3a02ce771af0c144d65cf10da93e">com.khao.PoorDeal.repository.CommentRepository.findById</a></div><div class="ttdeci">Optional&lt; CommentResponse &gt; findById(Long id)</div><div class="ttdef"><b>Definition</b> <a href="#l00032">CommentRepository.java:32</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_html_a6251a197a4e556f62feb7db9743c06d0"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a6251a197a4e556f62feb7db9743c06d0">com.khao.PoorDeal.repository.CommentRepository.findByParentIdListInAndParentType</a></div><div class="ttdeci">List&lt; CommentResponse &gt; findByParentIdListInAndParentType(List&lt; Long &gt; parentIds, ParentType parentType)</div><div class="ttdef"><b>Definition</b> <a href="#l00037">CommentRepository.java:37</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_html_a731af7ff478676f52f37d5607723f0ce"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#a731af7ff478676f52f37d5607723f0ce">com.khao.PoorDeal.repository.CommentRepository.findByParentIdAndParentType</a></div><div class="ttdeci">List&lt; CommentResponse &gt; findByParentIdAndParentType(Long parentId, ParentType parentType)</div><div class="ttdef"><b>Definition</b> <a href="#l00034">CommentRepository.java:34</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository_html_ac758587c9449628c008e0ff9eab9aa24"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_comment_repository.html#ac758587c9449628c008e0ff9eab9aa24">com.khao.PoorDeal.repository.CommentRepository.update</a></div><div class="ttdeci">void update(Comment comment)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">CommentRepository.java:30</a></div></div>
+<div class="ttc" id="aenumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type_html"><div class="ttname"><a href="enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_parent_type.html">com.khao.PoorDeal.domain.ParentType</a></div><div class="ttdef"><b>Definition</b> <a href="_parent_type_8java_source.html#l00009">ParentType.java:9</a></div></div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_comment_mapper_html"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_comment_mapper.html">com.khao.PoorDeal.mapper.CommentMapper</a></div><div class="ttdef"><b>Definition</b> <a href="_comment_mapper_8java_source.html#l00020">CommentMapper.java:20</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a href="dir_8a22873406ddef3ffbbc0bacea2033ba.html">com</a></li><li class="navelem"><a href="dir_9f2e58735fa2df8715252159e6b4023e.html">khao</a></li><li class="navelem"><a href="dir_d1e74712c97f301cac73aa91e8259784.html">PoorDeal</a></li><li class="navelem"><a href="dir_ed8c6f628ab055fc296f1fec0e651e51.html">repository</a></li><li class="navelem"><a href="_comment_repository_8java.html">CommentRepository.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

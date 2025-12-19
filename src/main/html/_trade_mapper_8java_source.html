@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: java/com/khao/PoorDeal/mapper/TradeMapper.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_trade_mapper_8java_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TradeMapper.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_trade_mapper_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>com.khao.PoorDeal.mapper;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> org.apache.ibatis.annotations.Param;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>@Mapper</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html">   13</a></span><span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html">TradeMapper</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html#a2595aedbe5c2d37cd971d76f04f96afe">   20</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html#a2595aedbe5c2d37cd971d76f04f96afe">updateMemberPoint</a>(@Param(<span class="stringliteral">&quot;memberId&quot;</span>) Long memberId, @Param(<span class="stringliteral">&quot;point&quot;</span>) Long point);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+</div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper_html"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html">com.khao.PoorDeal.mapper.TradeMapper</a></div><div class="ttdef"><b>Definition</b> <a href="#l00013">TradeMapper.java:13</a></div></div>
+<div class="ttc" id="ainterfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper_html_a2595aedbe5c2d37cd971d76f04f96afe"><div class="ttname"><a href="interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html#a2595aedbe5c2d37cd971d76f04f96afe">com.khao.PoorDeal.mapper.TradeMapper.updateMemberPoint</a></div><div class="ttdeci">void updateMemberPoint(@Param(&quot;memberId&quot;) Long memberId, @Param(&quot;point&quot;) Long point)</div><div class="ttdoc">특정 회원의 포인트를 업데이트합니다.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a href="dir_8a22873406ddef3ffbbc0bacea2033ba.html">com</a></li><li class="navelem"><a href="dir_9f2e58735fa2df8715252159e6b4023e.html">khao</a></li><li class="navelem"><a href="dir_d1e74712c97f301cac73aa91e8259784.html">PoorDeal</a></li><li class="navelem"><a href="dir_c6766d48d8b0f6b729767aeb3cc4aad8.html">mapper</a></li><li class="navelem"><a href="_trade_mapper_8java.html">TradeMapper.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

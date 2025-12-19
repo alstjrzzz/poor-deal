@@ -24,6 +24,12 @@ import com.khao.PoorDeal.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @file MailController.java
+ * @brief 쪽지(메시지) 관련 웹 요청을 처리하는 컨트롤러 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 @Controller
 @RequiredArgsConstructor
 public class MailController {
@@ -36,7 +42,11 @@ public class MailController {
     private final PostRepository postRepository;
     
     /**
-     * 페이징처리해서 쪽지 리스트 가져오기
+     * @brief 현재 로그인한 사용자의 쪽지 목록을 페이징하여 조회합니다.
+     * @param page 요청하는 페이지 번호 (기본값 1)
+     * @param model 뷰에 전달할 모델
+     * @param principal 현재 로그인한 사용자 정보
+     * @return "mail/list" 뷰
      */
     @GetMapping("/mail")
     public String getMails(@RequestParam(defaultValue = "1") int page,
@@ -68,7 +78,12 @@ public class MailController {
     }
     
     /**
-     * 쪽지 내용 가져오기
+     * @brief 특정 쪽지의 상세 내용을 조회합니다.
+     * @param mailId 조회할 쪽지 ID
+     * @param model 뷰에 전달할 모델
+     * @param principal 현재 로그인한 사용자 정보
+     * @return "mail/detail" 뷰
+     * @throws RuntimeException 쪽지 수신/발신자가 아닌 경우 발생
      */
     @GetMapping("/mail/{mailId}")
     public String getMail(@PathVariable("mailId") Long mailId, Model model, Principal principal) {
@@ -86,7 +101,13 @@ public class MailController {
         return "mail/detail";
     }
     
-    // 새로운 프로세스 요청 시작(거래 요청/구직 신청)
+    /**
+     * @brief 새로운 프로세스(거래, 구인)를 시작하는 요청을 처리합니다.
+     * @param request 프로세스 시작 요청 DTO
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 성공 시 "/mail"로 리다이렉트, 실패 시 게시물 상세 페이지로 리다이렉트
+     */
     @PostMapping("/mail/request")
     public String startProcess(@ModelAttribute StartProcessRequest request, 
             Principal principal, RedirectAttributes rttr) {
@@ -112,6 +133,13 @@ public class MailController {
         }
     }
     
+    /**
+     * @brief 프로세스 내에서 사용자의 액션(수락, 거절 등)을 처리합니다.
+     * @param request 프로세스 액션 요청 DTO
+     * @param principal 현재 로그인한 사용자 정보
+     * @param rttr 리다이렉트 시 전달할 속성
+     * @return 성공 시 "/mail"로 리다이렉트, 실패 시 쪽지 상세 페이지로 리다이렉트
+     */
     @PostMapping("/mail/action")
     public String processAction(@ModelAttribute ProcessActionRequest request, Principal principal, 
             RedirectAttributes rttr) {

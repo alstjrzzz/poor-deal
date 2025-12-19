@@ -1,0 +1,354 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service 클래스 참조}
+\hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service}{}\label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+
+
+com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508}{upload\+File}} (Multipart\+File file, String path, Long post\+Id)
+\begin{DoxyCompactList}\small\item\em 단일 파일을 S3에 업로드합니다. \end{DoxyCompactList}\item 
+List$<$ String $>$ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644}{upload\+Files}} (List$<$ Multipart\+File $>$ files, String path)
+\begin{DoxyCompactList}\small\item\em 여러 파일을 S3에 업로드합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a6a87847319f23e2cf718687262dac27d}{delete\+Folder}} (String prefix)
+\begin{DoxyCompactList}\small\item\em S3의 특정 폴더(prefix)에 있는 모든 객체를 삭제합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450}{delete\+File}} (String path, Long post\+Id, String image\+Url)
+\begin{DoxyCompactList}\small\item\em S3에서 특정 파일을 삭제합니다. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358}{get\+File\+Extension}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em 파일 이름에서 확장자를 추출합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final Amazon\+S3 \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}{amazon\+S3\+Client}}
+\item 
+String \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}{bucket}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00030}{30}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}!deleteFile@{deleteFile}}
+\index{deleteFile@{deleteFile}!com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+\doxysubsubsection{\texorpdfstring{deleteFile()}{deleteFile()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450} 
+void com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service.\+delete\+File (\begin{DoxyParamCaption}\item[{String}]{path}{, }\item[{Long}]{post\+Id}{, }\item[{String}]{image\+Url}{}\end{DoxyParamCaption})}
+
+
+
+S3에서 특정 파일을 삭제합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em path} & 파일이 저장된 경로 \\
+\hline
+{\em post\+Id} & 파일명으로 사용된 게시물 ID \\
+\hline
+{\em image\+Url} & 삭제할 파일의 전체 URL \\
+\hline
+\end{DoxyParams}
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00143}{143}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (imageUrl\ ==\ \textcolor{keyword}{null}\ ||\ imageUrl.isEmpty())\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ String\ extension\ =\ getFileExtension(imageUrl);}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ String\ key\ =\ path\ +\ postId\ +\ extension;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (amazonS3Client.doesObjectExist(bucket,\ key))\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amazonS3Client.deleteObject(bucket,\ key);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}S3\ 파일\ 삭제\ 중\ 오류가\ 발생했습니다."{}},\ e);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_aee83097d92f316a08d284dfe65535450_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a6a87847319f23e2cf718687262dac27d}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}!deleteFolder@{deleteFolder}}
+\index{deleteFolder@{deleteFolder}!com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+\doxysubsubsection{\texorpdfstring{deleteFolder()}{deleteFolder()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a6a87847319f23e2cf718687262dac27d} 
+void com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service.\+delete\+Folder (\begin{DoxyParamCaption}\item[{String}]{prefix}{}\end{DoxyParamCaption})}
+
+
+
+S3의 특정 폴더(prefix)에 있는 모든 객체를 삭제합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em prefix} & 삭제할 폴더 경로 \\
+\hline
+\end{DoxyParams}
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00109}{109}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ ListObjectsV2Request\ listRequest\ =\ \textcolor{keyword}{new}\ ListObjectsV2Request()}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .withBucketName(bucket)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .withPrefix(prefix);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ ListObjectsV2Result\ listResult;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ listResult\ =\ amazonS3Client.listObjectsV2(listRequest);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ List<S3ObjectSummary>\ summaries\ =\ listResult.getObjectSummaries();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (summaries.isEmpty())\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ List<DeleteObjectsRequest.KeyVersion>\ keysToDelete\ =\ summaries.stream()}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .map(summary\ -\/>\ \textcolor{keyword}{new}\ DeleteObjectsRequest.KeyVersion(summary.getKey()))}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .collect(Collectors.toList());}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ DeleteObjectsRequest\ deleteRequest\ =\ \textcolor{keyword}{new}\ DeleteObjectsRequest(bucket).withKeys(keysToDelete);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ amazonS3Client.deleteObjects(deleteRequest);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ listRequest.setContinuationToken(listResult.getNextContinuationToken());}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (listResult.isTruncated());}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}!getFileExtension@{getFileExtension}}
+\index{getFileExtension@{getFileExtension}!com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+\doxysubsubsection{\texorpdfstring{getFileExtension()}{getFileExtension()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358} 
+String com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service.\+get\+File\+Extension (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+파일 이름에서 확장자를 추출합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em file\+Name} & 파일 이름 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+파일 확장자 (예\+: "{}.\+jpg"{}) 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00167}{167}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileName\ ==\ \textcolor{keyword}{null}\ ||\ !fileName.contains(\textcolor{stringliteral}{"{}."{}}))\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fileName.substring(fileName.lastIndexOf(\textcolor{stringliteral}{"{}."{}}));}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a5f08172d1fc51fe911a0aac07f84e358_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}!uploadFile@{uploadFile}}
+\index{uploadFile@{uploadFile}!com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+\doxysubsubsection{\texorpdfstring{uploadFile()}{uploadFile()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508} 
+String com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service.\+upload\+File (\begin{DoxyParamCaption}\item[{Multipart\+File}]{file}{, }\item[{String}]{path}{, }\item[{Long}]{post\+Id}{}\end{DoxyParamCaption})}
+
+
+
+단일 파일을 S3에 업로드합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em file} & 업로드할 Multipart\+File 객체 \\
+\hline
+{\em path} & S3 내부에 저장될 경로 (예\+: "{}post/"{}) \\
+\hline
+{\em post\+Id} & 파일명으로 사용될 게시물 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+업로드된 파일의 S3 URL 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00044}{44}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ \textcolor{keyword}{null}\ ||\ file.isEmpty())\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ String\ key\ =\ path\ +\ postId\ +\ getFileExtension(file.getOriginalFilename());}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ ObjectMetadata\ objectMetadata\ =\ \textcolor{keyword}{new}\ ObjectMetadata();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ objectMetadata.setContentLength(file.getSize());}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ objectMetadata.setContentType(file.getContentType());}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ amazonS3Client.putObject(\textcolor{keyword}{new}\ PutObjectRequest(bucket,\ key,\ file.getInputStream(),\ objectMetadata));}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}S3\ 파일\ 업로드\ 중\ 오류가\ 발생했습니다."{}},\ e);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ amazonS3Client.getUrl(bucket,\ key).toString();}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a38c39bed6472d272f3a035d9ee461508_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}!uploadFiles@{uploadFiles}}
+\index{uploadFiles@{uploadFiles}!com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+\doxysubsubsection{\texorpdfstring{uploadFiles()}{uploadFiles()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644} 
+List$<$ String $>$ com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service.\+upload\+Files (\begin{DoxyParamCaption}\item[{List$<$ Multipart\+File $>$}]{files}{, }\item[{String}]{path}{}\end{DoxyParamCaption})}
+
+
+
+여러 파일을 S3에 업로드합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em files} & 업로드할 Multipart\+File 리스트 \\
+\hline
+{\em path} & S3 내부에 저장될 경로 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+업로드된 파일들의 S3 URL 리스트 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00071}{71}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ List<String>\ urlList\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (files\ ==\ \textcolor{keyword}{null}\ ||\ files.isEmpty())\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ files.size();\ i++)\ \{}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ MultipartFile\ file\ =\ files.get(i);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ \textcolor{keyword}{null}\ ||\ file.isEmpty())\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ String\ key\ =\ path\ +\ i\ +\ getFileExtension(file.getOriginalFilename());}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ ObjectMetadata\ objectMetadata\ =\ \textcolor{keyword}{new}\ ObjectMetadata();}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ objectMetadata.setContentLength(file.getSize());}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ objectMetadata.setContentType(file.getContentType());}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amazonS3Client.putObject(\textcolor{keyword}{new}\ PutObjectRequest(bucket,\ key,\ file.getInputStream(),\ objectMetadata));}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(\textcolor{stringliteral}{"{}S3\ 파일\ 업로드\ 중\ 오류가\ 발생했습니다."{}},\ e);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ urlList.add(amazonS3Client.getUrl(bucket,\ key).toString());}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ urlList;}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a76f4ee06f273084e7987ff718094e644_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}!amazonS3Client@{amazonS3Client}}
+\index{amazonS3Client@{amazonS3Client}!com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+\doxysubsubsection{\texorpdfstring{amazonS3Client}{amazonS3Client}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a59715050bdd875b2f58f0c63916994df} 
+final Amazon\+S3 com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service.\+amazon\+S3\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00032}{32}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70}\index{com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}!bucket@{bucket}}
+\index{bucket@{bucket}!com.khao.PoorDeal.service.S3Service@{com.khao.PoorDeal.service.S3Service}}
+\doxysubsubsection{\texorpdfstring{bucket}{bucket}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_s3_service_a9eecabb7d417ac4512f013bf82f8bd70} 
+String com.\+khao.\+Poor\+Deal.\+service.\+S3\+Service.\+bucket\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_s3_service_8java_source}{S3\+Service.\+java}} 파일의 \mbox{\hyperlink{_s3_service_8java_source_l00035}{35}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/service/\mbox{\hyperlink{_s3_service_8java}{S3\+Service.\+java}}\end{DoxyCompactItemize}

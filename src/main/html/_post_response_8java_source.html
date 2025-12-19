@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PoorDeal: java/com/khao/PoorDeal/dto/PostResponse.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PoorDeal<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_post_response_8java_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PostResponse.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_post_response_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>com.khao.PoorDeal.dto;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.time.LocalDateTime;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> com.khao.PoorDeal.domain.Post;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> com.khao.PoorDeal.domain.PostType;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> lombok.Builder;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> lombok.Getter;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">import</span> lombok.Setter;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>@Getter</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>@Setter</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>@Builder</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html">   21</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html">PostResponse</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ad123426159cd456009b508b82cfaa932">   24</a></span>    <span class="keyword">private</span> Long <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ad123426159cd456009b508b82cfaa932">id</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ab814f1353b1b49e5e4d21bfb948df0e3">   26</a></span>    <span class="keyword">private</span> String <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ab814f1353b1b49e5e4d21bfb948df0e3">title</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aa6a2b38aa220da9eb922d50b6d8f1e15">   28</a></span>    <span class="keyword">private</span> String <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aa6a2b38aa220da9eb922d50b6d8f1e15">content</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a1708721421041d9ac483374db8fa6212">   30</a></span>    <span class="keyword">private</span> Long <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a1708721421041d9ac483374db8fa6212">authorId</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a471f9001e6043a644b61b84e9d40e25d">   32</a></span>    <span class="keyword">private</span> String <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a471f9001e6043a644b61b84e9d40e25d">image</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a6309d3ee25b1ccd3a94580b6592ee509">   34</a></span>    <span class="keyword">private</span> <a class="code hl_class" href="enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type.html">PostType</a> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a6309d3ee25b1ccd3a94580b6592ee509">type</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aeafe7dd9d866dc0e3a02f92ef8ce1986">   36</a></span>    <span class="keyword">private</span> LocalDateTime <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aeafe7dd9d866dc0e3a02f92ef8ce1986">createdAt</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a5ab9e026268fb849000187bc8fa3cea1">   38</a></span>    <span class="keyword">private</span> LocalDateTime <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a5ab9e026268fb849000187bc8fa3cea1">updatedAt</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aaee1b47ab2e8117b6556583c77c6547d">   40</a></span>    <span class="keyword">private</span> <span class="keywordtype">boolean</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aaee1b47ab2e8117b6556583c77c6547d">isAvailable</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ac0fa926e74fc832744515533725e4ed0">   42</a></span>    <span class="keyword">private</span> <span class="keywordtype">boolean</span> <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ac0fa926e74fc832744515533725e4ed0">isDeleted</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#acad088a930b2c103712d6b83147c91b4">   45</a></span>    <span class="keyword">private</span> Long <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#acad088a930b2c103712d6b83147c91b4">price</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a707ec7c17aaea66804a5b9b3b228e040">   48</a></span>    <span class="keyword">private</span> Integer <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a707ec7c17aaea66804a5b9b3b228e040">hiringQuota</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a0ffddc1d3ad6b284a6eed198cbb5f18f">   50</a></span>    <span class="keyword">private</span> Integer <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a0ffddc1d3ad6b284a6eed198cbb5f18f">filledCount</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a26ad2b1efaa4fccbd622ec472d7256b3">   53</a></span>    <span class="keyword">private</span> String <a class="code hl_variable" href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a26ad2b1efaa4fccbd622ec472d7256b3">author</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html">com.khao.PoorDeal.dto.PostResponse</a></div><div class="ttdef"><b>Definition</b> <a href="#l00021">PostResponse.java:21</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_a0ffddc1d3ad6b284a6eed198cbb5f18f"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a0ffddc1d3ad6b284a6eed198cbb5f18f">com.khao.PoorDeal.dto.PostResponse.filledCount</a></div><div class="ttdeci">Integer filledCount</div><div class="ttdoc">현재까지 채용된 인원</div><div class="ttdef"><b>Definition</b> <a href="#l00050">PostResponse.java:50</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_a1708721421041d9ac483374db8fa6212"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a1708721421041d9ac483374db8fa6212">com.khao.PoorDeal.dto.PostResponse.authorId</a></div><div class="ttdeci">Long authorId</div><div class="ttdoc">작성자의 ID</div><div class="ttdef"><b>Definition</b> <a href="#l00030">PostResponse.java:30</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_a26ad2b1efaa4fccbd622ec472d7256b3"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a26ad2b1efaa4fccbd622ec472d7256b3">com.khao.PoorDeal.dto.PostResponse.author</a></div><div class="ttdeci">String author</div><div class="ttdoc">작성자의 이름</div><div class="ttdef"><b>Definition</b> <a href="#l00053">PostResponse.java:53</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_a471f9001e6043a644b61b84e9d40e25d"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a471f9001e6043a644b61b84e9d40e25d">com.khao.PoorDeal.dto.PostResponse.image</a></div><div class="ttdeci">String image</div><div class="ttdoc">이미지 파일 경로 또는 URL</div><div class="ttdef"><b>Definition</b> <a href="#l00032">PostResponse.java:32</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_a5ab9e026268fb849000187bc8fa3cea1"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a5ab9e026268fb849000187bc8fa3cea1">com.khao.PoorDeal.dto.PostResponse.updatedAt</a></div><div class="ttdeci">LocalDateTime updatedAt</div><div class="ttdoc">마지막 수정 일시</div><div class="ttdef"><b>Definition</b> <a href="#l00038">PostResponse.java:38</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_a6309d3ee25b1ccd3a94580b6592ee509"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a6309d3ee25b1ccd3a94580b6592ee509">com.khao.PoorDeal.dto.PostResponse.type</a></div><div class="ttdeci">PostType type</div><div class="ttdoc">게시물 타입</div><div class="ttdef"><b>Definition</b> <a href="#l00034">PostResponse.java:34</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_a707ec7c17aaea66804a5b9b3b228e040"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#a707ec7c17aaea66804a5b9b3b228e040">com.khao.PoorDeal.dto.PostResponse.hiringQuota</a></div><div class="ttdeci">Integer hiringQuota</div><div class="ttdoc">구인 게시물의 채용 인원</div><div class="ttdef"><b>Definition</b> <a href="#l00048">PostResponse.java:48</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_aa6a2b38aa220da9eb922d50b6d8f1e15"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aa6a2b38aa220da9eb922d50b6d8f1e15">com.khao.PoorDeal.dto.PostResponse.content</a></div><div class="ttdeci">String content</div><div class="ttdoc">게시물 내용</div><div class="ttdef"><b>Definition</b> <a href="#l00028">PostResponse.java:28</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_aaee1b47ab2e8117b6556583c77c6547d"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aaee1b47ab2e8117b6556583c77c6547d">com.khao.PoorDeal.dto.PostResponse.isAvailable</a></div><div class="ttdeci">boolean isAvailable</div><div class="ttdoc">거래 또는 구인 가능 여부</div><div class="ttdef"><b>Definition</b> <a href="#l00040">PostResponse.java:40</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_ab814f1353b1b49e5e4d21bfb948df0e3"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ab814f1353b1b49e5e4d21bfb948df0e3">com.khao.PoorDeal.dto.PostResponse.title</a></div><div class="ttdeci">String title</div><div class="ttdoc">게시물 제목</div><div class="ttdef"><b>Definition</b> <a href="#l00026">PostResponse.java:26</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_ac0fa926e74fc832744515533725e4ed0"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ac0fa926e74fc832744515533725e4ed0">com.khao.PoorDeal.dto.PostResponse.isDeleted</a></div><div class="ttdeci">boolean isDeleted</div><div class="ttdoc">삭제 여부</div><div class="ttdef"><b>Definition</b> <a href="#l00042">PostResponse.java:42</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_acad088a930b2c103712d6b83147c91b4"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#acad088a930b2c103712d6b83147c91b4">com.khao.PoorDeal.dto.PostResponse.price</a></div><div class="ttdeci">Long price</div><div class="ttdoc">거래 게시물의 가격</div><div class="ttdef"><b>Definition</b> <a href="#l00045">PostResponse.java:45</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_ad123426159cd456009b508b82cfaa932"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#ad123426159cd456009b508b82cfaa932">com.khao.PoorDeal.dto.PostResponse.id</a></div><div class="ttdeci">Long id</div><div class="ttdoc">게시물의 고유 ID</div><div class="ttdef"><b>Definition</b> <a href="#l00024">PostResponse.java:24</a></div></div>
+<div class="ttc" id="aclasscom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response_html_aeafe7dd9d866dc0e3a02f92ef8ce1986"><div class="ttname"><a href="classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_response.html#aeafe7dd9d866dc0e3a02f92ef8ce1986">com.khao.PoorDeal.dto.PostResponse.createdAt</a></div><div class="ttdeci">LocalDateTime createdAt</div><div class="ttdoc">생성 일시</div><div class="ttdef"><b>Definition</b> <a href="#l00036">PostResponse.java:36</a></div></div>
+<div class="ttc" id="aenumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type_html"><div class="ttname"><a href="enumcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post_type.html">com.khao.PoorDeal.domain.PostType</a></div><div class="ttdef"><b>Definition</b> <a href="_post_type_8java_source.html#l00009">PostType.java:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a href="dir_8a22873406ddef3ffbbc0bacea2033ba.html">com</a></li><li class="navelem"><a href="dir_9f2e58735fa2df8715252159e6b4023e.html">khao</a></li><li class="navelem"><a href="dir_d1e74712c97f301cac73aa91e8259784.html">PoorDeal</a></li><li class="navelem"><a href="dir_f0b1a1c91366d4ecfceb4f74540cabfc.html">dto</a></li><li class="navelem"><a href="_post_response_8java.html">PostResponse.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

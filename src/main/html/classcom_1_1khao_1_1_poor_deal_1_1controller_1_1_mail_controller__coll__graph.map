@@ -1,0 +1,28 @@
+<map id="com.khao.PoorDeal.controller.MailController" name="com.khao.PoorDeal.controller.MailController">
+<area shape="rect" id="Node000001" title=" " alt="" coords="638,1123,824,1293"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1khao_1_1_poor_deal_1_1service_1_1_mail_service.html" title=" " alt="" coords="435,859,683,1051"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="606,1049,635,1097,642,1108,638,1111,630,1100,601,1052"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service.html" title=" " alt="" coords="349,565,524,672"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="442,671,453,750,464,792,478,834,482,843,477,845,473,836,459,794,448,751,437,672"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_trade_repository.html" title=" " alt="" coords="239,291,429,376"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="315,377,306,402,300,430,299,459,306,487,326,521,352,552,348,555,321,525,301,489,294,460,295,430,301,401,310,375"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html" title=" " alt="" coords="246,37,422,123"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="336,122,336,274,331,274,331,122"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository.html" title=" " alt="" coords="484,259,674,408"/>
+<area shape="poly" id="edge9_Node000002_Node000006" title=" " alt="" coords="579,408,565,842,560,842,574,407"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="487,403,461,432,441,465,430,506,429,548,423,548,425,505,436,463,456,429,483,400"/>
+<area shape="rect" id="Node000012" href="$classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service.html" title=" " alt="" coords="625,749,800,835"/>
+<area shape="poly" id="edge13_Node000012_Node000006" title=" " alt="" coords="650,406,684,456,710,511,723,569,728,628,728,684,724,733,719,732,723,684,723,628,718,570,705,513,679,458,645,409"/>
+<area shape="rect" id="Node000007" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html" title=" " alt="" coords="491,5,668,155"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="582,155,582,241,576,241,576,155"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository.html" title=" " alt="" coords="61,512,270,725"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="244,723,293,780,349,833,422,883,419,887,345,837,289,784,240,727"/>
+<area shape="rect" id="Node000009" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper.html" title=" " alt="" coords="5,227,214,440"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="133,439,144,495,139,496,128,440"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository.html" title=" " alt="" coords="814,523,1003,715"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="935,714,941,774,935,835,912,911,881,983,844,1051,806,1110,802,1107,839,1048,876,981,907,909,930,834,935,774,930,714"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="853,716,835,750,827,775,825,796,819,816,804,837,779,851,755,854,731,854,703,861,699,863,697,858,701,856,730,849,755,849,777,846,800,833,814,814,819,795,822,774,830,748,848,713"/>
+<area shape="rect" id="Node000011" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper.html" title=" " alt="" coords="820,237,997,429"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="911,429,911,506,906,506,906,429"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="717,834,729,1106,724,1106,712,835"/>
+</map>

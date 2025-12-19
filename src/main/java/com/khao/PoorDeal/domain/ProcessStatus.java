@@ -1,18 +1,33 @@
 package com.khao.PoorDeal.domain;
 
-// 현재 이런 상황이다(서버 내부)
+/**
+ * @file ProcessStatus.java
+ * @brief 거래 및 구인 프로세스의 내부 상태를 정의하는 열거형 클래스입니다.
+ * @author gnfle
+ * @date 2024-12-14
+ */
 public enum ProcessStatus {
 	
-	TRADE_REQUEST_PENDING(),	// 살래요(구매자가 판매자에게)
-	TRADE_CONDITIONS_SET(), 	// 1000원 어떰(판매자가 구매자에게)
-	TRADE_ACCEPTED(),			// 좋네요(구매자가 판매자에게)
-	TRADE_REJECTED(),			// 싫네요(구매자가 판매자에게)
-	TRADE_TRANSFER_PENDING(),	// 1000원 보내줘야 함(판매자가 구매자에게)
-	TRADE_PROCESS_COMPLETED(),	// 거래 완료(양쪽에 다 보냄)
+	/** @brief 구매자가 판매자에게 구매 요청을 보낸 상태 */
+	TRADE_REQUEST_PENDING(),
+	/** @brief 판매자가 구매자에게 거래 조건을 설정하여 보낸 상태 */
+	TRADE_CONDITIONS_SET(),
+	/** @brief 구매자가 판매자의 거래 조건을 수락한 상태 */
+	TRADE_ACCEPTED(),
+	/** @brief 구매자가 판매자의 거래 조건을 거절한 상태 */
+	TRADE_REJECTED(),
+	/** @brief 구매자가 판매자에게 금액을 송금해야 하는 상태 */
+	TRADE_TRANSFER_PENDING(),
+	/** @brief 거래의 모든 과정이 완료된 상태 */
+	TRADE_PROCESS_COMPLETED(),
 	
-	RECRUIT_REQUEST_PENDING(),	// 일할래요(구직자가 구인자에게)
-	RECRUIT_ACCEPTED(),         // 수락함(구인자가 구직자에게)
-    RECRUIT_REJECTED(),			// 거절함(구인자가 구직자에게)
+	/** @brief 구직자가 구인자에게 지원 요청을 보낸 상태 */
+	RECRUIT_REQUEST_PENDING(),
+	/** @brief 구인자가 구직자의 지원을 수락한 상태 */
+	RECRUIT_ACCEPTED(),
+	/** @brief 구인자가 구직자의 지원을 거절한 상태 */
+    RECRUIT_REJECTED(),
 
-    PROCESSED();				// 이전 단계의 메일이 처리되어 만료됨
+    /** @brief 이전 단계의 쪽지가 처리되어 만료된 상태 */
+    PROCESSED();
 }

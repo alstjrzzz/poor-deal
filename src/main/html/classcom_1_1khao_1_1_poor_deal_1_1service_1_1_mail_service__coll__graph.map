@@ -1,0 +1,22 @@
+<map id="com.khao.PoorDeal.service.MailService" name="com.khao.PoorDeal.service.MailService">
+<area shape="rect" id="Node000001" title=" " alt="" coords="327,797,575,989"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1khao_1_1_poor_deal_1_1service_1_1_trade_service.html" title=" " alt="" coords="147,565,323,672"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,671,253,723,263,748,276,772,316,814,312,818,272,775,258,751,248,724,236,672"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_trade_repository.html" title=" " alt="" coords="5,291,195,376"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,375,106,430,113,459,123,487,142,520,166,551,162,554,138,523,118,489,108,461,101,431,96,376"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_trade_mapper.html" title=" " alt="" coords="12,37,188,123"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,122,103,274,98,274,98,122"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository.html" title=" " alt="" coords="251,259,440,408"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="356,407,393,725,409,781,404,782,388,726,351,408"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="272,409,253,436,239,465,230,506,229,549,223,548,225,506,234,463,249,433,268,406"/>
+<area shape="rect" id="Node000006" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_member_mapper.html" title=" " alt="" coords="257,5,434,155"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="348,155,348,241,343,241,343,155"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_mail_repository.html" title=" " alt="" coords="524,512,733,725"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="562,727,524,784,520,781,557,724"/>
+<area shape="rect" id="Node000008" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_mail_mapper.html" title=" " alt="" coords="524,227,733,440"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="631,440,631,496,626,496,626,440"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository.html" title=" " alt="" coords="757,523,947,715"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="760,717,746,727,669,779,591,825,588,820,666,775,743,723,756,712"/>
+<area shape="rect" id="Node000010" href="$interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper.html" title=" " alt="" coords="764,237,940,429"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="855,429,855,506,850,506,850,429"/>
+</map>

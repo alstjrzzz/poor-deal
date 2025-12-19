@@ -1,0 +1,9 @@
+<map id="java/com/khao/PoorDeal/repository/TradeRepository.java" name="java/com/khao/PoorDeal/repository/TradeRepository.java">
+<area shape="rect" id="Node000001" title="거래 관련 데이터 처리를 위한 레포지토리 클래스입니다. TradeMapper를 사용하여 데이터베이스와 연동합니다." alt="" coords="226,5,436,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,214,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,51,177,92,175,87,278,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="237,96,424,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="334,48,334,81,328,81,328,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="449,104,663,131"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="385,46,511,95,509,100,383,51"/>
+</map>

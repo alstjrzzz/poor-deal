@@ -1,0 +1,56 @@
+\doxysection{Auth\+Controller.\+java}
+\hypertarget{_auth_controller_8java_source}{}\label{_auth_controller_8java_source}\index{java/com/khao/PoorDeal/controller/AuthController.java@{java/com/khao/PoorDeal/controller/AuthController.java}}
+\mbox{\hyperlink{_auth_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00001}\mbox{\hyperlink{namespacecom_1_1khao_1_1_poor_deal_1_1controller}{00001}}\ \textcolor{keyword}{package\ }com.khao.PoorDeal.controller;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00003}00003\ \textcolor{keyword}{import}\ javax.validation.Valid;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.springframework.stereotype.Controller;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.ui.Model;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00007}00007\ \textcolor{keyword}{import}\ org.springframework.validation.BindingResult;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00008}00008\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.GetMapping;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00009}00009\ \textcolor{keyword}{import}\ org.springframework.web.bind.annotation.PostMapping;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00010}00010\ \textcolor{keyword}{import}\ org.springframework.web.servlet.mvc.support.RedirectAttributes;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00012}00012\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Member;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00014}00014\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00015}00015\ \textcolor{keyword}{import}\ com.khao.PoorDeal.service.AuthService;}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00023}00023\ @Controller}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00024}00024\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00025}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller}{00025}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller}{AuthController}}\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00027}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_a542b9b52ac68b794c242690e5961dfa4}{00027}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_auth_service}{AuthService}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_a542b9b52ac68b794c242690e5961dfa4}{authService}};}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00028}00028\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00029}00029\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00035}00035\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/register"{}})}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00036}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_a330fac816849659aa835b1b77384ba57}{00036}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_a330fac816849659aa835b1b77384ba57}{register}}(Model\ model)\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ model.addAttribute(\textcolor{stringliteral}{"{}member"{}},\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}.builder().build());}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}register"{}};}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00050}00050\ \ \ \ \ @PostMapping(\textcolor{stringliteral}{"{}/register"{}})}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00051}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_ae8fb96fd1f4e566315957230f16ce5ce}{00051}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_a330fac816849659aa835b1b77384ba57}{register}}(@Valid\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}}\ member,\ BindingResult\ bindingResult)\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bindingResult.hasErrors())\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ return\ \textcolor{stringliteral}{"{}register"{}};}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_a542b9b52ac68b794c242690e5961dfa4}{authService}}.register(member);}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}redirect:/login"{}};}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00061}00061\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00066}00066\ \ \ \ \ @GetMapping(\textcolor{stringliteral}{"{}/login"{}})}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00067}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_aa683311352cc34064d06f6502d6bdfc3}{00067}}\ \ \ \ \ public\ String\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1controller_1_1_auth_controller_aa683311352cc34064d06f6502d6bdfc3}{login}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}login"{}};}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00071}00071\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_auth_controller_8java_source_l00076}00076\ \}}
+
+\end{DoxyCode}

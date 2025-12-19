@@ -1,0 +1,90 @@
+\doxysection{com.\+khao.\+Poor\+Deal.\+service.\+Member\+Service 클래스 참조}
+\hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}{}\label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service}\index{com.khao.PoorDeal.service.MemberService@{com.khao.PoorDeal.service.MemberService}}
+
+
+com.\+khao.\+Poor\+Deal.\+service.\+Member\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a2cf7404d42275002635e406fc45ef6de}{find\+By\+User\+Id}} (String user\+Id)
+\begin{DoxyCompactList}\small\item\em 사용자 ID로 회원 정보를 조회합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{Member\+Repository}} \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a0571c8b55e4833dd12f5376eb3db3174}{member\+Repository}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_member_service_8java_source}{Member\+Service.\+java}} 파일의 \mbox{\hyperlink{_member_service_8java_source_l00019}{19}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a2cf7404d42275002635e406fc45ef6de}\index{com.khao.PoorDeal.service.MemberService@{com.khao.PoorDeal.service.MemberService}!findByUserId@{findByUserId}}
+\index{findByUserId@{findByUserId}!com.khao.PoorDeal.service.MemberService@{com.khao.PoorDeal.service.MemberService}}
+\doxysubsubsection{\texorpdfstring{findByUserId()}{findByUserId()}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a2cf7404d42275002635e406fc45ef6de} 
+\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member}} com.\+khao.\+Poor\+Deal.\+service.\+Member\+Service.\+find\+By\+User\+Id (\begin{DoxyParamCaption}\item[{String}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+사용자 ID로 회원 정보를 조회합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em user\+Id} & 조회할 사용자 ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+\doxylink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_member}{Member} 도메인 객체 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{예외}
+{\em Username\+Not\+Found\+Exception} & 해당 사용자를 찾을 수 없을 때 발생 \\
+\hline
+\end{DoxyExceptions}
+
+
+\mbox{\hyperlink{_member_service_8java_source}{Member\+Service.\+java}} 파일의 \mbox{\hyperlink{_member_service_8java_source_l00029}{29}} 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ memberRepository.findByUserId(userId).orElseThrow(}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ()\ -\/>\ \textcolor{keyword}{new}\ UsernameNotFoundException(userId\ +\ \textcolor{stringliteral}{"{}\ 사용자를\ 찾을\ 수\ 없습니다."{}}));}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a0571c8b55e4833dd12f5376eb3db3174}\index{com.khao.PoorDeal.service.MemberService@{com.khao.PoorDeal.service.MemberService}!memberRepository@{memberRepository}}
+\index{memberRepository@{memberRepository}!com.khao.PoorDeal.service.MemberService@{com.khao.PoorDeal.service.MemberService}}
+\doxysubsubsection{\texorpdfstring{memberRepository}{memberRepository}}
+{\footnotesize\ttfamily \label{classcom_1_1khao_1_1_poor_deal_1_1service_1_1_member_service_a0571c8b55e4833dd12f5376eb3db3174} 
+final \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_member_repository}{Member\+Repository}} com.\+khao.\+Poor\+Deal.\+service.\+Member\+Service.\+member\+Repository\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_member_service_8java_source}{Member\+Service.\+java}} 파일의 \mbox{\hyperlink{_member_service_8java_source_l00021}{21}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+java/com/khao/\+Poor\+Deal/service/\mbox{\hyperlink{_member_service_8java}{Member\+Service.\+java}}\end{DoxyCompactItemize}

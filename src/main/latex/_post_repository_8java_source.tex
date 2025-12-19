@@ -1,0 +1,38 @@
+\doxysection{Post\+Repository.\+java}
+\hypertarget{_post_repository_8java_source}{}\label{_post_repository_8java_source}\index{java/com/khao/PoorDeal/repository/PostRepository.java@{java/com/khao/PoorDeal/repository/PostRepository.java}}
+\mbox{\hyperlink{_post_repository_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00001}00001\ \textcolor{keyword}{package\ }com.khao.PoorDeal.repository;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.Optional;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.springframework.stereotype.Repository;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00008}00008\ \textcolor{keyword}{import}\ com.khao.PoorDeal.domain.Post;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00009}00009\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.PostResponse;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00010}00010\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.PostSearchCondition;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00011}00011\ \textcolor{keyword}{import}\ com.khao.PoorDeal.dto.PostSummary;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00012}00012\ \textcolor{keyword}{import}\ com.khao.PoorDeal.mapper.PostMapper;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00014}00014\ \textcolor{keyword}{import}\ lombok.RequiredArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00022}00022\ @Repository}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00023}00023\ @RequiredArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00024}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository}{00024}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository}{PostRepository}}\ \{}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00026}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{00026}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \mbox{\hyperlink{interfacecom_1_1khao_1_1_poor_deal_1_1mapper_1_1_post_mapper}{PostMapper}}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{postMapper}};}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00027}00027\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00029}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af3c5a301da05ddfe41da68de487a1ce7}{00029}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af3c5a301da05ddfe41da68de487a1ce7}{selectPostCount}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{PostSearchCondition}}\ condition)\ \{\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{postMapper}}.selectPostCount(condition);\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00033}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_aca6020f6211e73c3d123e4856314751e}{00033}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_aca6020f6211e73c3d123e4856314751e}{update}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}\ post)\ \{\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{postMapper}}.update(post);\ \}}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00035}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_acc16ec2078cb644e527b098538fcad18}{00035}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_acc16ec2078cb644e527b098538fcad18}{delete}}(Long\ \textcolor{keywordtype}{id})\ \{\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{postMapper}}.delete(\textcolor{keywordtype}{id});\ \}}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00037}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_a64cd9de140d97eee482872e38b70ceec}{00037}}\ \ \ \ \ \textcolor{keyword}{public}\ List<PostSummary>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_a64cd9de140d97eee482872e38b70ceec}{selectPagedPosts}}(\textcolor{keywordtype}{int}\ offset,\ \textcolor{keywordtype}{int}\ pagesize,\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1dto_1_1_post_search_condition}{PostSearchCondition}}\ condition)\ \{\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{postMapper}}.selectPagedPosts(offset,\ pagesize,\ condition);\ }
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00041}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_aa0a9040b00df16d9ecd1f9d400c5b69e}{00041}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_aa0a9040b00df16d9ecd1f9d400c5b69e}{insert}}(\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1domain_1_1_post}{Post}}\ post)\ \{\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{postMapper}}.insert(post);\ \}}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00043}\mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_a8371eff1fea7311d7d20daa8c825495e}{00043}}\ \ \ \ \ \textcolor{keyword}{public}\ Optional<PostResponse>\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_a8371eff1fea7311d7d20daa8c825495e}{findById}}(Long\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcom_1_1khao_1_1_poor_deal_1_1repository_1_1_post_repository_af7bc3d7f5e3745fbf9fac57b69284408}{postMapper}}.findById(\textcolor{keywordtype}{id});\ \}}
+\DoxyCodeLine{\Hypertarget{_post_repository_8java_source_l00044}00044\ \}}
+
+\end{DoxyCode}
